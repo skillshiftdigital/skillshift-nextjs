@@ -32,6 +32,7 @@
       "@/hooks/*": ["./src/hooks/*"],
       "@/data/*": ["./src/data/*"],
       "@/redux/*": ["./src/redux/*"],
+      "@/ui/*": ["./src/ui/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/sitemap.xml.js"],
