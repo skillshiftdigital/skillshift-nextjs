@@ -1,4 +1,4 @@
-// ./src/utils/sanity/services.ts
+/* // ./src/utils/sanity/services.ts
 
 import { client } from './client';
 
@@ -13,3 +13,4 @@ export async function fetchAllTypes(serviceTitle: string) {
   }
 }
 
+ */
