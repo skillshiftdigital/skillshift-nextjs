@@ -13,9 +13,6 @@ import FeedbackFive from "@/components/feedback/feedback-five";
 import FeedbackThree from "@/components/feedback/feedback-three";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Testimonial Page",
-};
 
 const TestimonialPage = () => {
   return (

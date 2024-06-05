@@ -10,9 +10,6 @@ import TeamSectionTwo from "@/components/team/team-section-two";
 import BlogsHomeFive from "@/components/blogs/home-5-blogs";
 import FooterFive from "@/layout/footer/footer-five";
 
-export const metadata: Metadata = {
-  title: "Home Page Five",
-};
 
 export default function HomePageFive() {
   return (

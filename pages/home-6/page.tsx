@@ -14,9 +14,6 @@ import FooterTwo from "@/layout/footer/footer-two";
 import FooterThree from "@/layout/footer/footer-three";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Home Page Six",
-};
 
 export default function HomePageSix() {
   return (

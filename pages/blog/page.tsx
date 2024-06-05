@@ -10,9 +10,6 @@ import BlogListArea from "@/components/blogs/blog-list-area";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Blog Page",
-};
 
 const BlogPage = () => {
   return (

@@ -7,9 +7,6 @@ import FooterTwo from "@/layout/footer/footer-two";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import ProjectTwoArea from "@/components/project/project-v2-area";
 
-export const metadata: Metadata = {
-  title: "Project v2 Page",
-};
 
 const ProjectTwoPage = () => {
   return (

@@ -10,9 +10,6 @@ import shape from "@/assets/images/shape/shape_26.svg";
 import ServiceOneArea from "@/components/services/serviceNine";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Service Page",
-};
 
 const ServicePage = () => {
   return (

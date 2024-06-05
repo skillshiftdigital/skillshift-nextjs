@@ -12,9 +12,6 @@ import HomeThreeBlogs from "@/components/blogs/home-3-blogs";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import FooterThree from "@/layout/footer/footer-three";
 
-export const metadata: Metadata = {
-  title: "Home Page Three",
-};
 
 export default function HomePageThree() {
   return (

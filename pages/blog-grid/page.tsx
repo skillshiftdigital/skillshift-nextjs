@@ -7,9 +7,6 @@ import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import FooterTwo from "@/layout/footer/footer-two";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
 
-export const metadata: Metadata = {
-  title: "Blog Grid Page",
-};
 
 const BlogGridPage = () => {
   return (

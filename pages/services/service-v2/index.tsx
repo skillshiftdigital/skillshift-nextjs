@@ -7,9 +7,6 @@ import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import ServiceTwoArea from "@/components/services/service-v2-area";
 
-export const metadata: Metadata = {
-  title: "Service v2 Page",
-};
 
 const ServiceTwoPage = () => {
   return (

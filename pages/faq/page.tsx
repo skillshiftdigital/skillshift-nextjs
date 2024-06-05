@@ -7,9 +7,6 @@ import FooterTwo from "@/layout/footer/footer-two";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import FaqArea from "@/components/faq/faq-area";
 
-export const metadata: Metadata = {
-  title: "Faq Page",
-};
 
 const FaqPage = () => {
   return (

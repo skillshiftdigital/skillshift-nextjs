@@ -13,9 +13,6 @@ import HomeTwoBlogs from "@/components/blogs/home-2-blogs";
 import FancyBannerTwo from "@/components/fancy-banner/fancy-banner-two";
 import FooterOne from "@/layout/footer/footer-one";
 
-export const metadata: Metadata = {
-  title: "skillshift - Digital Transformation & Business Consulting",
-};
 
 export default function HomePageTwo() {
   return (

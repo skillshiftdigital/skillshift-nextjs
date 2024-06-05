@@ -7,9 +7,6 @@ import FooterTwo from "@/layout/footer/footer-two";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import PricingArea from "@/components/pricing/pricing-area";
 
-export const metadata: Metadata = {
-  title: "Pricing Page",
-};
 
 const PricingPage = () => {
   return (

@@ -9,9 +9,6 @@ import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import CartArea from "@/components/cart/cart-area";
 
 
-export const metadata: Metadata = {
-  title: "Cart Page",
-};
 
 const CartPage = () => {
   return (

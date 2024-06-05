@@ -26,7 +26,8 @@ export default async function handler(
       customSolutions,
       pricing,
       whyChoose,
-      _id
+      _id,
+      slug
     }`;
   } else if (type && slug) {
     query = `*[_type == "${type}" && slug.current == "${slug}"]{

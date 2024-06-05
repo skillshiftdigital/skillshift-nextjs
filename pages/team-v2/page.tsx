@@ -7,9 +7,6 @@ import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import TeamTwoArea from "@/components/team/team-v2-area";
 
-export const metadata: Metadata = {
-  title: "Team v2 Page",
-};
 
 const TeamTwoPage = () => {
   return (

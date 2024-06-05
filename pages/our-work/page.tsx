@@ -9,9 +9,6 @@ import shape from "@/assets/images/shape/shape_28.svg";
 import ProjectOneArea from "@/components/project/project-v1-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Project v1 Page",
-};
 
 const ProjectOnePage = () => {
   return (

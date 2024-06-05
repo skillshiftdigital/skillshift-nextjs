@@ -10,9 +10,6 @@ import shape from "@/assets/images/shape/shape_26.svg";
 import ShopArea from "@/components/shop/shop-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Shop Page",
-};
 
 const ShopPage = () => {
   return (

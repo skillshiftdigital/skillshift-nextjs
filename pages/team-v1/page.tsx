@@ -10,9 +10,6 @@ import shape from "@/assets/images/shape/shape_31.svg";
 import TeamOneArea from "@/components/team/team-v1-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Team v1 Page",
-};
 
 const TeamOnePage = () => {
   return (

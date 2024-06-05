@@ -13,11 +13,6 @@ import FancyBannerFive from "@/components/fancy-banner/fancy-banner-five";
 import FaqSectionOne from "@/components/faq/faq-section-one";
 import HomeBlogs from "@/components/blogs/home-blogs";
 
-
-export const metadata: Metadata = {
-  title: "About Us 2 Page",
-};
-
 const AboutUsTwoPage = () => {
   return (
     <Wrapper>

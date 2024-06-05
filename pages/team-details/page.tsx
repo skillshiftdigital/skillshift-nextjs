@@ -8,9 +8,6 @@ import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import TeamTwoArea from "@/components/team/team-v2-area";
 import TeamDetailsArea from "@/components/team/team-details-area";
 
-export const metadata: Metadata = {
-  title: "Team Details Page",
-};
 
 const TeamDetailsPage = () => {
   return (

@@ -7,9 +7,6 @@ import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import FooterTwo from "@/layout/footer/footer-two";
 import ProjectDetailsArea from "@/components/project-details/project-details-v1-area";
 
-export const metadata: Metadata = {
-  title: "Project Details v1 Page",
-};
 
 const ProjectDetailsPage = () => {
   return (

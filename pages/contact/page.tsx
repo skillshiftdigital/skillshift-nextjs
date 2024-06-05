@@ -8,9 +8,6 @@ import FooterThree from "@/layout/footer/footer-three";
 import shape from "@/assets/images/shape/shape_33.svg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "Contact Page",
-};
 
 const ContactPage = () => {
   return (

@@ -32,7 +32,11 @@ const defaultData: sanityTypes = {
     whyChoose: [],
     shortDescription: "",
     slug: "",
-    _id: ""
+    _id: "",
+};
+type Service = {
+  slug: string | { current: string };
+  // other properties...
 };
 
 // card style one item
@@ -94,6 +98,7 @@ if (!servicesResponse.ok) {
 }
 const servicesResult: sanityTypes[] = await servicesResponse.json();
 setServices(servicesResult);
+console.log('servicesResult:', servicesResult);
     } catch (error) {
       console.error("Fetch error:", error);
       console.error("Error name:", (error as Error).name);
@@ -169,11 +174,14 @@ setServices(servicesResult);
             </div>
           </div>
           <div className="row justify-content-center">
+            
   {services?.map((service, index) => (
+    
     <div key={index} className="col-lg-4 col-md-6 d-flex wow fadeInUp">
       <div className="card-style-two vstack tran3s w-100 mt-30">
         <Image src={icon} alt="icon" className="lazy-img icon me-auto" />
-        <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
+<Link href={`/service/${typeof service.slug === 'string' ? service.slug : (service.slug as { current: string }).current}`}>          <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
+        </Link>
         <p className="mb-20">{service.shortDescription}</p>
       </div>
     </div>

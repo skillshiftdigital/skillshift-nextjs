@@ -12,9 +12,6 @@ import HomeFourBlogs from "@/components/blogs/home-4-blogs";
 import NewsletterBannerTwo from "@/components/newsletter/newsletter-banner-2";
 import FooterFour from "@/layout/footer/footer-four";
 
-export const metadata: Metadata = {
-  title: "Home Page Four",
-};
 
 export default function HomePageFour() {
   return (

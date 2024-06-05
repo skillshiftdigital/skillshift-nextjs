@@ -8,7 +8,7 @@ import about_bg from "@/assets/images/media/img_26.jpg";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_25.svg";
 import TextFeatureOne from "@/components/text-feature/text-feature-one";
-import BlockFeatureOne from "@/components/block-feature/block-feature-one";
+import BlockFeatureOne from "@/components/block-feature/servicesNine";
 import TextFeatureThree from "@/components/text-feature/text-feature-three";
 import FeedbackOne from "@/components/feedback/feedback-one";
 import PartnersSliderOne from "@/components/partners/partners-slider-one";
@@ -16,9 +16,6 @@ import TeamSectionThree from "@/components/team/team-section-three";
 import HomeFourBlogs from "@/components/blogs/home-4-blogs";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
-export const metadata: Metadata = {
-  title: "About Us Page",
-};
 
 const AboutUsPage = () => {
   return (

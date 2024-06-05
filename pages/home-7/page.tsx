@@ -11,9 +11,6 @@ import HomeBlogs from "@/components/blogs/home-blogs";
 import FancyBannerEight from "@/components/fancy-banner/fancy-banner-eight";
 import FooterTwo from "@/layout/footer/footer-two";
 
-export const metadata: Metadata = {
-  title: "Home Page Seven",
-};
 
 export default function HomePageSeven() {
   return (

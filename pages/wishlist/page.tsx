@@ -9,9 +9,6 @@ import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import WishlistArea from "@/components/wishlist/wishlist-area";
 
 
-export const metadata: Metadata = {
-  title: "Wishlist Page",
-};
 
 const WishlistPage = () => {
   return (
