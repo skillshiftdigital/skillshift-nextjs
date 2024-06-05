@@ -13,7 +13,7 @@ import FeedbackOne from '../feedback/feedback-one';
 import PartnersSliderOne from '../partners/partners-slider-one';
 import FancyBannerFive from '../fancy-banner/fancy-banner-five';
 import FaqSectionOne from '../faq/faq-section-one';
-import BlockFeatureOne from "@/components/block-feature/block-feature-one";
+import BlockFeatureOne from "@/components/block-feature/servicesNine";
 
 
 // card item 
@@ -33,9 +33,9 @@ const ServiceOneArea = () => {
   const services = service_data.filter(s => s.page === 'home-2' || s.page === 'home-4');
   return (
     <>
-                {/* block feature one start */}
-                <BlockFeatureOne />
-          {/* block feature one end */}
+      {/* block feature one start */}
+      <BlockFeatureOne />
+      {/* block feature one end */}
 
       
       {/* feedback one start */}

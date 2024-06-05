@@ -30,7 +30,7 @@ const [data, setData] = useState<sanityTypes | null>(defaultData); // Note: Ensu
     async function fetchData() {
       try {
         // Include the correct type and slug parameters in the request URL
-        const response = await fetch('/api/sanity?type=services-digital-agencies&slug=market-analysis-insights');
+        const response = await fetch('/api/sanity?type=services-digital-agencies&slug=leadership-development');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

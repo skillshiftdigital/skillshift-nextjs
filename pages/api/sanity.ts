@@ -1,5 +1,3 @@
-// pages/api/sanity.ts
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 import sanityClient from '../../src/utils/sanity/client';
 
@@ -7,23 +5,48 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const { type, slug } = req.query;
+  const { type, slug, categoryId } = req.query;
 
-  if (!type || !slug) {
-    res.status(400).json({ message: 'Missing type or slug parameter' });
+  if (!type) {
+    res.status(400).json({ message: 'Missing type parameter' });
     return;
   }
 
-  const query = `*[_type == "${type}" && slug.current == "${slug}"]{
-    title,
-    overview,
-    objectives,
-    services,
-    addOns,
-    customSolutions,
-    pricing,
-    whyChoose
-  }`;
+  let query;
+  if (type === 'services-digital-agencies' && categoryId) {
+    query = `*[_type == "${type}" && "${categoryId}" in categories[]._ref]{
+      title,
+      overview,
+      shortDescription,
+      objectivesPre,
+      objectives,
+      objectivesPost,
+      services,
+      addOns,
+      customSolutions,
+      pricing,
+      whyChoose,
+      _id
+    }`;
+  } else if (type && slug) {
+    query = `*[_type == "${type}" && slug.current == "${slug}"]{
+      title,
+      overview,
+      shortDescription,
+      objectivesPre,
+      objectives,
+      objectivesPost,
+      services,
+      addOns,
+      customSolutions,
+      pricing,
+      whyChoose,
+      _id
+    }`;
+  } else {
+    res.status(400).json({ message: 'Missing slug parameter for type' });
+    return;
+  }
 
   try {
     const data = await sanityClient.fetch(query);

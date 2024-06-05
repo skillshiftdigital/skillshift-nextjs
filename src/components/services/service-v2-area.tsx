@@ -1,6 +1,6 @@
 import React from "react";
 import BlockFeatureSix from "../block-feature/block-feature-six";
-import BlockFeatureOne from "../block-feature/block-feature-one";
+import BlockFeatureOne from "../block-feature/servicesNine";
 import ServicesStrategic from "../block-feature/services-strategic";
 import FancyBannerSix from "../fancy-banner/fancy-banner-six";
 import FeedbackFour from "../feedback/feedback-four";

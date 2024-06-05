@@ -7,7 +7,7 @@ import FooterThree from "@/layout/footer/footer-three";
 import service_bg from "@/assets/images/media/img_32.jpg";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_26.svg";
-import ServiceOneArea from "@/components/services/service-v1-area";
+import ServiceOneArea from "@/components/services/serviceNine";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
 export const metadata: Metadata = {

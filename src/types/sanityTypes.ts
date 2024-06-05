@@ -35,13 +35,18 @@ export interface Service {
   }
   
   export interface sanityTypes {
+    _id: string;
     title: string;
     overview: string;
+    shortDescription: string;
+    objectivesPre: string;
     objectives: string[];
+    objectivesPost: string;
     services: Service[];
     addOns: AddOn[];
     customSolutions: CustomSolution[];
     pricing: Pricing[];
     whyChoose: WhyChoose[];
+    slug: string;
   }
   

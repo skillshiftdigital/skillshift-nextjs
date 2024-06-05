@@ -11,6 +11,7 @@ import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_27.svg";
 import ServiceDetailsArea from "@/components/services/service-details-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+import { useRouter } from 'next/router';
 
 const defaultData: sanityTypes = {
   title: "",
@@ -21,28 +22,38 @@ const defaultData: sanityTypes = {
   customSolutions: [],
   pricing: [],
   whyChoose: [],
+  shortDescription: '',
+  objectivesPre: '',
+  objectivesPost: '',
+  _id: '',
+  slug: ''
 };
 
 const ServiceDetailsPage = () => {
+  const router = useRouter();
+  const { serviceSlug } = router.query;
 const [data, setData] = useState<sanityTypes | null>(defaultData); // Note: Ensure `defaultData` matches `sanityTypes`
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        // Include the correct type and slug parameters in the request URL
-        const response = await fetch('/api/sanity?type=services-digital-agencies&slug=video-ad-creation-management');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result: sanityTypes[] = await response.json();
-        setData(result[0]); // Assuming the API returns an array with one item
-      } catch (error) {
-        console.error("Fetch error:", error);
-      }
-    }
+useEffect(() => {
+  async function fetchData() {
+    if (!serviceSlug) return; // Ensure serviceSlug is present
 
-    fetchData();
-  }, []);
+    try {
+      // Include the correct type and slug parameters in the request URL
+      const response = await fetch(`/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result: sanityTypes[] = await response.json();
+      setData(result[0]); // Assuming the API returns an array with one item
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  }
+
+  fetchData();
+}, [serviceSlug]);
 
   if (!data) return <p>Loading...</p>;
 

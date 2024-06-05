@@ -24,7 +24,7 @@ function UpperCardItem({icon,title,subtitle}:{icon:StaticImageData;title:string;
 }
 
 const BlockFeatureOne = ({style_2=false}:{style_2?:boolean}) => {
-  const service_items = service_data.filter(s => s.page === 'home-2')
+  const service_items = service_data.filter(s => s.page === 'servicesNine')
   return (
    <div className={`block-feature-one position-relative ${style_2?'light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60':'pt-75'}`}>
 			{!style_2&&<div className="upper-wrapper mb-110 lg-mb-80">
@@ -69,7 +69,7 @@ const BlockFeatureOne = ({style_2=false}:{style_2?:boolean}) => {
 
 					<div className="section-subheading sm-mt-40">
 						<p className="text-lg">Inciddnt ut labore et dolor magna aliu. enim ad mim venam, quis nostru </p>
-						<Link href="/service-v1" className="btn-three icon-link">
+						<Link href="/services/all-services" className="btn-three icon-link">
 							<span>See All Services</span>
 							<Image src={arrow} alt="arrow" className="lazy-img icon ms-1"/>
 						</Link>

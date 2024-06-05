@@ -7,5 +7,7 @@ export interface Service {
         current: string;
     };
     overview: string;
+    objectivesPre: string;
+    objectivePost: string;
   }
   
