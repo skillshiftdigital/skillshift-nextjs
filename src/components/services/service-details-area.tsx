@@ -23,6 +23,7 @@ import icon_12 from "@/assets/images/icon/icon_83.svg";
 import icon_13 from "@/assets/images/icon/icon_84.svg";
 import ils_icon from "@/assets/images/assets/ils_03.svg";
 import shape from "@/assets/images/shape/shape_05.svg";
+import icon from "@/assets/images/assets/ils_04.svg";
 
 interface ServiceNavItem {
   icon: StaticImageData;
@@ -148,7 +149,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
                   className="lazy-img shapes shape_01"
                 />
               </div>
-              <h3>Our Processing.</h3>
+              <h3>Our Process.</h3>
               <p>
                 Risk management and compliance, when approached strategically,
                 have the potential to go beyond mitigating threats and
@@ -179,6 +180,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
                   </div>
                 </div>
               </div>
+
               <div className="light-bg-deep quote-wrapper position-relative mb-60 lg-mb-40">
                 <div className="d-xl-flex align-items-start">
                   <Image src={icon_13} alt="icon" className="lazy-img icon" />
@@ -229,7 +231,9 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
           </div>
         </div>
       </div>
+      
     </div>
+    
   );
 };
 

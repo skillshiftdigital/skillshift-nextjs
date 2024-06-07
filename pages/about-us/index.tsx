@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
-import FooterThree from "@/layout/footer/footer-three";
+import FooterOne from "@/layout/footer/footer-one";
 import about_bg from "@/assets/images/media/img_26.jpg";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_25.svg";
@@ -27,7 +27,7 @@ const AboutUsPage = () => {
         <main>
           {/* breadcrumb start */}
           <BreadcrumbOne
-            title="We’r top rated company"
+            title="Hello, we are skillshift."
             subtitle="Navigating Your Financial Growth With Experience & Insightful Solutions."
             page="About Us"
             bg_img={about_bg}
@@ -37,20 +37,24 @@ const AboutUsPage = () => {
           {/* breadcrumb end */}
 
           {/* text feature one area start */}
-          <TextFeatureOne style_2={true} />
+          <TextFeatureThree style_2={false} />
+          {/* text feature one area end */}
+          
+          {/* text feature one area start */}
+          <TextFeatureOne />
           {/* text feature one area end */}
 
           {/* block feature one area start */}
-          <BlockFeatureOne style_2={true} />
-          {/* block feature one area end */}
+{/*           <BlockFeatureOne style_2={true} />
+ */}          {/* block feature one area end */}
 
-          {/* text feature one area start */}
-          <TextFeatureThree style_2={true} />
-          {/* text feature one area end */}
+          {/* team three start */}
+          <TeamSectionThree />
+          {/* team three end */}
 
           {/* feedback one start */}
-          <FeedbackOne cls="top-border pt-80 pb-80" />
-          {/* feedback one end */}
+{/*           <FeedbackOne cls="top-border pt-80 pb-80" />
+ */}          {/* feedback one end */}
 
           {/* partner logo start */}
           <div className="partner-logo-one pt-80 lg-pt-40 pb-80 lg-pb-40">
@@ -60,9 +64,7 @@ const AboutUsPage = () => {
           </div>
           {/* partner logo end */}
 
-          {/* team three start */}
-          <TeamSectionThree />
-          {/* team three end */}
+
 
           {/* blogs start */}
           <HomeFourBlogs cls="mt-180 lg-mt-80 mb-180 lg-mb-80" />
@@ -78,7 +80,7 @@ const AboutUsPage = () => {
         </main>
 
         {/* footer start */}
-        <FooterThree style_2={true} />
+        <FooterOne />
         {/* footer end */}
       </div>
     </Wrapper>

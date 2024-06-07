@@ -43,7 +43,7 @@ const RegisterForm = () => {
       <div className="col-12">
         <div className="input-group-meta position-relative mb-25">
           <label>Email*</label>
-          <input type="email" {...register("email")} id='email' placeholder="zubayerhasan@gmail.com"/>
+          <input type="email" {...register("email")} id='email' placeholder="you@best.com"/>
           <ErrorMsg msg={errors.email?.message!} />
         </div>
       </div>

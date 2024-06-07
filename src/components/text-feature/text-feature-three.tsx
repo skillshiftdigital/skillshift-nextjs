@@ -20,15 +20,13 @@ const TextFeatureThree = ({cls,style_2}:{cls?:string;style_2?:boolean}) => {
           <div className="col-xxl-5 col-lg-6 ms-auto d-flex flex-column order-lg-last wow fadeInRight">
             <div className="title-one">
               <div className="upper-title">About us</div>
-              <h2>Guideline for your financial grow.</h2>
+              <h2>Tomorrow&apos;s solutions, today.</h2>
             </div>
             <p className="text-lg mt-45 lg-mt-30 mb-35 lg-mb-30">
-              Your success is our mission. As business advisors, we offer expert
-              guidance, unlocking your potential for growth and profitability
-            </p>
+At SkillShift, we provide businesses with practical, tailored & future-proof solutions. Our experienced team uses advanced tools and industry knowledge to support your growth and innovation, helping you excel in the digital landscape.            </p>
             <div>
-              <Link href="/about-us" className="btn-four mt-15">
-                More About us
+              <Link href="/services" className="btn-four mt-15">
+                Our services
               </Link>
             </div>
             <div className="counter-wrapper mt-60 lg-mt-40 pt-25 lg-pt-10">
@@ -36,17 +34,17 @@ const TextFeatureThree = ({cls,style_2}:{cls?:string;style_2?:boolean}) => {
                 <div className="col-xl-6 col-sm-5">
                   <div className="counter-block-one mt-20">
                     <div className="main-count fw-bold">
-                      <span className="counter">1.2</span>x
+                      <span className="counter">20</span>+
                     </div>
-                    <p className="m0">Rapid wealth grow</p>
+                    <p className="m0">Years of experience</p>
                   </div>
                 </div>
                 <div className="col-xl-6 col-sm-7">
                   <div className="counter-block-one mt-20">
                     <div className="main-count fw-bold">
-                      $<span className="counter">1.3</span>b+
+                      <span className="counter">50</span>+
                     </div>
-                    <p className="m0">Cumulative trading volume</p>
+                    <p className="m0">Tailored growth programs</p>
                   </div>
                 </div>
               </div>
@@ -55,7 +53,6 @@ const TextFeatureThree = ({cls,style_2}:{cls?:string;style_2?:boolean}) => {
           <div className="col-xxl-6 col-lg-5 d-flex order-lg-first wow fadeInLeft">
             <div className="media-wrapper w-100 position-relative">
               <Image src={screen_1} alt="screen" className="lazy-img shapes screen_01" style={imageStyle}/>
-              <Image src={screen_2} alt="screen" className="lazy-img shapes screen_02" style={imageStyle}/>
             </div>
           </div>
         </div>

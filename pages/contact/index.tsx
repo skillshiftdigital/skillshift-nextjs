@@ -4,7 +4,7 @@ import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import ContactArea from "@/components/contact/contact-area";
-import FooterThree from "@/layout/footer/footer-three";
+import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_33.svg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
@@ -36,7 +36,7 @@ const ContactPage = () => {
         </main>
 
         {/* footer start */}
-        <FooterThree style_2={true} />
+        <FooterOne />
         {/* footer end */}
       </div>
     </Wrapper>

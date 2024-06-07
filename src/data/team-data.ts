@@ -51,8 +51,8 @@ const team_data: ITeam[] = [
   // home 5
   {
     id: 5,
-    img: team_5,
-    name: "Stormrider",
+    img: bemoi_george,
+    name: "Bemoi George",
     designation: "Owner & Founder",
     page: "home-5",
   },
@@ -80,30 +80,30 @@ const team_data: ITeam[] = [
   // team three
   {
     id: 9,
-    img: team_9,
-    name: "Stormrider",
-    designation: "Owner & Founder",
+    img: bemoi_george,
+    name: "Bemoi George",
+    designation: "Managing Director",
     page: "team-three",
   },
   {
     id: 10,
-    img: team_10,
-    name: "Frostfall",
-    designation: "Project Manager",
+    img: pam_costa,
+    name: "Pam Costa",
+    designation: "HR Director",
     page: "team-three",
   },
   {
     id: 11,
-    img: team_11,
-    name: "Shadowbrook",
-    designation: "Lead Product Design",
+    img: josh_lobo,
+    name: "Josh Lobo",
+    designation: "Creative Director",
     page: "team-three",
   },
   {
     id: 12,
-    img: team_12,
-    name: "Emberstone",
-    designation: "UI Design",
+    img: the_an,
+    name: "The An",
+    designation: "Engineering Director",
     page: "team-three",
   },
   // team page

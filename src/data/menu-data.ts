@@ -4,8 +4,8 @@ import { IMenu } from "@/types/menu-d-t";
 const menu_data:IMenu[] = [
   {
     id:1,
-    link:'/our-work',
-    title:'Our work'
+    link:'/about-us',
+    title:'About'
   },
   {
     id:2,

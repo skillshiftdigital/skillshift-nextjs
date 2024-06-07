@@ -17,7 +17,7 @@ const FooterOne = () => {
                 <Image src={logo} alt="logo"/>
               </Link>
             </div> 
-            <p className="text-white lh-sm mb-35">Digital Transformation <span className="opacity-50">& Business Consulting</span></p>
+            <p className="text-white lh-sm mb-35">Digital Transformation & Business Consulting</p>
             {/* social link */}
             <ul className="style-none d-flex align-items-center social-icon">
              <FooterSocial/>

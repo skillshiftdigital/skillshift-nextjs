@@ -1,17 +1,18 @@
-// pages/strategic-vision.tsx
+// pages/[serviceSlug].tsx
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { sanityTypes } from '../../src/types/sanityTypes';
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
-import FooterThree from "@/layout/footer/footer-three";
+import FooterOne from "@/layout/footer/footer-one";
 import service_bg from "@/assets/images/media/img_32.jpg";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_27.svg";
 import ServiceDetailsArea from "@/components/services/service-details-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import { useRouter } from 'next/router';
+import { NextPageContext } from 'next';
 
 const defaultData: sanityTypes = {
   title: "",
@@ -32,30 +33,40 @@ const defaultData: sanityTypes = {
 const ServiceDetailsPage = () => {
   const router = useRouter();
   const { serviceSlug } = router.query;
-const [data, setData] = useState<sanityTypes | null>(defaultData); // Note: Ensure `defaultData` matches `sanityTypes`
+  const [data, setData] = useState<sanityTypes | null>(defaultData);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-  async function fetchData() {
-    if (!serviceSlug) return; // Ensure serviceSlug is present
+  useEffect(() => {
+    async function fetchData() {
+      if (!serviceSlug) return;
 
-    try {
-      // Include the correct type and slug parameters in the request URL
-      const response = await fetch(`/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
+      try {
+        const response = await fetch(`/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result: sanityTypes[] = await response.json();
+        const publishedDocument = result.find(doc => !doc._id.startsWith('drafts.'));
+        
+        if (publishedDocument) {
+          setData(publishedDocument);
+          setIsLoading(false);
+        } else {
+          router.replace('/404');
+        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+        router.replace('/404');
       }
-      const result: sanityTypes[] = await response.json();
-      setData(result[0]); // Assuming the API returns an array with one item
-    } catch (error) {
-      console.error("Fetch error:", error);
     }
+
+    fetchData();
+  }, [serviceSlug]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
-
-  fetchData();
-}, [serviceSlug]);
-
-  if (!data) return <p>Loading...</p>;
 
   return (
     <Wrapper>
@@ -63,7 +74,7 @@ useEffect(() => {
         <HeaderTwo />
         <main>
           <BreadcrumbOne
-            title={data?.title}
+            title={data?.title || ""}
             subtitle="Offering solutions & services to address a spectrum of financial issues"
             page="Services"
             shape={shape}
@@ -75,10 +86,39 @@ useEffect(() => {
           <FancyBannerThree />
           <NewsletterBanner />
         </main>
-        <FooterThree style_2={true} />
+        <FooterOne />
       </div>
     </Wrapper>
   );
+}
+
+export async function getServerSideProps(context: NextPageContext) {
+  const { serviceSlug } = context.query;
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
+    if (!response.ok) {
+      return {
+        notFound: true,
+      };
+    }
+    const result: sanityTypes[] = await response.json();
+    const publishedDocument = result.find(doc => !doc._id.startsWith('drafts.'));
+
+    if (!publishedDocument) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {}, // Add props if needed
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }
 
 export default ServiceDetailsPage;

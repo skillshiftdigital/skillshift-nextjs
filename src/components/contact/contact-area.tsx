@@ -40,21 +40,21 @@ const ContactArea = () => {
                   <AddressBlock
                     icon={icon_1}
                     title="Our Address"
-                    subtitle="1012 Pebda Parkway, Mirpur 2 <br/>Dhaka, Bangladesh"
+                    subtitle="55 Pyrmont Bridge Road,<br/>NSW 2009, Australia"
                   />
                 </div>
                 <div className="col-md-4">
                   <AddressBlock
                     icon={icon_2}
                     title="Contact Info"
-                    subtitle='Open a chat or give us call at <br/><a href="tel:310.841.5500" className="call text-lg fw-500">310.841.5500</a>'
+                    subtitle='Open a chat or give us call at <br/><a href="tel:0432695309" className="call text-lg fw-500">0432.695.309</a>'
                   />
                 </div>
                 <div className="col-md-4">
                   <AddressBlock
                     icon={icon_3}
                     title="Live Support"
-                    subtitle='live chat service <br/><a href="#" className="webaddress">www.babunlivechat.com</a>'
+                    subtitle='Soon.'
                   />
                 </div>
               </div>
@@ -75,7 +75,7 @@ const ContactArea = () => {
                     </div>
                   </div>
                   <div className="title-one text-center text-lg-start md-mt-20 mb-70 md-mb-30">
-                    <h2>Have inquiries? Reach out via message</h2>
+                    <h2>Have questions? Reach out to us.</h2>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ const ContactArea = () => {
         <div className="gmap_canvas h-100 w-100">
           <iframe
             className="gmap_iframe h-100 w-100"
-            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=dhaka collage&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=skillshift=UTF8&amp;iwloc=B&amp;output=embed"
           ></iframe>
         </div>
       </div>

@@ -12,11 +12,11 @@ const FancyBannerThree = () => {
             <div className="col-lg-8 col-md-9">
               <div className="title-one mb-20 lg-mb-10">
                 <h2 className="text-white">
-                  Want to Chat? Feel free to Contact our Team.
+                  Get a quote.
                 </h2>
               </div>
               <p className="text-lg m0 text-white opacity-75">
-                If you have anything in mind just contact us with our expert.
+                Book an obligation-free strategy discovery session.
               </p>
             </div>
             <div className="col-lg-4 col-md-3">

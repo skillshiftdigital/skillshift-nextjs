@@ -14,20 +14,9 @@ const NewsletterBannerTwo = () => {
               </p>
             </div>
             <div className="col-lg-6">
-              <form action="#" className="m-auto ms-lg-auto">
-                <div className="d-flex align-items-center justify-content-between">
-                  <input type="email" placeholder="Enter your email address" />
-                  <button className="rounded-circle tran3s">
-                    <i className="bi bi-arrow-right"></i>
-                  </button>
-                </div>
-                <p className="text-center text-lg-end m0 pt-5">
-                  Already subscribed?{" "}
-                  <Link href="#" className="fw-500">
-                    Unsubscribe
-                  </Link>
-                </p>
-              </form>
+              <button className="rounded-circle tran3s" title="Subscribe">
+                <i className="bi bi-arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>
