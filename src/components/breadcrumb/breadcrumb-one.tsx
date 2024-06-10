@@ -55,7 +55,7 @@ const BreadcrumbOne = ({
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <h1 className={`hero-heading d-inline-block position-relative ${cls}`}>
-                    {title} <Image src={shape} alt="shape" />
+                    {title}
                   </h1>
                 </div>
                 <div className="col-xl-4 col-lg-5 ms-auto">

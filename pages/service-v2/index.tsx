@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import HeaderOne from "@/layout/header/header-one";
-import FooterTwo from "@/layout/footer/footer-two";
+import FooterOne from "@/layout/footer/footer-one";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
 import ServiceTwoArea from "@/components/services/service-v2-area";
@@ -36,7 +36,7 @@ const ServiceTwoPage = () => {
         </main>
 
         {/* footer start */}
-        <FooterTwo />
+        <FooterOne />
         {/* footer end */}
       </div>
     </Wrapper>

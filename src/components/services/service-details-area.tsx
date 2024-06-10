@@ -7,7 +7,7 @@ import { sanityTypes } from "@/types/sanityTypes";
 import PricingArea from "@/components/pricing/pricing-area";
 
 // internal
-import service_img from "@/assets/images/media/img_35.jpg";
+import service_img from "@/assets/images/media/img_53-min.jpg";
 import icon_1 from "@/assets/images/icon/icon_72.svg";
 import icon_2 from "@/assets/images/icon/icon_73.svg";
 import icon_3 from "@/assets/images/icon/icon_74.svg";
@@ -96,7 +96,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
     <div className="service-details mt-150 lg-mt-80 mb-100 lg-mb-80">
       <div className="container">
         <div className="row">
-          <div className="col-xxl-9 col-lg-8 order-lg-last">
+          <div className="col-xxl-12 col-lg-8 order-lg-last">
             <div className="details-meta ps-xxl-5 ps-xl-3">
               <h1>{data?.title}</h1>
               <p>{data?.overview}</p>
@@ -151,31 +151,30 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
               </div>
               <h3>Our Process.</h3>
               <p>
-                Risk management and compliance, when approached strategically,
-                have the potential to go beyond mitigating threats and
-                protecting a company’s operations and reputation.
+              We keep things simple and effective. Our process ensures that we understand your needs, create a solid plan, and deliver results that help you achieve your goals.
               </p>
               <div className="line-wrapper pb-30 mt-60 lg-mt-40 mb-70 lg-mb-40">
                 <div className="row">
                   <div className="col-md-4 wow fadeInUp">
                     <CardItem
                       icon={icon_10}
-                      title="Collect Doc"
-                      subtitle="We collect require documents & send for check"
+                      title="Discovery"
+                      subtitle="
+                      We start by getting to know you and your needs through honest conversations and research."
                     />
                   </div>
                   <div className="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
                     <CardItem
                       icon={icon_11}
-                      title="Check & Finalize"
-                      subtitle="We check the documents & send for final approval"
+                      title="Strategy"
+                      subtitle="We craft a straightforward, effective plan that aligns with your goals and uses the best industry practices."
                     />
                   </div>
                   <div className="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
                     <CardItem
                       icon={icon_12}
-                      title="Approved"
-                      subtitle="After approve you ready to use your accounts"
+                      title="Implementation"
+                      subtitle="We put the plan into action and stick around to support you, making sure everything runs smoothly and continues to improve."
                     />
                   </div>
                 </div>
@@ -186,11 +185,10 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
                   <Image src={icon_13} alt="icon" className="lazy-img icon" />
                   <div className="ps-xl-5">
                     <blockquote>
-                      Quick solutions coupled with extraordinary performance— a
-                      recommendation that is great though.
+                    &quot;Creativity is intelligence having fun.&quot;
                     </blockquote>
                     <div>
-                      <span className="fw-bold">James Bond.</span> USA
+                      <span className="fw-bold">-Albert Einstein.</span>
                     </div>
                   </div>
                 </div>
@@ -202,33 +200,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
               </div>
             </div>
           </div>
-          <div className="col-xxl-3 col-lg-4 order-lg-first">
-            <aside className="md-mt-40">
-              <div className="service-nav-item">
-                <ul className="style-none">
-                  <ServiceNav
-                    icon={icon_1}
-                    title="Multiple Accounts"
-                    active={true}
-                  />
-                  <ServiceNav icon={icon_2} title="Loan Facility" />
-                  <ServiceNav icon={icon_3} title="Expense Track" />
-                  <ServiceNav icon={icon_4} title="DPS & FDR" />
-                  <ServiceNav icon={icon_5} title="International Account" />
-                  <ServiceNav icon={icon_6} title="Saving Account" />
-                  <ServiceNav icon={icon_7} title="Agent Banking" />
-                  <ServiceNav icon={icon_8} title="Credit & Debit Cards" />
-                  <ServiceNav icon={icon_9} title="Consultation" />
-                </ul>
-              </div>
-              <div className="contact-banner text-center mt-40 lg-mt-20">
-                <h3 className="mb-20">Any Questions? Let’s talk</h3>
-                <Link href="/contact" className="tran3s fw-500">
-                  Let’s Talk
-                </Link>
-              </div>
-            </aside>
-          </div>
+          
         </div>
       </div>
       

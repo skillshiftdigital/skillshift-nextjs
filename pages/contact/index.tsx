@@ -7,11 +7,19 @@ import ContactArea from "@/components/contact/contact-area";
 import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_33.svg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+import Head from "next/head";
 
 
 const ContactPage = () => {
   return (
     <Wrapper>
+      <Head>
+        <title>Contact - skillshift</title>
+        <meta
+          name="description"
+          content="Get in touch to receive more information about our services' technologies, pricing, and more."
+        />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
@@ -19,8 +27,8 @@ const ContactPage = () => {
         <main>
           {/* breadcrumb start */}
           <BreadcrumbOne
-            title="Contact us for inquiries"
-            subtitle="Get our all info and also can message us directly from here"
+            title="Contact us for more info"
+            subtitle="Get in touch to receive more information about our services' technologies, pricing, and more."
             page="Contact"
             shape={shape}
           />
@@ -30,9 +38,9 @@ const ContactPage = () => {
           <ContactArea />
           {/* contact area end */}
 
-          {/* news letter start */}
+          {/* newsletter start */}
           <NewsletterBanner />
-          {/* news letter end */}
+          {/* newsletter end */}
         </main>
 
         {/* footer start */}

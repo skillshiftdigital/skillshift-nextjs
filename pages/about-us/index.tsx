@@ -15,11 +15,19 @@ import PartnersSliderOne from "@/components/partners/partners-slider-one";
 import TeamSectionThree from "@/components/team/team-section-three";
 import HomeFourBlogs from "@/components/blogs/home-4-blogs";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+import Head from "next/head";
 
 
 const AboutUsPage = () => {
   return (
     <Wrapper>
+      <Head>
+        <title>About - skillshift </title>
+        <meta
+          name="description"
+          content="We are a digital consulting firm assisting digital businesses to grow with a focus on people, data & growth."
+        />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
@@ -28,7 +36,7 @@ const AboutUsPage = () => {
           {/* breadcrumb start */}
           <BreadcrumbOne
             title="Hello, we are skillshift."
-            subtitle="Navigating Your Financial Growth With Experience & Insightful Solutions."
+            subtitle="We are a digital consulting firm assisting digital agencies to grow with a focus on people, data & growth."
             page="About Us"
             bg_img={about_bg}
             shape={shape}

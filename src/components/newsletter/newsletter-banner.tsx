@@ -36,11 +36,11 @@ const NewsletterBanner = ({ style_2 = false }: { style_2?: boolean }) => {
           <div className="row">
             <div className="col-lg-6">
               <h2 className={`${style_2 ? "" : "text-dark"} fw-bold`}>
-                Our Newsletter.
+                Newsletters.
               </h2>
               <p className="text-lg md-pb-20">
-                Get instant news by subscribe to our daily newsletter
-              </p>
+{/*               Archives.
+ */}              </p>
             </div>
             <div className="col-lg-6">
               <form onSubmit={handleSubmit}>

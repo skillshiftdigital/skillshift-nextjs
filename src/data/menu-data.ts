@@ -26,14 +26,14 @@ const menu_data:IMenu[] = [
   },
   {
     id:3,
-    link:'/insights',
-    title:'Insights',
-    dropdown:true,
+    link:'/contact',
+    title:'Contact',
+    /* dropdown:true,
     dropdown_menus:[
       {link:'/blog',title:'Blog List'},
       {link:'/blog-grid',title:'Blog Grid'},
       {link:'/blog-details',title:'Blog Details'},
-    ]
+    ] */
   },
 
 ]

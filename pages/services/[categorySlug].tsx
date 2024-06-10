@@ -19,6 +19,7 @@ import icon_1 from "@/assets/images/icon/icon_03.svg";
 import icon_2 from "@/assets/images/icon/icon_04.svg";
 import icon_3 from "@/assets/images/icon/icon_05.svg";
 import { NextPageContext } from "next";
+import Head from "next/head";
 
 const defaultData: sanityTypes = {
   title: "",
@@ -115,6 +116,13 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
 
   return (
     <Wrapper>
+      <Head>
+        <title>{data?.title} </title>
+        <meta
+          name="description"
+          content="{data?.shortDescription}"
+        />
+      </Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
         <main>

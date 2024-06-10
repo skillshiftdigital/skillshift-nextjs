@@ -3,8 +3,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 // internal
-import logo from "@/assets/images/logo/logo_02.svg";
-import logo_2 from "@/assets/images/logo/logo_01.svg";
+import logo from "@/assets/images/logo/skillshift-logo.svg";
+import logo_2 from "@/assets/images/logo/skillshift-logo.svg";
 import icon_1 from "@/assets/images/icon/icon_14.svg";
 import icon_2 from "@/assets/images/icon/icon_15.svg";
 import menu_data from "@/data/menu-data";
@@ -106,14 +106,14 @@ const Navbar = ({logo_white=false}:{logo_white?:boolean}) => {
         <ul className="style-none contact-info m0 pt-30">
           <li className="d-flex align-items-center p0 mt-15">
             <Image src={icon_1} alt="icon" className="lazy-img icon me-2" />
-            <Link href="mailto:babuninc@company.com" className="fw-500">
-              babuninc@company.com
+            <Link href="mailto:hello@skillshift.com.au" className="fw-500">
+              hello@skillshift.com.au
             </Link>
           </li>
           <li className="d-flex align-items-center p0 mt-15">
             <Image src={icon_2} alt="icon" className="lazy-img icon me-2" />
-            <Link href="tel:+757 699-4478" className="fw-500">
-              +757 699-4478
+            <Link href="tel:+610432695309" className="fw-500">
+              +61 0432 695 309
             </Link>
           </li>
         </ul>

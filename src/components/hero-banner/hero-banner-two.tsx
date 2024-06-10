@@ -4,13 +4,12 @@ import Image from "next/image";
 import Slider from "react-slick";
 import Link from "next/link";
 // internal
-import bg_1 from "@/assets/images/media/_img_bg.jpg";
-import bg_2 from "@/assets/images/media/img_02.jpg";
-import bg_3 from "@/assets/images/media/img_03.jpg";
+import bg_1 from "@/assets/images/media/img_51-min.jpg";
+import bg_2 from "@/assets/images/media/img_53-min.jpg";
 import icon from "@/assets/images/icon/icon_02.svg";
 
 // slider bg
-const slider_bg = [bg_1, bg_2, bg_3];
+const slider_bg = [bg_1, bg_2];
 // slider setting
 const slider_setting = {
   dots: false,
@@ -40,33 +39,30 @@ const HeroBannerTwo = () => {
         <div className="row">
           <div className="col-xl-6 col-lg-7 ms-auto">
             <h1 className="hero-heading d-inline-block position-relative wow fadeInUp">
-              Your business <br />
-              Consultant & <br />
-              Solution.
+              Behind great stories, great people. <br />
             </h1>
             <p
               className="text-xl text-white pt-35 pb-25 wow fadeInUp"
               data-wow-delay="0.1s"
             >
-              Empowering businesses with innovative strategies and actionable
-              recommendations
+              Our services are designed to help you tell your story, connect with your audience, and grow your business.
             </p>
             <Link href="/contact"
-              className="btn-two icon-link wow fadeInUp"
+              className="btn-four icon-link wow fadeInUp"
               data-wow-delay="0.2s"
             >
-              <span>Let’s Talk</span>
+              <span>View services.</span>
               <Image src={icon} alt="icon" className="lazy-img icon ms-2" />
             </Link>
           </div>
         </div>
       </div>
-      <Link href="/contact"
+{/*       <Link href="/contact"
         className="more-btn rounded-circle d-flex align-items-center justify-content-center tran3s wow fadeInLeft"
         target="_blank"
       >
         <i className="bi bi-arrow-up-right"></i>
-      </Link>
+      </Link> */}
     </div>
   );
 };

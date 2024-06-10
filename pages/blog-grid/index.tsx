@@ -1,26 +1,30 @@
 import React from "react";
-import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
-import HeaderOne from "@/layout/header/header-one";
+import HeaderTwo from "@/layout/header/header-two";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
-import BreadcrumbTwo from "@/components/breadcrumb/breadcrumb-two";
+import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import FooterTwo from "@/layout/footer/footer-two";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
-
+import shape from "@/assets/images/shape/shape_26.svg";
+import service_bg from "@/assets/images/media/img_32.jpg";
 
 const BlogGridPage = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderOne />
+        <HeaderTwo />
         {/* header end */}
         <main>
           {/* breadcrumb start */}
-          <BreadcrumbTwo
-            title="Explore our News"
-            subtitle="Find the team members details here with all the information"
-            page="Blog"
+          <BreadcrumbOne
+            title="Insights & resources"
+            subtitle="Explore our latest insights and resources, including blogs, articles, and more."
+            page="insights"
+            shape={shape}
+            bg_img={service_bg}
+            style_2={true}
+            cls="me-xxl-4 me-lg-5"
           />
           {/* breadcrumb end */}
 

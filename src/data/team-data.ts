@@ -20,70 +20,13 @@ import team_15 from "@/assets/images/media/img_40.jpg";
 import team_16 from "@/assets/images/media/img_41.jpg";
 
 const team_data: ITeam[] = [
-  {
-    id: 1,
-    img: bemoi_george,
-    name: "Bemoi George",
-    designation: "Managing Director",
-    page: "home",
-  },
-  {
-    id: 2,
-    img: pam_costa,
-    name: "Pam Costa",
-    designation: "HR Director",
-    page: "home",
-  },
-  {
-    id: 3,
-    img: josh_lobo,
-    name: "Josh Lobo",
-    designation: "Creative Services Director",
-    page: "home",
-  },
-  {
-    id: 4,
-    img: the_an,
-    name: "The An",
-    designation: "Digital Engineering Director",
-    page: "home",
-  },
-  // home 5
-  {
-    id: 5,
-    img: bemoi_george,
-    name: "Bemoi George",
-    designation: "Owner & Founder",
-    page: "home-5",
-  },
-  {
-    id: 6,
-    img: team_6,
-    name: "Frostfall",
-    designation: "Project Manager",
-    page: "home-5",
-  },
-  {
-    id: 7,
-    img: team_7,
-    name: "Shadowbrook",
-    designation: "Lead Product Design",
-    page: "home-5",
-  },
-  {
-    id: 8,
-    img: team_8,
-    name: "Emberstone",
-    designation: "UI Design",
-    page: "home-5",
-  },
-  // team three
+ 
   {
     id: 9,
     img: bemoi_george,
     name: "Bemoi George",
     designation: "Managing Director",
-    page: "team-three",
+    page: "team-three",    
   },
   {
     id: 10,

@@ -13,6 +13,7 @@ import ServiceDetailsArea from "@/components/services/service-details-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import { useRouter } from 'next/router';
 import { NextPageContext } from 'next';
+import Head from 'next/head';
 
 const defaultData: sanityTypes = {
   title: "",
@@ -70,6 +71,13 @@ const ServiceDetailsPage = () => {
 
   return (
     <Wrapper>
+      <Head>
+        <title>{data?.title} </title>
+        <meta
+          name="description"
+          content="{data?.shortDescription}"
+        />
+      </Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
         <main>

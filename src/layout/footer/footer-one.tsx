@@ -27,18 +27,18 @@ const FooterOne = () => {
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
             <h5 className="footer-title">skillshift</h5>
             <ul className="footer-nav-link style-none">
-              <li><Link href="/">Company</Link></li>
-              <li><Link href="/pricing">Internships</Link></li>
-              <li><Link href="/about-us">Social responsibility</Link></li>
-              <li><Link href="/service-v1">Training Programs</Link></li>
+              <li><Link href="/about">Company</Link></li>
+              <li><Link href="/contact">Internships</Link></li>
+              <li><Link href="/contact">Social responsibility</Link></li>
+              <li><Link href="/contact">Training Programs</Link></li>
             </ul>
           </div>
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
             <h5 className="footer-title">Technologies</h5>
             <ul className="footer-nav-link style-none">
-              <li><Link href="/about-us-2">seoShift</Link></li>
-              <li><Link href="/blog">Kwiks</Link></li>
-              <li><Link href="/faq">Creative Labs</Link></li>
+              <li><Link href="/contact">seoShift</Link></li>
+              <li><Link href="/contact">Kwiks</Link></li>
+              <li><Link href="/contact">Creative Labs</Link></li>
             </ul>
           </div>
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
@@ -46,7 +46,7 @@ const FooterOne = () => {
             <ul className="footer-nav-link style-none">
               <li><Link href="/contact">Terms of use</Link></li>
               <li><Link href="/contact">Terms & conditions</Link></li>
-              <li><Link href="/contact">Privacy</Link></li>
+              <li><Link href="/privacy-policy">Privacy</Link></li>
               <li><Link href="/contact">Cookie policy</Link></li>
             </ul>
           </div>
@@ -71,12 +71,11 @@ const FooterOne = () => {
             </Link>
             <div className="d-xl-flex align-items-center">
               <ul className="style-none bottom-nav d-flex flex-wrap justify-content-center justify-content-lg-start order-lg-last">
-                <li><Link href="#">Privacy & Terms</Link></li>
-                <li><Link href="#">Cookies</Link></li>
-                <li><Link href="#">Contact Us</Link></li>
+                <li><Link href="/privacy-policy">Privacy policy</Link></li>
+                <li><Link href="/contact">Contact Us</Link></li>
               </ul>
               <div className="copyright me-xl-4 lg-mt-10 order-lg-first">
-                Copyright @{new Date().getFullYear()} skillshift.
+                Copyright ©{new Date().getFullYear()} skillshift.
               </div>
             </div>
           </div>

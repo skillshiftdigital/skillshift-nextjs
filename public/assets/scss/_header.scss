@@ -109,7 +109,14 @@
         &.fixed {
             background: $color-three;
             border: none;
-        }
+        }}
+        &.green-vr {
+            .nav-item .nav-link {color: $color-two;;}
+            .nav-item:hover .nav-link {color: $color-three;}
+            &.fixed {
+                background: $color-three;
+                border: none;
+            }
     }
 
 

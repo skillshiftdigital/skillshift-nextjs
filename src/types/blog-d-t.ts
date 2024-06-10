@@ -1,14 +1,12 @@
-import { StaticImageData } from "next/image";
+// @/components/types/blog-d-t.ts
 
-export interface IBlog {
+export type WPPost = {
   id: number;
-  img: StaticImageData;
+  title: { rendered: string };
+  excerpt: { rendered: string };
   date: string;
-  title: string;
-  post_info?: string;
-  quote_blog?: boolean;
-  designation?: string;
-  author:string;
-  category:string;
-  page: string;
-}
+  featured_media_src_url: string;
+  slug: string;
+  content: { rendered: string };
+
+};

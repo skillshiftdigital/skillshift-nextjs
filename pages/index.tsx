@@ -12,11 +12,19 @@ import FaqSectionOne from "@/components/faq/faq-section-one";
 import HomeTwoBlogs from "@/components/blogs/home-2-blogs";
 import FancyBannerTwo from "@/components/fancy-banner/fancy-banner-two";
 import FooterOne from "@/layout/footer/footer-one";
+import Head from "next/head";
 
 
-export default function HomePageTwo() {
+export default function skillshifthome() {
   return (
     <Wrapper>
+      <Head>
+              <title>Skillshift - Digital Transformation and Business Consulting in Australia </title>
+        <meta
+          name="description"
+          content="Skillshift is a digital transformation and business consulting company that provides technology and business consulting services to help companies achieve their business goals."
+        />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
@@ -43,23 +51,19 @@ export default function HomePageTwo() {
           {/* block feature two end */}
 
           {/* block feature three start */}
-          <BlockFeatureThree />
-          {/* block feature three end */}
-
-          {/* team section one start */}
-          <TeamSectionOne />
-          {/* team section one end */}
+{/*           <BlockFeatureThree />
+ */}          {/* block feature three end */}
 
           {/* faq section start */}
           <FaqSectionOne />
           {/* faq section end */}
 
           {/* blog item start */}
-          <HomeTwoBlogs />
-          {/* blog item end */}
+{/*           <HomeTwoBlogs />
+ */}          {/* blog item end */}
 
           {/* fancy banner two start */}
-          <FancyBannerTwo />
+           <FancyBannerTwo />
           {/* fancy banner two end */}
         </main>
 
