@@ -16,7 +16,7 @@ const FancyBannerThree = () => {
                 </h2>
               </div>
               <p className="text-lg m0 text-white opacity-75">
-                Get in touch and we can provide more details about process, what's included in each program as well as required investment.
+                Get in touch and we can provide more details about process, what&apos;s included in each program as well as required investment.
               </p>
             </div>
             <div className="col-lg-4 col-md-3">

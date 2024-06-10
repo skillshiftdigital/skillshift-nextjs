@@ -7,8 +7,8 @@ import BlockFeatureNine from "@/components/block-feature/block-feature-nine";
 import PortfolioOne from "@/components/portfolio/portfolio-one";
 import FeedbackFive from "@/components/feedback/feedback-five";
 import TeamSectionTwo from "@/components/team/team-section-two";
-import BlogsHomeFive from "@/components/blogs/home-5-blogs";
-import FooterFive from "@/layout/footer/footer-five";
+/* import BlogsHomeFive from "@/components/blogs/home-5-blogs";
+ */import FooterFive from "@/layout/footer/footer-five";
 
 
 export default function HomePageFive() {
@@ -45,8 +45,8 @@ export default function HomePageFive() {
             {/* team section end */}
 
             {/* blog item start */}
-            <BlogsHomeFive />
-            {/* blog item end */}
+{/*             <BlogsHomeFive />
+ */}            {/* blog item end */}
 
             {/* footer start */}
             <FooterFive />

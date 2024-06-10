@@ -1,10 +1,9 @@
-import React from "react";
+/* import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // internal
 import blog_data from "@/data/blog-data";
 import icon from '@/assets/images/icon/icon_27.svg';
-import BlogItemThree from "./blog-item/blog-item-three";
 
 const HomeThreeBlogs = () => {
   const blog_item = blog_data.filter((b) => b.page === "home");
@@ -22,7 +21,6 @@ const HomeThreeBlogs = () => {
           <div className="row gx-xl-5">
             {blog_item.map((b, i) => (
               <div key={i} className="col-md-6">
-                <BlogItemThree blog={b} />
               </div>
             ))}
           </div>
@@ -48,3 +46,4 @@ const HomeThreeBlogs = () => {
 };
 
 export default HomeThreeBlogs;
+ */

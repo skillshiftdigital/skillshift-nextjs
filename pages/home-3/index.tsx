@@ -8,8 +8,8 @@ import TextFeatureFive from "@/components/text-feature/text-feature-five";
 import BlockFeatureSeven from "@/components/block-feature/block-feature-seven";
 import FeedbackThree from "@/components/feedback/feedback-three";
 import FancyBannerFour from "@/components/fancy-banner/fancy-banner-four";
-import HomeThreeBlogs from "@/components/blogs/home-3-blogs";
-import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+/* import HomeThreeBlogs from "@/components/blogs/home-3-blogs";
+ */import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import FooterThree from "@/layout/footer/footer-three";
 
 
@@ -50,8 +50,8 @@ export default function HomePageThree() {
           {/* fancy banner four end */}
 
           {/* blog item start */}
-          <HomeThreeBlogs />
-          {/* blog item end */}
+{/*           <HomeThreeBlogs />
+ */}          {/* blog item end */}
 
           {/* newsletter start */}
           <NewsletterBanner />

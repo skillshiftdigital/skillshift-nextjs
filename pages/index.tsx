@@ -9,7 +9,6 @@ import BlockFeatureTwo from "@/components/block-feature/block-feature-two";
 import BlockFeatureThree from "@/components/block-feature/block-feature-three";
 import TeamSectionOne from "@/components/team/team-section-one";
 import FaqSectionOne from "@/components/faq/faq-section-one";
-import HomeTwoBlogs from "@/components/blogs/home-2-blogs";
 import FancyBannerTwo from "@/components/fancy-banner/fancy-banner-two";
 import FooterOne from "@/layout/footer/footer-one";
 import Head from "next/head";
@@ -57,10 +56,6 @@ export default function skillshifthome() {
           {/* faq section start */}
           <FaqSectionOne />
           {/* faq section end */}
-
-          {/* blog item start */}
-{/*           <HomeTwoBlogs />
- */}          {/* blog item end */}
 
           {/* fancy banner two start */}
            <FancyBannerTwo />

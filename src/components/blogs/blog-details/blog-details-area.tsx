@@ -1,6 +1,6 @@
 import React from "react";
-import BlogSidebar from "../blog-sidebar";
-import BlogDetailsCommentArea from "./blog-details-comment-area";
+/* import BlogSidebar from "../blog-sidebar";
+ */import BlogDetailsCommentArea from "./blog-details-comment-area";
 import BlogDetailsForm from "@/components/forms/blog-details-form";
 import { WPPost } from "@/types/blog-d-t";
 
@@ -79,8 +79,8 @@ const BlogDetailsArea = ({ blog }: { blog: WPPost }) => {
             </div>
           </div>
           <div className="col-lg-4 col-md-8">
-            <BlogSidebar />
-          </div>
+{/*             <BlogSidebar />
+ */}          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { IBlog } from '@/types/blog-d-t';
+/* import { IBlog } from '@/types/blog-d-t';
 import blog_1 from '@/assets/images/blog/blog_img_03.jpg';
 import blog_2 from '@/assets/images/blog/blog_img_04.jpg';
 import logo_1 from '@/assets/images/logo/media_01.png';
@@ -174,4 +174,4 @@ const blog_data:IBlog[] = [
   },
 ]
 
-export default blog_data;
+export default blog_data; */

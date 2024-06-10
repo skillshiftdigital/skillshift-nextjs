@@ -16,7 +16,6 @@ import BlockFeatureEight from "@/components/block-feature/block-feature-eight";
 /* import FeedbackOne from "@/components/feedback/feedback-one";
  */import TeamSectionOne from "@/components/team/team-section-one";
 import FaqSectionOne from "@/components/faq/faq-section-one";
-import HomeTwoBlogs from "@/components/blogs/home-2-blogs";
 import FancyBannerTwo from "@/components/fancy-banner/fancy-banner-two";
 import FooterOne from "@/layout/footer/footer-one";
 
@@ -76,10 +75,6 @@ export default function HomePageTwo() {
           {/* faq section start */}
           <FaqSectionOne />
           {/* faq section end */}
-
-          {/* blog item start */}
-          <HomeTwoBlogs />
-          {/* blog item end */}
 
           {/* fancy banner two start */}
           <FancyBannerTwo />

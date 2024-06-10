@@ -63,7 +63,7 @@ const ServiceDetailsPage = () => {
     }
 
     fetchData();
-  }, [serviceSlug]);
+  }, [router, serviceSlug]);
 
   if (isLoading) {
     return <div>Loading...</div>;

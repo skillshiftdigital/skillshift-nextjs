@@ -16,11 +16,11 @@ export const client = createClient({
 import sanityClient from '@sanity/client';
 
 const client = sanityClient({
-  projectId: 'a3n3iq2v', // Replace with your Sanity project ID
-  dataset: 'production', // or your dataset name
-  apiVersion: '2023-03-25', // Use a date in the format YYYY-MM-DD
-  useCdn: true,// `false` if you want fresh data
-  token: 'skGq1oM4EuDFPWhrEAUusPYAGwGVFWzquyHAxODK4wVVY9X6BEhI9YHlJ861O5Qw6ccKvpLvsqMVTnMtQ5JUHWNmqNsXY7TXq7ZrwNR9vIbgHhL86EOsYnegL3RFOX7AeSzaILeQ3S479zUaJWcoHnEW6lCzegivVEUGpCLbSirkjJP1deHX'
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
+  apiVersion: process.env.SANITY_API_VERSION,
+  useCdn: process.env.SANITY_USE_CDN === 'true',
+  token: process.env.SANITY_TOKEN,
 });
 
 export default client;

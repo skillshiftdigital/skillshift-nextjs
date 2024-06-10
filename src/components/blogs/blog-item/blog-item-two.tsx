@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Link from "next/link";
 import { IBlog } from "@/types/blog-d-t";
 
@@ -28,3 +28,4 @@ const BlogItemTwo = ({ blog }: { blog: IBlog }) => {
 };
 
 export default BlogItemTwo;
+ */

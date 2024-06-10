@@ -109,7 +109,7 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
     }
 
     fetchData();
-  }, [categorySlug]);
+  }, [categorySlug, router]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;

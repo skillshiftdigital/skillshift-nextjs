@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Image from "next/image";
 // internal
 import { IBlog } from "@/types/blog-d-t";
@@ -75,3 +75,4 @@ const BlogsHomeFive = () => {
 };
 
 export default BlogsHomeFive;
+ */

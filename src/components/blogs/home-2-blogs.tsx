@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Link from "next/link";
 import blog_data from "@/data/blog-data";
 import BlogItemTwo from "./blog-item/blog-item-two";
@@ -39,3 +39,4 @@ const HomeTwoBlogs = () => {
 };
 
 export default HomeTwoBlogs;
+ */

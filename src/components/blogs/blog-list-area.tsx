@@ -1,4 +1,4 @@
-'use client'
+/* 'use client'
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,9 +49,7 @@ const BlogListArea = () => {
           </div>
 
           <div className="col-lg-4 col-md-8">
-            {/* blog sidebar start */}
             <BlogSidebar />
-            {/* blog sidebar end */}
           </div>
         </div>
       </div>
@@ -60,3 +58,4 @@ const BlogListArea = () => {
 };
 
 export default BlogListArea;
+ */
