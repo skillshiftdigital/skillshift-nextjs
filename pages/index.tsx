@@ -65,11 +65,6 @@ export default function skillshifthome() {
         {/* footer start */}
         <FooterOne/>
         {/* footer end */}
-        <div>
-      <p>NEXT_PUBLIC_SANITY_PROJECT_ID: {process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}</p>
-      <p>NEXT_PUBLIC_SANITY_DATASET: {process.env.NEXT_PUBLIC_SANITY_DATASET}</p>
-      <p>SANITY_API_READ_TOKEN: {process.env.SANITY_API_READ_TOKEN}</p>
-    </div>
       </div>
     </Wrapper>
   );

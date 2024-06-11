@@ -221,7 +221,7 @@ export async function getServerSideProps(context: NextPageContext) {
   const { categorySlug } = context.query;
 
   try {
-    const categoryResponse = await fetch(`http://localhost:3000/api/sanity?type=category&slug=${categorySlug}`);
+    const categoryResponse = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=category&slug=${categorySlug}`);
     if (!categoryResponse.ok) {
       return {
         notFound: true,
@@ -237,7 +237,7 @@ export async function getServerSideProps(context: NextPageContext) {
     }
 
     const categoryId = validCategoryData._id;
-    const servicesResponse = await fetch(`http://localhost:3000/api/sanity?type=services-digital-agencies&categoryId=${categoryId}`);
+    const servicesResponse = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies&categoryId=${categoryId}`);
     if (!servicesResponse.ok) {
       return {
         notFound: true,
