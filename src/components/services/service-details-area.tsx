@@ -96,7 +96,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
     <div className="service-details mt-150 lg-mt-80 mb-100 lg-mb-80">
       <div className="container">
         <div className="row">
-          <div className="col-xxl-12 col-lg-8 order-lg-last">
+          <div className="col-xxl-12 col-lg-12 order-lg-last">
             <div className="details-meta ps-xxl-5 ps-xl-3">
               <h1>{data?.title}</h1>
               <p>{data?.overview}</p>
@@ -105,7 +105,11 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
                   src={service_img}
                   alt="service_img"
                   className="lazy-img w-100 rounded-4"
+                  width={5231}
+                  height={3487}
+                  layout="responsive"
                   style={imgStyle}
+                  objectFit="cover"
                 />
               </div>
               <h3>We help you with</h3>

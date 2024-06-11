@@ -8,6 +8,7 @@ import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_33.svg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import Head from "next/head";
+import about_bg from "@/assets/images/media/img_26.jpg";
 
 
 const ContactPage = () => {
@@ -27,10 +28,12 @@ const ContactPage = () => {
         <main>
           {/* breadcrumb start */}
           <BreadcrumbOne
-            title="Contact us for more info"
+            title="Contact us for more info."
             subtitle="Get in touch to receive more information about our services' technologies, pricing, and more."
             page="Contact"
+            bg_img={about_bg}
             shape={shape}
+            style_2={true}
           />
           {/* breadcrumb end */}
 
