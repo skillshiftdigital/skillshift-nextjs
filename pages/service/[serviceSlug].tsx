@@ -104,7 +104,7 @@ export async function getServerSideProps(context: NextPageContext) {
   const { serviceSlug } = context.query;
 
   try {
-    const response = await fetch(`http://localhost:3000/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
+    const response = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
     if (!response.ok) {
       return {
         notFound: true,
