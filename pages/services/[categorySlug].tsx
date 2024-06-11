@@ -198,10 +198,9 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
 
                 <div className="section-subheading sm-mt-40">
                   <p className="text-lg">
-                    Inciddnt ut labore et dolor magna aliu. enim ad mim venam, quis
-                    nostru{" "}
+                    We provide a range of services focused on helping digital businesses grow and thrive.
                   </p>
-                  <Link href="/service-v1" className="btn-three icon-link">
+                  <Link href="/services/all-services" className="btn-three icon-link">
                     <span>See All Services</span>
                     <Image src={arrow} alt="arrow" className="lazy-img icon ms-1" />
                   </Link>

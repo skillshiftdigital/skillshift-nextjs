@@ -13,14 +13,14 @@ export const client = createClient({
   apiVersion: '2024-05-27',
 }) */
 
-import sanityClient from '@sanity/client';
+  import sanityClient from '@sanity/client';
 
-const client = sanityClient({
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_DATASET,
-  apiVersion: process.env.SANITY_API_VERSION,
-  useCdn: process.env.SANITY_USE_CDN === 'true',
-  token: process.env.SANITY_TOKEN,
-});
-
-export default client;
+  const client = sanityClient({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+    useCdn: true, // Set to false if you want fresh data
+    token: process.env.SANITY_API_READ_TOKEN, // Only if you need to use authenticated requests
+  });
+  
+  export default client;
+  
