@@ -1,23 +1,20 @@
-import React from "react";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-// internal
-import icon_1 from "@/assets/images/icon/icon_03.svg";
-import icon_2 from "@/assets/images/icon/icon_04.svg";
-import icon_3 from "@/assets/images/icon/icon_05.svg";
-import arrow from "@/assets/images/icon/icon_09.svg";
-import service_data from "@/data/service-data";
+// src/components/block-feature/block-all-services.tsx
+import React from 'react';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
+import icon_1 from '@/assets/images/icon/icon_03.svg';
+import icon_2 from '@/assets/images/icon/icon_04.svg';
+import icon_3 from '@/assets/images/icon/icon_05.svg';
+import arrow from '@/assets/images/icon/icon_09.svg';
+import { sanityTypes } from '@/types/sanityTypes';
 
-// card style one item
-function UpperCardItem({
-  icon,
-  title,
-  subtitle,
-}: {
+interface UpperCardItemProps {
   icon: StaticImageData;
   title: string;
   subtitle: string;
-}) {
+}
+
+const UpperCardItem: React.FC<UpperCardItemProps> = ({ icon, title, subtitle }) => {
   return (
     <div className="card-style-one d-flex w-100 mb-35">
       <div className="icon tran3s rounded-circle d-flex align-items-center justify-content-center">
@@ -29,13 +26,17 @@ function UpperCardItem({
       </div>
     </div>
   );
+};
+
+interface BlockAllServicesProps {
+  services: sanityTypes[];
+  style_2?: boolean;
 }
 
-const BlockFeatureOne = ({ style_2 = false }: { style_2?: boolean }) => {
-  const service_items = service_data.filter((s) => s.page === "servicesAll");
+const BlockAllServices: React.FC<BlockAllServicesProps> = ({ services, style_2 = false }) => {
   return (
     <div
-      className={`block-feature-one position-relative ${style_2 ? "light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60" : "pt-75"}`}
+      className={`block-feature-one position-relative ${style_2 ? 'light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60' : 'pt-75'}`}
     >
       {!style_2 && (
         <div className="upper-wrapper mb-110 lg-mb-80">
@@ -77,36 +78,36 @@ const BlockFeatureOne = ({ style_2 = false }: { style_2?: boolean }) => {
             </div>
           </div>
           <div className="row justify-content-center">
-            {service_items.map((item, i) => (
+            {services.map((service, index) => (
               <div
-                key={i}
+                key={service._id}
                 className="col-lg-4 col-md-6 d-flex wow fadeInUp"
-                data-wow-delay={`0.${i + 1}s`}
+                data-wow-delay={`0.${index + 1}s`}
               >
                 <div className="card-style-two vstack tran3s w-100 mt-30">
                   <Image
-                    src={item.icon}
+                    src={icon_2} // Replace with the actual service icon if available
                     alt="icon"
                     className="lazy-img icon me-auto"
                   />
-                  <h4 className="fw-bold mt-30 mb-25">{item.title}</h4>
-                  <p className="mb-20">{item.desc}</p>
-                  <Link
-                    href={item.link}
-                    className="arrow-btn tran3s mt-auto stretched-link"
-                  >
-                    <Image src={arrow} alt="arrow" className="lazy-img" />
-                  </Link>
+                  <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
+                  <p className="mb-20">{service.shortDescription}</p>
+                  {service.slug && service.slug.current && (
+                    <Link
+                      href={`/service/${service.slug.current}`}
+                      className="arrow-btn tran3s mt-auto stretched-link"
+                    >
+                      <Image src={arrow} alt="arrow" className="lazy-img" />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
           </div>
-
-          {/*  */}
         </div>
       </div>
     </div>
   );
 };
 
-export default BlockFeatureOne;
+export default BlockAllServices;

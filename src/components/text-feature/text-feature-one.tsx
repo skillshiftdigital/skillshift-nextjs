@@ -59,7 +59,10 @@ const TextFeatureOne = ({ style_2 = false }: { style_2?: boolean }) => {
                   </Link>
                   <Link href="/contact" className="btn-three icon-link mt-15">
                     <span>skillshift Technologies</span>
-                    <Image src={icon} alt="icon" className="lazy-img icon ms-1"/>
+                    <Image 
+                      src={icon} 
+                      alt="icon" 
+                      className="lazy-img icon ms-1"/>
                   </Link>
                 </div>
               </div>

@@ -1,13 +1,14 @@
 // BLock Feature One
 .block-feature-one {
     z-index: 1;
+    padding-bottom:50px;
     &:before {
         content: '';
         position: absolute;
         right: 0;
         left: 0;
         top:0;
-        bottom: 17%;
+        bottom: 15%;
         background: $light-bg-one;
         z-index: -1;
     }
@@ -407,7 +408,6 @@
         height: 1px;
         border-bottom: 1px dashed #e5e5e5;
         left: 0;
-        top:50%;
     }
 }
 // BLock Feature Eleven

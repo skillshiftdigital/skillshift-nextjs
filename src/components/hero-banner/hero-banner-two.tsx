@@ -4,8 +4,8 @@ import Image from "next/image";
 import Slider from "react-slick";
 import Link from "next/link";
 // internal
-import bg_1 from "@/assets/images/media/img_51-min.jpg";
-import bg_2 from "@/assets/images/media/img_53-min.jpg";
+import bg_1 from "@/assets/images/media/img_51-min.webp";
+import bg_2 from "@/assets/images/media/img_53-min.webp";
 import icon from "@/assets/images/icon/icon_02.svg";
 
 // slider bg
@@ -47,7 +47,7 @@ const HeroBannerTwo = () => {
             >
               Our services are designed to help you tell your story, connect with your audience, and grow your business.
             </p>
-            <Link href="/contact"
+            <Link href="/services"
               className="btn-four icon-link wow fadeInUp"
               data-wow-delay="0.2s"
             >

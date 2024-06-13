@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import sanityClient from '../../src/utils/sanity/client';
+import sanityClient from '@/utils/sanity/client';
 
 export default async function handler(
   req: NextApiRequest,
@@ -44,6 +44,7 @@ export default async function handler(
       whyChoose,
       _id
     }`;
+    
   } else {
     res.status(400).json({ message: 'Missing slug parameter for type' });
     return;

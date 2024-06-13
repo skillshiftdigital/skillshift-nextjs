@@ -39,20 +39,20 @@ const ServiceOneArea = () => {
 
       
       {/* feedback one start */}
-      <FeedbackOne cls='pt-120 pb-120' />
-      {/* feedback one end */}
+{/*       <FeedbackOne cls='pt-120 pb-120' />
+ */}      {/* feedback one end */}
 
       {/* partners logo start */}
-      <div className="partner-logo-one pt-80 lg-pt-50 pb-80 lg-pb-50">
+{/*       <div className="partner-logo-one pt-80 lg-pt-50 pb-80 lg-pb-50">
           <div className="container">
               <PartnersSliderOne/>
           </div>
-        </div>
+        </div> */}
       {/* partners logo end */}
 
       {/* fancy banner start */}
-      <FancyBannerFive style_2={true} />
-      {/* fancy banner end */}
+{/*       <FancyBannerFive style_2={true} />
+ */}      {/* fancy banner end */}
 
       {/* faq start */}
       <FaqSectionOne cls='mt-150 lg-mt-80 mb-150 lg-mb-80'/>

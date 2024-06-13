@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import bg_img from '@/assets/images/media/img_46.jpg';
+import bg_img from '@/assets/images/team/bemoi_george.jpg';
 
 const TeamDetailsArea = () => {
   return (
@@ -13,9 +13,9 @@ const TeamDetailsArea = () => {
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="pt-45 pb-45 ps-xl-4 ps-lg-0 ps-3 pe-xl-4 pe-lg-3 pe-3 border-right h-100">
-                <h2 className="name fw-bold">Mathews Firlo.</h2>
-                <div className="post">Founder & CEO</div>
-                <h6 className="fw-bold">About Firlo.</h6>
+                <h2 className="name fw-bold">Bemoi George.</h2>
+                <div className="post">Managing Director</div>
+                <h6 className="fw-bold">About Bemoi.</h6>
                 <p>Before establishing Beratung in 2001, Mathew founded two Silicon Valley internet companies and later held management roles at Salomon in New York.</p>
                 <div className="social-share pt-35">
                   <ul className="style-none d-flex align-items-center">

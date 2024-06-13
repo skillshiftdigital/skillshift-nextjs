@@ -68,7 +68,7 @@ const BlockFeatureOne = ({style_2=false}:{style_2?:boolean}) => {
 					</div>
 
 					<div className="section-subheading sm-mt-40">
-						<p className="text-lg">Inciddnt ut labore et dolor magna aliu. enim ad mim venam, quis nostru </p>
+						<p className="text-lg">We provide a range of services focused on helping digital businesses grow and thrive.</p>
 						<Link href="/services/all-services" className="btn-three icon-link">
 							<span>See All Services</span>
 							<Image src={arrow} alt="arrow" className="lazy-img icon ms-1"/>

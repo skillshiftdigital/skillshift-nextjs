@@ -50,14 +50,14 @@ const ShopArea = () => {
           </p>
           <ul className="shop-filter-one style-none d-md-flex align-items-center">
             <li className="me-md-3 sm-mb-10">
-              <select onChange={handleSelectChange} className="theme-select-menu">
+              <select onChange={handleSelectChange} className="theme-select-menu" title="Sort by">
                 <option value="price">Price</option>
                 <option value="low">Price: low to high</option>
                 <option value="high">Price: high to low</option>
               </select>
             </li>
             <li className="me-md-3 sm-mb-10">
-              <select onChange={handleSelectChange} className="theme-select-menu">
+              <select onChange={handleSelectChange} className="theme-select-menu" title="Sort by">
                 <option value="">Category</option>
                 <option value="books">Books</option>
                 <option value="visiting-card">Visiting Card</option>
@@ -65,7 +65,7 @@ const ShopArea = () => {
               </select>
             </li>
             <li>
-              <select onChange={handleSelectChange} className="theme-select-menu">
+              <select onChange={handleSelectChange} className="theme-select-menu" title="Sort by">
                 <option value="">Popularity</option>
                 <option value="trending">Trending items</option>
                 <option value="new">Newest items</option>

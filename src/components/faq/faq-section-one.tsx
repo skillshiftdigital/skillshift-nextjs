@@ -17,8 +17,8 @@ const FaqSectionOne = ({cls}:{cls?:string}) => {
               <p className="text-lg mb-40 lg-mb-20">
                 The right skills to close the gaps.
               </p>
-              <Link href="/contact" className="btn-four">
-                Contact us
+              <Link href="/service/talent-acquisition-onboarding" className="btn-four">
+                More Details
               </Link>
             </div>
 

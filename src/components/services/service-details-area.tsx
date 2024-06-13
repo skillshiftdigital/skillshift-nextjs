@@ -7,7 +7,7 @@ import { sanityTypes } from "@/types/sanityTypes";
 import PricingArea from "@/components/pricing/pricing-area";
 
 // internal
-import service_img from "@/assets/images/media/img_53-min.jpg";
+import service_img from "@/assets/images/media/img_53-min.webp";
 import icon_1 from "@/assets/images/icon/icon_72.svg";
 import icon_2 from "@/assets/images/icon/icon_73.svg";
 import icon_3 from "@/assets/images/icon/icon_74.svg";
@@ -184,24 +184,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
                 </div>
               </div>
 
-              <div className="light-bg-deep quote-wrapper position-relative mb-60 lg-mb-40">
-                <div className="d-xl-flex align-items-start">
-                  <Image src={icon_13} alt="icon" className="lazy-img icon" />
-                  <div className="ps-xl-5">
-                    <blockquote>
-                    &quot;Creativity is intelligence having fun.&quot;
-                    </blockquote>
-                    <div>
-                      <span className="fw-bold">-Albert Einstein.</span>
-                    </div>
-                  </div>
-                </div>
-                <Image
-                  src={ils_icon}
-                  alt="ils_icon"
-                  className="lazy-img shapes shape_01"
-                />
-              </div>
+              
             </div>
           </div>
           

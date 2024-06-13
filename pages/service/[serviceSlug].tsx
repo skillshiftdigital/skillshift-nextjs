@@ -1,7 +1,6 @@
 // pages/[serviceSlug].tsx
-
 import React, { useEffect, useState } from 'react';
-import { sanityTypes } from '../../src/types/sanityTypes';
+import { sanityTypes, Pricing } from '@/types/sanityTypes';
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
@@ -12,8 +11,11 @@ import shape from "@/assets/images/shape/shape_27.svg";
 import ServiceDetailsArea from "@/components/services/service-details-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import { useRouter } from 'next/router';
-import { NextPageContext } from 'next';
+import { NextPageContext, GetServerSideProps } from 'next';
 import Head from 'next/head';
+import PricingArea from '@/components/pricing/pricing-area';
+import AddOnServices from '@/components/block-feature/add-on-services';
+import WhyChoose from '@/components/block-feature/why-choose';
 
 const defaultData: sanityTypes = {
   title: "",
@@ -28,62 +30,41 @@ const defaultData: sanityTypes = {
   objectivesPre: '',
   objectivesPost: '',
   _id: '',
-  slug: ''
+  slug: { current: '' },
 };
 
-const ServiceDetailsPage = () => {
+interface ServiceDetailsPageProps {
+  service: sanityTypes;
+}
+
+const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
   const router = useRouter();
-  const { serviceSlug } = router.query;
-  const [data, setData] = useState<sanityTypes | null>(defaultData);
-  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState<sanityTypes | null>(service);
 
   useEffect(() => {
-    async function fetchData() {
-      if (!serviceSlug) return;
-
-      try {
-        const response = await fetch(`/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result: sanityTypes[] = await response.json();
-        const publishedDocument = result.find(doc => !doc._id.startsWith('drafts.'));
-        
-        if (publishedDocument) {
-          setData(publishedDocument);
-          setIsLoading(false);
-        } else {
-          router.replace('/404');
-        }
-      } catch (error) {
-        console.error("Fetch error:", error);
-        router.replace('/404');
-      }
+    if (!service) {
+      router.replace('/404');
+    } else {
+      setData(service);
     }
+  }, [router, service]);
 
-    fetchData();
-  }, [router, serviceSlug]);
-
-  if (isLoading) {
+  if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <Wrapper>
       <Head>
-        <title>{data?.title} </title>
-        <meta
-          name="description"
-          content="{data?.shortDescription}"
-        />
+        <title>{data.title}</title>
+        <meta name="description" content={data.shortDescription} />
       </Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
         <main>
           <BreadcrumbOne
-            title={data?.title || ""}
-            subtitle="Offering solutions & services to address a spectrum of financial issues"
+            title={data.title}
+            subtitle="Offering solutions & services to address a spectrum of digital businesses needs."
             page="Services"
             shape={shape}
             bg_img={service_bg}
@@ -91,8 +72,10 @@ const ServiceDetailsPage = () => {
             cls="me-xl-4"
           />
           <ServiceDetailsArea data={data} />
+          <AddOnServices addOns={data.addOns} />
+          <PricingArea pricing={data.pricing} />
+          <WhyChoose />
           <FancyBannerThree />
-          <NewsletterBanner />
         </main>
         <FooterOne />
       </div>
@@ -100,7 +83,7 @@ const ServiceDetailsPage = () => {
   );
 }
 
-export async function getServerSideProps(context: NextPageContext) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { serviceSlug } = context.query;
 
   try {
@@ -120,7 +103,7 @@ export async function getServerSideProps(context: NextPageContext) {
     }
 
     return {
-      props: {}, // Add props if needed
+      props: { service: publishedDocument },
     };
   } catch (error) {
     return {

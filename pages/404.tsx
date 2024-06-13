@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 // internal
 import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/header/header-two";
+import HeaderTwoDark from "@/layout/header/header-two-dark";
 import FooterOne from "@/layout/footer/footer-one";
 import ils_1 from "@/assets/images/assets/ils_05.svg";
 import ils_2 from "@/assets/images/assets/ils_06.svg";
@@ -14,7 +14,7 @@ const NotFound = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderTwo />
+        <HeaderTwoDark />
         {/* header end */}
         <main>
           <div className="error-page text-center d-flex align-items-center justify-content-center flex-column white-bg position-relative">

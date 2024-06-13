@@ -36,8 +36,8 @@ const FooterOne = () => {
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
             <h5 className="footer-title">Technologies</h5>
             <ul className="footer-nav-link style-none">
-              <li><Link href="/contact">seoShift</Link></li>
-              <li><Link href="/contact">Kwiks</Link></li>
+              <li><Link href="https://seoshift.com.au">seoShift</Link></li>
+              <li><Link href="https://kwiks.com.au">Kwiks</Link></li>
               <li><Link href="/contact">Creative Labs</Link></li>
             </ul>
           </div>

@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { sanityTypes } from "../../src/types/sanityTypes";
+import { sanityTypes } from "@/types/sanityTypes";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
@@ -33,7 +33,7 @@ const defaultData: sanityTypes = {
   pricing: [],
   whyChoose: [],
   shortDescription: "",
-  slug: "",
+  slug: { current: "" },
   _id: "",
 };
 
@@ -182,7 +182,7 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
                     </div>
                   </div>
                 </div>
-                <div className="row justify-content-center">
+                <div className="row justify-content-center ">
                   {services?.map((service, index) => (
                     <div key={index} className="col-lg-4 col-md-6 d-flex wow fadeInUp">
                       <div className="card-style-two vstack tran3s w-100 mt-30">
