@@ -19,22 +19,6 @@ import icon_3 from "@/assets/images/icon/icon_05.svg";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 
-const defaultData: sanityTypes = {
-  title: "",
-  overview: "",
-  objectivesPre: "",
-  objectives: [],
-  objectivesPost: "",
-  services: [],
-  addOns: [],
-  customSolutions: [],
-  pricing: [],
-  whyChoose: [],
-  shortDescription: "",
-  slug: { current: "" },
-  _id: "",
-  style_2: undefined
-};
 
 type Service = {
   slug: string | { current: string };
