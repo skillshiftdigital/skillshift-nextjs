@@ -1,5 +1,3 @@
-// pages/services/[categorySlug].tsx
-
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -18,7 +16,7 @@ import icon from "@/assets/images/icon/icon_76.svg";
 import icon_1 from "@/assets/images/icon/icon_03.svg";
 import icon_2 from "@/assets/images/icon/icon_04.svg";
 import icon_3 from "@/assets/images/icon/icon_05.svg";
-import { NextPageContext } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 
 const defaultData: sanityTypes = {
@@ -35,6 +33,7 @@ const defaultData: sanityTypes = {
   shortDescription: "",
   slug: { current: "" },
   _id: "",
+  style_2: undefined
 };
 
 type Service = {
@@ -64,70 +63,40 @@ function UpperCardItem({
   );
 }
 
-const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
+interface ServiceDetailsPageProps {
+  validCategoryData: sanityTypes;
+  validServices: sanityTypes[];
+}
+
+const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryData, validServices }) => {
   const router = useRouter();
-  const { categorySlug } = router.query;
-  const [data, setData] = useState<sanityTypes | null>(defaultData);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [services, setServices] = useState<sanityTypes[] | null>(null);
+  const [data, setData] = useState<sanityTypes | null>(validCategoryData);
+  const [services, setServices] = useState<sanityTypes[] | null>(validServices);
 
   useEffect(() => {
-    async function fetchData() {
-      if (!categorySlug) return;
-      setLoading(true);
-      try {
-        const categoryResponse = await fetch(`/api/sanity?type=category&slug=${categorySlug}`);
-        if (!categoryResponse.ok) {
-          throw new Error(`HTTP error! status: ${categoryResponse.status}`);
-        }
-        const categoryData: sanityTypes[] = await categoryResponse.json();
-        const validCategoryData = categoryData.find(doc => !doc._id.startsWith('drafts.'));
-
-        if (!validCategoryData) {
-          router.replace('/404');
-          return;
-        }
-
-        setData(validCategoryData);
-
-        const categoryId = validCategoryData._id;
-        const servicesResponse = await fetch(`/api/sanity?type=services-digital-agencies&categoryId=${categoryId}`);
-        if (!servicesResponse.ok) {
-          throw new Error(`HTTP error! status: ${servicesResponse.status}`);
-        }
-        const servicesResult: sanityTypes[] = await servicesResponse.json();
-        const validServices = servicesResult.filter(service => !service._id.startsWith('drafts.'));
-        
-        setServices(validServices);
-      } catch (error) {
-        console.error("Fetch error:", error);
-        setError("Failed to load data");
-      } finally {
-        setLoading(false);
-      }
+    if (!validCategoryData) {
+      router.replace('/404');
+    } else {
+      setData(validCategoryData);
+      setServices(validServices);
     }
+  }, [router, validCategoryData, validServices]);
 
-    fetchData();
-  }, [categorySlug, router]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Wrapper>
       <Head>
-        <title>{data?.title} </title>
-        <meta
-          name="description"
-          content="{data?.shortDescription}"
-        />
+        <title>{data.title} - SkillShift</title>
+        <meta name="description" content={data.shortDescription} />
       </Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
         <main>
           <BreadcrumbOne
-            title={data?.title || ""}
+            title={data.title}
             subtitle="Offering solutions & services to address a spectrum of digital agency needs"
             page="Services"
             shape={shape}
@@ -136,14 +105,8 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
             cls="me-xl-4"
           />
 
-          <div
-            className={`block-feature-one position-relative ${
-              style_2
-                ? "light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60"
-                : "pt-75"
-            }`}
-          >
-            {!style_2 && (
+          <div className={`block-feature-one position-relative ${data.style_2 ? "light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60" : "pt-75"}`}>
+            {!data.style_2 && (
               <div className="upper-wrapper mb-110 lg-mb-80">
                 <div className="container">
                   <div className="row">
@@ -178,11 +141,11 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="title-one text-center text-md-start mb-30 sm-mb-10">
-                      <h2>We transform ideas into impact </h2>
+                      <h2>We transform ideas into impact</h2>
                     </div>
                   </div>
                 </div>
-                <div className="row justify-content-center ">
+                <div className="row justify-content-center">
                   {services?.map((service, index) => (
                     <div key={index} className="col-lg-4 col-md-6 d-flex wow fadeInUp">
                       <div className="card-style-two vstack tran3s w-100 mt-30">
@@ -217,8 +180,31 @@ const ServiceDetailsPage = ({ style_2 = false }: { style_2?: boolean }) => {
   );
 };
 
-export async function getServerSideProps(context: NextPageContext) {
-  const { categorySlug } = context.query;
+export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    const response = await fetch('https://skillshift-nextjs.vercel.app/api/sanity?type=category');
+    const categories = await response.json();
+
+    // Log the response for debugging
+    console.log('Categories Response:', categories);
+
+    if (!Array.isArray(categories)) {
+      throw new Error('Expected an array of categories');
+    }
+
+    const paths = categories.map((category: sanityTypes) => ({
+      params: { categorySlug: category.slug.current },
+    }));
+
+    return { paths, fallback: true };
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return { paths: [], fallback: true };
+  }
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { categorySlug } = context.params as { categorySlug: string };
 
   try {
     const categoryResponse = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=category&slug=${categorySlug}`);
@@ -251,12 +237,13 @@ export async function getServerSideProps(context: NextPageContext) {
         validCategoryData,
         validServices,
       },
+      revalidate: 60,
     };
   } catch (error) {
     return {
       notFound: true,
     };
   }
-}
+};
 
 export default ServiceDetailsPage;

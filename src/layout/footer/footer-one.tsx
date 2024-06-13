@@ -27,7 +27,7 @@ const FooterOne = () => {
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
             <h5 className="footer-title">skillshift</h5>
             <ul className="footer-nav-link style-none">
-              <li><Link href="/about">Company</Link></li>
+              <li><Link href="/about-us">Company</Link></li>
               <li><Link href="/contact">Internships</Link></li>
               <li><Link href="/contact">Social responsibility</Link></li>
               <li><Link href="/contact">Training Programs</Link></li>

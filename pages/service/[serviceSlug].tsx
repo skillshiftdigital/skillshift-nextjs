@@ -1,6 +1,5 @@
-// pages/[serviceSlug].tsx
 import React, { useEffect, useState } from 'react';
-import { sanityTypes, Pricing } from '@/types/sanityTypes';
+import { sanityTypes } from '@/types/sanityTypes';
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
@@ -11,7 +10,7 @@ import shape from "@/assets/images/shape/shape_27.svg";
 import ServiceDetailsArea from "@/components/services/service-details-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import { useRouter } from 'next/router';
-import { NextPageContext, GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import PricingArea from '@/components/pricing/pricing-area';
 import AddOnServices from '@/components/block-feature/add-on-services';
@@ -31,6 +30,7 @@ const defaultData: sanityTypes = {
   objectivesPost: '',
   _id: '',
   slug: { current: '' },
+  style_2: undefined
 };
 
 interface ServiceDetailsPageProps {
@@ -83,8 +83,31 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { serviceSlug } = context.query;
+export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    const response = await fetch('https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies');
+    const services = await response.json();
+
+    // Log the response for debugging
+    console.log('Services Response:', services);
+
+    if (!Array.isArray(services)) {
+      throw new Error('Expected an array of services');
+    }
+
+    const paths = services.map((service: sanityTypes) => ({
+      params: { serviceSlug: service.slug.current },
+    }));
+
+    return { paths, fallback: true };
+  } catch (error) {
+    console.error('Error fetching services:', error);
+    return { paths: [], fallback: true };
+  }
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { serviceSlug } = context.params as { serviceSlug: string };
 
   try {
     const response = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies&slug=${serviceSlug}`);
@@ -104,6 +127,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
       props: { service: publishedDocument },
+      revalidate: 60,
     };
   } catch (error) {
     return {

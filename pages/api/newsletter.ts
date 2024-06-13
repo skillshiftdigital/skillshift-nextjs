@@ -1,17 +1,6 @@
 // pages/api/newsletter.ts
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
-
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: parseInt(process.env.EMAIL_PORT || '587', 10),
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -47,16 +36,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       const result = await response.json();
-
-      // Send notification email
-      await transporter.sendMail({
-        from: `"Website Newsletter" <${process.env.EMAIL_USER}>`, // sender address
-        to: process.env.NOTIFICATION_EMAIL, // list of receivers
-        subject: 'New Newsletter Subscription', // Subject line
-        html: `<p>A new subscription has been created:</p>
-               <p><strong>Email:</strong> ${email}</p>`, // html body
-      });
-
       res.status(200).json({ success: true, result });
     } catch (error) {
       console.error('HubSpot API error:', error);
