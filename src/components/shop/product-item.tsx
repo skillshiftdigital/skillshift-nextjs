@@ -56,6 +56,7 @@ const ProductItem = ({ product }: { product: IProduct }) => {
           onClick={() => handleAddWishlist(product)}
           type="button"
           className={`cart-icon ${isWishlistActive ? "active" : ""}`}
+          title="Add to wishlist"
         >
           <i className="bi bi-suit-heart"></i>
         </button>

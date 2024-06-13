@@ -54,6 +54,7 @@ const CartItem = () => {
                   value={item.orderQuantity}
                   readOnly
                   className="product-value val"
+                  title="Order Quantity"
                 />
               </li>
               <li>

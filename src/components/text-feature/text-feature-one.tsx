@@ -54,10 +54,10 @@ const TextFeatureOne = ({ style_2 = false }: { style_2?: boolean }) => {
                   seoShift is an enterprise SEO warehouse that focuses on large scale SEO operations with simplicity and affordability on a pay-as-you-go basis.
                 </p>
                 <div className="d-inline-flex flex-wrap align-items-center">
-                  <Link href="/about-us" className="btn-four mt-15 me-4">
+                  <Link href="/technology" className="btn-four mt-15 me-4">
                     More About seoShift
                   </Link>
-                  <Link href="/contact" className="btn-three icon-link mt-15">
+                  <Link href="/technology" className="btn-three icon-link mt-15">
                     <span>skillshift Technologies</span>
                     <Image 
                       src={icon} 
@@ -69,9 +69,9 @@ const TextFeatureOne = ({ style_2 = false }: { style_2?: boolean }) => {
               <div className="col-xl-7 col-lg-6 wow fadeInRight">
                 <div className="media-list-item ms-auto pe-xxl-5 pe-4 ps-xxl-5 ps-4 pb-35 md-mt-60 d-flex align-items-end">
                   <ul className="style-none">
-                    <li>Mobile app easy management & access</li>
-                    <li>Ton’s of features for handle the card easily</li>
-                    <li>Strong security system.</li>
+                    <li>Own your data on your databases.</li>
+                    <li>Gather insights from different data points.</li>
+                    <li>Remove boundaries to great results.</li>
                   </ul>
                 </div>
               </div>
