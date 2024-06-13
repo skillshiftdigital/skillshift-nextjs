@@ -26,7 +26,7 @@ const PricingPage = () => {
           {/* breadcrumb end */}
 
           {/* pricing area start */}
-          <PricingArea />
+          <PricingArea pricing={[]}  />
           {/* pricing area end */}
 
           {/* fancy banner three start */}
