@@ -16,6 +16,21 @@ import PricingArea from '@/components/pricing/pricing-area';
 import AddOnServices from '@/components/block-feature/add-on-services';
 import WhyChoose from '@/components/block-feature/why-choose';
 
+const defaultData: sanityTypes = {
+  title: "",
+  overview: "",
+  objectives: [],
+  services: [],
+  addOns: [],
+  customSolutions: [],
+  pricing: [],
+  whyChoose: [],
+  shortDescription: '',
+  objectivesPre: '',
+  objectivesPost: '',
+  _id: '',
+  slug: { current: '' },
+};
 
 interface ServiceDetailsPageProps {
   service: sanityTypes;
