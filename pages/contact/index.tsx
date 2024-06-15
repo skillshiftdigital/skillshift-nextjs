@@ -1,3 +1,5 @@
+// pages/contact/index.tsx
+
 import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";

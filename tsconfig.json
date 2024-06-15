@@ -35,6 +35,6 @@
       "@/ui/*": ["./src/ui/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/sitemap.xml.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/sitemap.xml.js", "global.d.ts"],
   "exclude": ["node_modules"]
 }

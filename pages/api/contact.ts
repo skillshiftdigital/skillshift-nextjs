@@ -1,41 +1,76 @@
 // pages/api/contact.ts
 
 import { NextApiRequest, NextApiResponse } from 'next';
+import fetch from 'node-fetch';
 
 const hubspotContactsEndpoint = 'https://api.hubapi.com/crm/v3/objects/contacts';
-const hubspotEngagementsEndpoint = 'https://api.hubapi.com/engagements/v1/engagements';
+const hubspotEmailEndpoint = 'https://api.hubapi.com/marketing/v3/transactional/single-email/send';
 const hubspotApiKey = process.env.HUBSPOT_API_KEY;
+const hubspotEmailId = process.env.HUBSPOT_EMAIL_ID;
+const siteOwnerEmail = process.env.SITE_OWNER_EMAIL;
 
-const addNoteToContact = async (contactId: string, message: string) => {
-  const noteData = {
-    engagement: {
-      active: true,
-      type: 'NOTE',
-    },
-    associations: {
-      contactIds: [contactId],
-    },
-    metadata: {
-      body: `User tried to send a message via the website: ${message}`,
-    },
+async function fetchWithAuth(url: string, options: any) {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${hubspotApiKey}`,
   };
 
-  const response = await fetch(hubspotEngagementsEndpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${hubspotApiKey}`,
-    },
-    body: JSON.stringify(noteData),
-  });
-
+  const response = await fetch(url, { ...options, headers });
   if (!response.ok) {
-    const noteError = await response.json();
-    console.error('HubSpot API note error:', noteError);
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
+    const error: any = await response.json();
+    console.error('HubSpot API error:', error);
 
+    if (response.status === 409 && error.category === 'CONFLICT') {
+      console.log(`Contact already exists. Existing ID: ${error.message.split('Existing ID: ')[1]}`);
+      return { error: 'Contact already exists', details: error };
+    } else {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+  }
   return response.json();
+}
+
+const sendEmailToContact = async (contactEmail: string) => {
+  const emailData = {
+    emailId: hubspotEmailId,
+    message: {
+      to: contactEmail,
+    },
+    contactProperties: [
+      {
+        name: 'email',
+        value: contactEmail,
+      },
+    ],
+  };
+
+  await fetchWithAuth(hubspotEmailEndpoint, {
+    method: 'POST',
+    body: JSON.stringify(emailData),
+  });
+};
+
+const notifySiteOwner = async (contactEmail: string, message: string) => {
+  const emailData = {
+    emailId: hubspotEmailId,
+    message: {
+      to: siteOwnerEmail,
+      from: contactEmail,
+      subject: 'New Message Received',
+      text: `You have received a new message from ${contactEmail}:\n\n${message}`,
+    },
+    contactProperties: [
+      {
+        name: 'email',
+        value: siteOwnerEmail,
+      },
+    ],
+  };
+
+  await fetchWithAuth(hubspotEmailEndpoint, {
+    method: 'POST',
+    body: JSON.stringify(emailData),
+  });
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -43,7 +78,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { name, email, message, honeypot } = req.body;
 
     if (honeypot) {
-      // If honeypot field is filled, discard the submission
       res.status(400).json({ success: false, message: 'Spam detected' });
       return;
     }
@@ -57,70 +91,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     };
 
     try {
-      let response = await fetch(hubspotContactsEndpoint, {
+      const contactResponse: any = await fetchWithAuth(hubspotContactsEndpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${hubspotApiKey}`,
-        },
         body: JSON.stringify(data),
       });
 
-      if (response.status === 409) {
-        // Handle conflict error (contact already exists)
-        console.warn('Contact with this email already exists.');
-        
-        // Fetch the existing contact by email
-        const searchEndpoint = `https://api.hubapi.com/crm/v3/objects/contacts/search`;
-        const searchResponse = await fetch(searchEndpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${hubspotApiKey}`,
-          },
-          body: JSON.stringify({
-            filterGroups: [
-              {
-                filters: [
-                  {
-                    propertyName: 'email',
-                    operator: 'EQ',
-                    value: email,
-                  },
-                ],
-              },
-            ],
-          }),
+      if (contactResponse.error === 'Contact already exists') {
+        const existingContactId = contactResponse.details.message.split('Existing ID: ')[1];
+        await fetchWithAuth(`${hubspotContactsEndpoint}/${existingContactId}`, {
+          method: 'PATCH',
+          body: JSON.stringify({ properties: { website_form_message: message } }),
         });
-
-        if (!searchResponse.ok) {
-          const searchError = await searchResponse.json();
-          console.error('HubSpot API search error:', searchError);
-          throw new Error(`HTTP error! status: ${searchResponse.status}`);
-        }
-
-        const searchResult = await searchResponse.json();
-        if (searchResult.results.length > 0) {
-          const contactId = searchResult.results[0].id;
-
-          // Add a note to the existing contact
-          await addNoteToContact(contactId, message);
-
-          res.status(200).json({ success: true, message: 'Note added to existing contact.' });
-          return;
-        } else {
-          throw new Error('Contact not found');
-        }
-      } else if (!response.ok) {
-        const creationError = await response.json();
-        console.error('HubSpot API creation error:', creationError);
-        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json();
-      res.status(200).json({ success: true, result });
+      await sendEmailToContact(email);
+      await notifySiteOwner(email, message);
+
+      res.status(200).json({ success: true, message: 'Contact created or updated successfully.' });
     } catch (error) {
-      console.error('HubSpot API error:', error);
+      console.error('Failed to submit data to HubSpot:', error);
       res.status(500).json({ success: false, message: 'Failed to submit data to HubSpot' });
     }
   } else {

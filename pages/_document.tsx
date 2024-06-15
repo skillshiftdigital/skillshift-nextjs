@@ -34,6 +34,13 @@ class MyDocument extends Document {
           </noscript>
           <Main />
           <NextScript />
+          
+          {/* HubSpot Embed Code */}
+          <Script
+            id="hs-script-loader"
+            strategy="afterInteractive"
+            src="//js.hs-scripts.com/40167629.js"
+          />
         </body>
       </Html>
     );

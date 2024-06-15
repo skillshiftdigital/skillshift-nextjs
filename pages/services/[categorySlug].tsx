@@ -19,7 +19,6 @@ import icon from "@/assets/images/icon/icon_76.svg";
 import icon_1 from "@/assets/images/icon/icon_03.svg";
 import icon_2 from "@/assets/images/icon/icon_04.svg";
 import icon_3 from "@/assets/images/icon/icon_05.svg";
-import { NextPageContext } from "next";
 import Head from "next/head";
 
 const defaultData: sanityTypes = {
@@ -46,8 +45,8 @@ interface ServiceDetailsPageProps {
   validCategoryData: sanityTypes;
   validServices: sanityTypes[];
   style_2?: boolean;
-
 }
+
 // card style one item
 function UpperCardItem({
   icon,
@@ -94,6 +93,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const { categorySlug } = context.params as { categorySlug: string };
 
@@ -137,6 +137,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 };
 
+
+
 const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryData, validServices, style_2 = false }) => {
   const router = useRouter();
   const [data, setData] = useState<sanityTypes | null>(validCategoryData);
@@ -159,10 +161,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
     <Wrapper>
       <Head>
         <title>{data?.title} - skillshift</title>
-        <meta
-          name="description"
-          content="{data?.shortDescription}"
-        />
+        <meta name="description" content={data?.shortDescription || "Default description"} />
       </Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
@@ -177,13 +176,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
             cls="me-xl-4"
           />
 
-          <div
-            className={`block-feature-one position-relative ${
-              style_2
-                ? "light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60"
-                : "pt-75"
-            }`}
-          >
+          <div className={`block-feature-one position-relative ${style_2 ? "light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60" : "pt-75"}`}>
             {!style_2 && (
               <div className="upper-wrapper mb-110 lg-mb-80">
                 <div className="container">
@@ -219,11 +212,11 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
                 <div className="row">
                   <div className="col-md-6">
                     <div className="title-one text-center text-md-start mb-30 sm-mb-10">
-                      <h2>We transform ideas into impact </h2>
+                      <h2>We transform ideas into impact</h2>
                     </div>
                   </div>
                 </div>
-                <div className="row justify-content-center ">
+                <div className="row justify-content-center">
                   {services?.map((service, index) => (
                     <div key={index} className="col-lg-4 col-md-6 d-flex wow fadeInUp">
                       <div className="card-style-two vstack tran3s w-100 mt-30">
@@ -257,6 +250,5 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
     </Wrapper>
   );
 };
-
 
 export default ServiceDetailsPage;

@@ -1,3 +1,4 @@
+// pages/api/sanity.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import sanityClient from '@/utils/sanity/client';
 
@@ -29,6 +30,12 @@ export default async function handler(
       _id,
       slug
     }`;
+  } else if (type === 'category') {
+    query = `*[_type == "${type}"]{
+      title,
+      slug,
+      _id
+    }`;
   } else if (type && slug) {
     query = `*[_type == "${type}" && slug.current == "${slug}"]{
       title,
@@ -44,7 +51,6 @@ export default async function handler(
       whyChoose,
       _id
     }`;
-    
   } else {
     res.status(400).json({ message: 'Missing slug parameter for type' });
     return;
