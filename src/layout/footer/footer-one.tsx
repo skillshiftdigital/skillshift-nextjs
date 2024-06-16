@@ -28,9 +28,9 @@ const FooterOne = () => {
             <h5 className="footer-title">skillshift</h5>
             <ul className="footer-nav-link style-none">
               <li><Link href="/about-us">Company</Link></li>
-              <li><Link href="/contact">Internships</Link></li>
-              <li><Link href="/contact">Social responsibility</Link></li>
-              <li><Link href="/contact">Training Programs</Link></li>
+              <li><Link href="/services/creative-services">Creative</Link></li>
+              <li><Link href="/services/engineering-services">Engineering</Link></li>
+              <li><Link href="/services/digital-transformation">Transformation</Link></li>
             </ul>
           </div>
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
@@ -44,10 +44,8 @@ const FooterOne = () => {
           <div className="col-xl-2 col-md-3 col-sm-4 mb-20">
             <h5 className="footer-title">Support</h5>
             <ul className="footer-nav-link style-none">
-              <li><Link href="/contact">Terms of use</Link></li>
-              <li><Link href="/contact">Terms & conditions</Link></li>
+              <li><Link href="/contact">Contact us</Link></li>
               <li><Link href="/privacy-policy">Privacy</Link></li>
-              <li><Link href="/contact">Cookie policy</Link></li>
             </ul>
           </div>
         </div>

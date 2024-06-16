@@ -1,3 +1,5 @@
+// pages/index.tsx
+
 import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";

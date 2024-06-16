@@ -34,6 +34,8 @@ const HeroBannerTwo = () => {
               layout="fill"
               objectFit="cover"
               quality={100}
+              height={1000}
+              width={1920}
               priority
             />
           </div>
