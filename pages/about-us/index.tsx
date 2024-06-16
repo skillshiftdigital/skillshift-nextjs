@@ -19,7 +19,7 @@ const AboutUsPage = () => {
   return (
     <Wrapper>
       <Head>
-        <title>About - skillshift </title>
+        <title>About - skillshift</title>
         <meta
           name="description"
           content="We are a digital consulting firm assisting digital businesses to grow with a focus on people, data & growth."

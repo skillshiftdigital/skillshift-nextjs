@@ -98,30 +98,50 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { categorySlug } = context.params as { categorySlug: string };
 
   try {
-    const categoryResponse = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=category&slug=${categorySlug}`);
-    if (!categoryResponse.ok) {
+    console.log(`Fetching data for category slug: ${categorySlug}`);
+
+    // Fetch category data by slug
+    const categoryResponse = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=category`);
+    const categories: sanityTypes[] = await categoryResponse.json();
+
+    if (!categoryResponse.ok || !categories.length) {
+      console.error(`Failed to fetch category data`);
       return {
         notFound: true,
       };
     }
-    const categoryData: sanityTypes[] = await categoryResponse.json();
-    const validCategoryData = categoryData.find(doc => !doc._id.startsWith('drafts.'));
+
+    // Log the fetched categories data
+    console.log(`Fetched categories data:`, categories);
+
+    // Find the valid category data based on the slug
+    const validCategoryData = categories.find(category => category.slug.current === categorySlug);
 
     if (!validCategoryData) {
+      console.error(`No valid category data found for slug: ${categorySlug}`);
       return {
         notFound: true,
       };
     }
 
+    console.log(`Valid category data for slug: ${categorySlug}`, validCategoryData);
+
+    // Fetch services associated with the valid category
     const categoryId = validCategoryData._id;
     const servicesResponse = await fetch(`https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies&categoryId=${categoryId}`);
-    if (!servicesResponse.ok) {
+    const servicesResult: sanityTypes[] = await servicesResponse.json();
+
+    if (!servicesResponse.ok || !servicesResult.length) {
+      console.error(`Failed to fetch services data for category ID: ${categoryId}`);
       return {
         notFound: true,
       };
     }
-    const servicesResult: sanityTypes[] = await servicesResponse.json();
+
+    // Filter out draft services
     const validServices = servicesResult.filter(service => !service._id.startsWith('drafts.'));
+
+    console.log(`Valid services for category ID: ${categoryId}`, validServices);
 
     return {
       props: {
@@ -131,13 +151,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
       revalidate: 60,
     };
   } catch (error) {
+    console.error(`Error in getStaticProps for category slug: ${categorySlug}`, error);
     return {
       notFound: true,
     };
   }
 };
-
-
 
 const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryData, validServices, style_2 = false }) => {
   const router = useRouter();
@@ -174,7 +193,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
             bg_img={service_bg}
             style_2={true}
             cls="me-xl-4"
-          />
+          />  
 
           <div className={`block-feature-one position-relative ${style_2 ? "light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60" : "pt-75"}`}>
             {!style_2 && (

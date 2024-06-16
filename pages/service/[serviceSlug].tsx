@@ -72,8 +72,8 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
           />
           <ServiceDetailsArea data={data} />
           <AddOnServices addOns={data.addOns} />
-          <PricingArea pricing={data.pricing} />
-          <WhyChoose />
+{/*           <PricingArea pricing={data.pricing} />
+ */}          <WhyChoose />
           <FancyBannerThree />
         </main>
         <FooterOne />
