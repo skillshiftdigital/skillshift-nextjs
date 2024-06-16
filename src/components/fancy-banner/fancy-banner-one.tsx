@@ -17,13 +17,6 @@ const FancyBannerOne = () => {
               <h3 className="fw-bold">included in 50+</h3>
               <p className="text-md m0">Dedicated upskilling and transformation programs</p>
             </div>
-{/*             <Image
-              src={screen}
-              width={}
-              alt="screen"
-              className="lazy-img screen me-xxl-5"
-              style={{height:'auto'}}
-            /> */}
           </div>
         </div>
       </div>
