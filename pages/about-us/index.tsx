@@ -62,11 +62,11 @@ const AboutUsPage = () => {
  */}          {/* feedback one end */}
 
           {/* partner logo start */}
-          <div className="partner-logo-one pt-80 lg-pt-40 pb-80 lg-pb-40">
+{/*           <div className="partner-logo-one pt-80 lg-pt-40 pb-80 lg-pb-40">
             <div className="container">
               <PartnersSliderOne />
             </div>
-          </div>
+          </div> */}
           {/* partner logo end */}
 
 
