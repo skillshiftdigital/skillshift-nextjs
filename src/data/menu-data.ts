@@ -14,6 +14,7 @@ const menu_data:IMenu[] = [
     dropdown:true,
     dropdown_menus:[
       { link: '/services/strategic-services', title: 'Strategic Services' },
+      { link: '/services/digital-services', title: 'Digital Marketing' },
       { link: '/services/digital-transformation', title: 'Digital Transformation' },
       { link: '/services/service-diversification', title: 'Service Diversification' },
       { link: '/services/operational-support', title: 'Operational Support' },

@@ -26,13 +26,21 @@ const service_data:IService[] = [
   {
     id:2,
     icon:icon_5,
+    title:'Digital Marketing',
+    desc: 'Digital Marketing services catered for business of all sizes from small to enterprise.',
+    page:'servicesNine',
+    link:'/services/digital-services'
+  },
+  {
+    id:3,
+    icon:icon_5,
     title: 'Digital Transformation',
     desc: 'Integration of digital technologies to alter operations, enhance value delivery, and foster a culture of innovation.',
     page:'servicesNine',
     link:'/services/digital-transformation'
   },
   {
-    id:3,
+    id:4,
     icon:icon_5,
     title: 'Service Diversification',
     desc: 'Assisting agencies in launching new service lines like Data & Analytics, AI, SEO, and Affiliates.',
@@ -40,7 +48,7 @@ const service_data:IService[] = [
     link:'/services/service-diversification'
   },
   {
-    id:4,
+    id:5,
     icon:icon_5,
     title: 'Operational Support',
     desc: 'Providing temporary staffing solutions to fill gaps until permanent hires are made, ensuring continuity of service.',
@@ -48,7 +56,7 @@ const service_data:IService[] = [
     link:'/services/operational-support'
   },
   {
-    id:5,
+    id:6,
     icon:icon_5,
     title: 'Training & Development',
     desc: 'Training staff on digital tools, leadership, and creative thinking to enhance their skill sets.',
@@ -56,7 +64,7 @@ const service_data:IService[] = [
     link:'/services/training-development'
   },
   {
-    id:6,
+    id:7,
     icon:icon_5,
     title: 'HR Services',
     desc: 'Streamlined hiring processes to meet digital innovation needs and smooth integration of new hires.',
@@ -64,7 +72,7 @@ const service_data:IService[] = [
     link:'/services/hr-services'
   },
   {
-    id:7,
+    id:8,
     icon:icon_5,
     title: 'Engineering Services',
     desc: 'Creating and integrating custom tools specific to agency needs, such as analytics and client service delivery platforms.',
@@ -72,7 +80,7 @@ const service_data:IService[] = [
     link:'/services/engineering-services'
   },
   {
-    id:8,
+    id:9,
     icon:icon_5,
     title: 'Creative Services',
     desc: 'Producing visually striking content for key campaigns to achieve significant performance impact.',
@@ -80,7 +88,7 @@ const service_data:IService[] = [
     link:'/services/creative-services'
   },
   {
-    id:9,
+    id:10,
     icon:icon_5,
     title: 'Technical Support',
     desc: 'Providing ongoing support and iterative improvements post-launch to ensure product longevity and success.',
@@ -88,7 +96,7 @@ const service_data:IService[] = [
     link:'/services/technical-support'
   },
   {
-    id: 10,
+    id: 11,
     icon: icon_5,
     title: 'Advanced Branding Consultation',
     desc: 'Elevate your brand with strategic consultation designed to refine and enhance your brand identity and presence.',
@@ -96,7 +104,7 @@ const service_data:IService[] = [
     link:'/services/advanced-branding-consultation'
 },
 {
-    id: 11,
+    id: 11.5,
     icon: icon_5,
     title: 'Advanced Programmatic Advertising',
     desc: 'Leverage cutting-edge programmatic advertising techniques to optimize ad spend and target audiences more effectively.',
