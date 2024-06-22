@@ -29,15 +29,13 @@ const HeroBannerTwo = () => {
         {slider_bg.map((bg, i) => (
           <div className="item m0" key={i} style={{ position: 'relative', width: '100%', height: '100vh' }}>
             <Image
-              src={bg.src}
-              alt={`Background image ${i + 1}`}
-              layout="fill"
-              objectFit="cover"
-              quality={100}
-              height={1000}
-              width={1920}
-              priority
-            />
+  src={bg.src}
+  alt={`Background image ${i + 1}`}
+  layout="fill"
+  objectFit="cover"
+  quality={100}
+  priority
+/>
           </div>
         ))}
       </Slider>

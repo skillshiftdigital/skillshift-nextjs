@@ -55,7 +55,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
   return (
     <Wrapper>
       <Head>
-        <title>{data.title}</title>
+        <title>{data.title} - skillshift</title>
         <meta name="description" content={data.shortDescription} />
       </Head>
       <div className="main-page-wrapper">
@@ -64,7 +64,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
           <BreadcrumbOne
             title={data.title}
             subtitle="Offering solutions & services to address a spectrum of digital businesses needs."
-            page="Services"
+            page={`Services / ${data?.title}`}
             shape={shape}
             bg_img={service_bg}
             style_2={true}
@@ -84,7 +84,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const response = await fetch('https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies');
+    const response = await fetch('https://skillshift-nextjs.vercel.app/api/sanity?type=services-digital-agencies&slug=${serviceSlug}');
     const services = await response.json();
 
     // Log the response for debugging

@@ -55,8 +55,8 @@ const HeaderTwoDark = () => {
         </header>
   
         {/* login modal start */}
-        <LoginModal/>
-        {/* login modal end */}
+{/*         <LoginModal/>
+ */}        {/* login modal end */}
       </>
     );
   };

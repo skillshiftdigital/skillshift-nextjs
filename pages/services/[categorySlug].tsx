@@ -179,7 +179,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
   return (
     <Wrapper>
       <Head>
-        <title>{data?.title} - skillshift</title>
+        <title>{data.title} - skillshift</title>
         <meta name="description" content={data?.shortDescription || "Default description"} />
       </Head>
       <div className="main-page-wrapper">
