@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /user/
+Disallow: /api/
+Disallow: /config/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.log$
+Allow: /sitemap.xml
+
+Sitemap: https://www.skillshift.com.au/sitemap.xml
