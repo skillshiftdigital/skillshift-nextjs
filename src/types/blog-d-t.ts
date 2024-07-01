@@ -1,4 +1,4 @@
-// @/components/types/blog-d-t.ts
+//@/components/types/blog-d-t.ts
 
 export type WPPost = {
   id: number;
@@ -10,3 +10,4 @@ export type WPPost = {
   content: { rendered: string };
 
 };
+

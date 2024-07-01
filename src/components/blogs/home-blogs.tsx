@@ -1,3 +1,5 @@
+//src/components/blogs/home-blogs.tsx
+
 import React from "react";
 import Image from "next/image";
 // internal
@@ -6,6 +8,8 @@ import Image from "next/image";
  */import icon_1 from '@/assets/images/icon/icon_27.svg';
 import shape from '@/assets/images/shape/shape_06.svg';
 import Link from "next/link";
+
+//import BlogGridArea from '@/components/blogs/blog-grid-area';
 
 const HomeBlogs = ({cls}:{cls?:string}) => {
 /*   const blog_item = blog_data.filter((b) => b.page === "home");

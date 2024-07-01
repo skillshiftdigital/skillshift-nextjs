@@ -10,7 +10,7 @@ interface WPPost {
   excerpt: { rendered: string };
   date: string;
   featured_media: number;  // ID of the featured media
-  slug?: string;  // Adding slug to interface
+  slug: string;  // Adding slug to interface
   _embedded?: any;  // Embedded field for additional linked resources
 }
 
