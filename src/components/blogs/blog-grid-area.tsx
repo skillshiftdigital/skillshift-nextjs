@@ -64,7 +64,7 @@ const BlogGridArea: React.FC = () => {
                       backgroundImage: post.mainImage && post.mainImage.asset ? `url(${urlFor(post.mainImage.asset._ref).width(800).url()})` : 'defaultBackgroundImageUrl',
                     }}
                   >
-                    <Link href={`/blog/${post.slug.current}`}>
+                    <Link href={`/resources/${post.slug.current}`}>
                       <div className="stretched-link rounded-5 date tran3s">
                         {new Date(post.publishedAt).toLocaleDateString('en-US', {
                           year: 'numeric',
@@ -76,10 +76,10 @@ const BlogGridArea: React.FC = () => {
                   </figure>
                   <div className="post-data">
                     <div className="d-flex justify-content-between align-items-center flex-wrap">
-                      <Link href={`/blog/${post.slug.current}`}>
+                      <Link href={`/resources/${post.slug.current}`}>
                         <h4 className="blog-title">{post.title}</h4>
                       </Link>
-                      <Link href={`/blog/${post.slug.current}`}>
+                      <Link href={`/resources/${post.slug.current}`}>
                         <div className="round-btn rounded-circle d-flex align-items-center justify-content-center tran3s">
                           <i className="bi bi-arrow-up-right"></i>
                         </div>
