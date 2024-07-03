@@ -52,7 +52,7 @@ At SkillShift, we provide businesses with practical, tailored & future-proof sol
           </div>
           <div className="col-xxl-6 col-lg-5 d-flex order-lg-first wow fadeInLeft">
             <div className="media-wrapper w-100 position-relative">
-              <Image src={screen_1} alt="screen" className="lazy-img shapes screen_01" style={imageStyle}/>
+              <Image src={shape} alt="screen" className="lazy-img shapes screen_01" style={imageStyle}/>
             </div>
           </div>
         </div>

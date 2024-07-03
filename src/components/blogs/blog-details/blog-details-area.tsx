@@ -1,18 +1,28 @@
 import React from "react";
-/* import BlogSidebar from "../blog-sidebar";
- */import BlogDetailsCommentArea from "./blog-details-comment-area";
+import BlogDetailsCommentArea from "./blog-details-comment-area";
 import BlogDetailsForm from "@/components/forms/blog-details-form";
-import { WPPost } from "@/types/blog-d-t";
+import imageUrlBuilder from '@sanity/image-url';
+import client from '@/utils/sanity/client';
 
-const BlogDetailsArea = ({ blog }: { blog: WPPost }) => {
-  const {
-    date,
-    title: { rendered: titleRendered },
-    excerpt: { rendered: excerptRendered },
-    content: { rendered: ContentRendered },
-    featured_media_src_url,
-  } = blog;
+const builder = imageUrlBuilder(client);
 
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+// Define the structure of a BlogPost
+interface BlogPost {
+  _id: string;
+  title: string;
+  publishedAt: string;
+  slug: { current: string };
+  author: { _ref: string };
+  mainImage: { asset: { _ref: string } };
+  body: { _key: string, _type: string, children: { _key: string, _type: string, text: string }[], style: string }[];
+  categories: { _key: string, _ref: string }[];
+}
+
+const BlogDetailsArea = ({ blog }: { blog: BlogPost }) => {
   return (
     <div className="blog-details position-relative mt-150 lg-mt-80 mb-150 lg-mb-80">
       <div className="container">
@@ -21,45 +31,34 @@ const BlogDetailsArea = ({ blog }: { blog: WPPost }) => {
             <article className="blog-meta-two style-two">
               <figure
                 className="post-img position-relative d-flex align-items-end m0"
-                style={{ backgroundImage: `url(${featured_media_src_url})` }}
+                style={{ backgroundImage: `url(${urlFor(blog.mainImage.asset._ref).width(800).url()})` }}
               >
-                <div className="date">{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                <div className="date">
+                  {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </div>
               </figure>
               <div className="post-data">
-                <div className="post-info" dangerouslySetInnerHTML={{ __html: excerptRendered }} />
+                <div className="post-info">
+                  {blog.body && blog.body.length > 0 && blog.body[0].children && blog.body[0].children.length > 0
+                    ? blog.body[0].children[0].text
+                    : 'No content available'}
+                </div>
                 <div className="blog-title">
-                  <h4 dangerouslySetInnerHTML={{ __html: titleRendered }} />
+                  <h4>{blog.title}</h4>
                 </div>
                 <div className="post-details-meta">
-                <h4 dangerouslySetInnerHTML={{ __html: ContentRendered }} />
+                  {blog.body.map((block) => (
+                    <div key={block._key}>
+                      {block.children.map((child) => (
+                        <p key={child._key}>{child.text}</p>
+                      ))}
+                    </div>
+                  ))}
                 </div>
-                {/* Example of tag and share links, make sure these are dynamically generated or relevant */}
-                {/* <div className="bottom-widget d-sm-flex align-items-center justify-content-between">
-                  <ul className="d-flex align-items-center tags style-none pt-20">
-                    <li>Tag:</li>
-                    <li>
-                      <Link href="#"><a>Finance</a></Link>
-                    </li>
-                    <li>
-                      <Link href="#"><a>Loan</a></Link>
-                    </li>
-                    <li>
-                      <Link href="#"><a>Banking</a></Link>
-                    </li>
-                  </ul>
-                  <ul className="d-flex share-icon align-items-center style-none pt-20">
-                    <li>Share:</li>
-                    <li>
-                      <Link href="#"><a><i className="bi bi-facebook"></i></a></Link>
-                    </li>
-                    <li>
-                      <Link href="#"><a><i className="bi bi-twitter"></i></a></Link>
-                    </li>
-                    <li>
-                      <Link href="#"><a><i className="bi bi-instagram"></i></a></Link>
-                    </li>
-                  </ul>
-                </div> */}
               </div>
             </article>
             <BlogDetailsCommentArea />
@@ -79,8 +78,8 @@ const BlogDetailsArea = ({ blog }: { blog: WPPost }) => {
             </div>
           </div>
           <div className="col-lg-4 col-md-8">
-{/*             <BlogSidebar />
- */}          </div>
+            {/* <BlogSidebar /> */}
+          </div>
         </div>
       </div>
     </div>

@@ -1,35 +1,97 @@
-// components/blogs/BlogGridArea.tsx
+'use client';
+import React, { useEffect, useState } from 'react';
+import usePagination from '@/hooks/use-pagination';
+import Pagination from '@/ui/pagination';
+import client from '@/utils/sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
+import Link from 'next/link';
 
-'use client'
-import React, { useEffect, useState } from "react";
-import BlogGridItem from "./blog-item/blog-grid-item";
-import usePagination from "@/hooks/use-pagination";
-import Pagination from "@/ui/pagination";
-import { WPPost } from "@/types/blog-d-t";
+const builder = imageUrlBuilder(client);
 
-const BlogGridArea = () => {
-  const [posts, setPosts] = useState<WPPost[]>([]);
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+// Define the structure of a BlogPost
+interface BlogPost {
+  _id: string;
+  title: string;
+  publishedAt: string;
+  slug: { current: string };
+  author: { _ref: string };
+  mainImage: { asset: { _ref: string } };
+  body: { _key: string, _type: string, children: { _key: string, _type: string, text: string }[], style: string }[];
+  categories: { _key: string, _ref: string }[];
+}
+
+const BlogGridArea: React.FC = () => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch('/api/wordpress');
-      const data = await response.json();
-      setPosts(data);
+      const query = `
+        *[_type == "blogPost"] {
+          _id,
+          title,
+          publishedAt,
+          slug,
+          author,
+          mainImage,
+          body,
+          categories
+        }
+      `;
+      const result = await client.fetch(query);
+      setPosts(result);
     };
 
     fetchPosts();
   }, []);
 
-  const { currentItems, handlePageClick, pageCount } = usePagination<WPPost>(posts, 4);
+  const { currentItems, handlePageClick, pageCount } = usePagination<BlogPost>(posts, 4);
 
   return (
     <div className="blog-section-two position-relative mt-150 lg-mt-80 mb-150 lg-mb-80">
       <div className="container">
         <div className="position-relative">
           <div className="row gx-xxl-5">
-            {currentItems.map((post, index) => (
-              <div key={index} className="col-md-6">
-                <BlogGridItem blog={post} />
+            {currentItems.map((post) => (
+              <div key={post._id} className="col-md-6">
+                <article className="blog-meta-two mb-80 lg-mb-50 wow fadeInUp" data-wow-delay="0.1s">
+                  <figure
+                    className="post-img rounded-5 position-relative d-flex align-items-end m0"
+                    style={{
+                      backgroundImage: post.mainImage && post.mainImage.asset ? `url(${urlFor(post.mainImage.asset._ref).width(800).url()})` : 'defaultBackgroundImageUrl',
+                    }}
+                  >
+                    <Link href={`/blog/${post.slug.current}`}>
+                      <div className="stretched-link rounded-5 date tran3s">
+                        {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </div>
+                    </Link>
+                  </figure>
+                  <div className="post-data">
+                    <div className="d-flex justify-content-between align-items-center flex-wrap">
+                      <Link href={`/blog/${post.slug.current}`}>
+                        <h4 className="blog-title">{post.title}</h4>
+                      </Link>
+                      <Link href={`/blog/${post.slug.current}`}>
+                        <div className="round-btn rounded-circle d-flex align-items-center justify-content-center tran3s">
+                          <i className="bi bi-arrow-up-right"></i>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="post-info">
+                      {post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0
+                        ? post.body[0].children[0].text
+                        : 'No content available'}
+                    </div>
+                  </div>
+                </article>
               </div>
             ))}
           </div>
