@@ -1,8 +1,18 @@
-import React from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
-import client from '@/utils/sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
+// pages/blog/[blogSlug].tsx
+
+import React from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useRouter } from "next/router";
+import client from "@/utils/sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
+import Wrapper from "@/layout/wrapper";
+import HeaderTwo from "@/layout/header/header-two";
+import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
+import FooterOne from "@/layout/footer/footer-one";
+import shape from "@/assets/images/shape/shape_26.svg";
+import service_bg from "@/assets/images/media/img_32.jpg";
+import { PortableText } from '@portabletext/react';
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
@@ -16,10 +26,10 @@ interface BlogPost {
   title: string;
   publishedAt: string;
   slug: { current: string };
-  author: { _ref: string };
+  author: { name: string };
   mainImage: { asset: { _ref: string } };
-  body: { _key: string, _type: string, children: { _key: string, _type: string, text: string }[], style: string }[];
-  categories: { _key: string, _ref: string }[];
+  body: any;
+  categories: { title: string}[];
 }
 
 interface BlogPostProps {
@@ -34,36 +44,94 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
-      {post.mainImage && (
-        <img
-          src={urlFor(post.mainImage.asset._ref).width(800).url()}
-          alt={post.title}
-        />
-      )}
-      <div>
-        {post.body.map((block) => (
-          <div key={block._key}>
-            {block.children.map((child) => (
-              <p key={child._key}>{child.text}</p>
-            ))}
+    <Wrapper>
+      <div className="main-page-wrapper">
+        {/* header start */}
+        <HeaderTwo />
+        {/* header end */}
+
+        <main>
+          {/* breadcrumb start */}
+          <BreadcrumbOne
+            title="Insights & resources"
+            subtitle="Explore our latest insights and resources, including blogs, articles, and more."
+            page="insights"
+            shape={shape}
+            bg_img={service_bg}
+            style_2={true}
+            cls="me-xxl-4 me-lg-5"
+          />
+
+          <div className="blog-details position-relative mt-150 lg-mt-80 mb-150 lg-mb-80">
+            <div className="container">
+              <div className="row gx-xl-5">
+                <div className="col-lg-8">
+
+                  <article className="blog-meta-two style-two">
+                  <figure
+                className="post-img position-relative d-flex align-items-end m0"
+                style={{ backgroundImage: `url(${urlFor(post.mainImage.asset._ref).width(800).url()})` }}
+              >
+                  <div className="date">
+                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </div>
+                  </figure>
+
+                  <div className="post-data">
+                      <div className="post-info">
+                        <Link href={`/blog/author/${post.author.name}`}>
+                          {post.author.name}
+                        </Link> 
+                        {post.categories && post.categories.length > 0 && (
+                          <span>
+                            {` / `}
+                            {post.categories.map((category, index) => (
+                              <span key={category.title}>
+                                <Link href={`/blog/category/${category.title}`}>
+                                  {category.title}
+                                </Link>
+                                {index < post.categories.length - 1 && ', '}
+                              </span>
+                            ))}
+                          </span>
+                        )}
+                      </div>
+
+
+                <div className="blog-title">
+                    <h4>{post.title}</h4>
+                </div>    
+
+                    <div className="post-details-meta">
+                      <PortableText value={post.body} />
+                    </div>
+                  </div>
+                  </article>
+
+                </div>
+              </div>
+            </div>
           </div>
-        ))}
+
+          <FooterOne />
+        </main>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const query = `
-    *[_type == "blogPost"] {
-      slug {
-        current
-      }
-    }
-  `;
+            *[_type == "blogPost"] {
+              slug {
+              current
+              }
+            }
+            `;
   const posts = await client.fetch(query);
 
   const paths = posts.map((post: { slug: { current: string } }) => ({
@@ -76,17 +144,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { blogSlug } = context.params!;
   const query = `
-    *[_type == "blogPost" && slug.current == $blogSlug][0] {
-      _id,
-      title,
-      publishedAt,
-      slug,
-      author,
-      mainImage,
-      body,
-      categories
-    }
-  `;
+            *[_type == "blogPost" && slug.current == $blogSlug][0] {
+              _id,
+              title,
+              publishedAt,
+              slug,
+              author ->{name},
+              mainImage,
+              body,
+              categories[] -> {title}
+            }
+            `;
   const post = await client.fetch(query, { blogSlug });
 
   return {

@@ -33,7 +33,7 @@ const BlogDetailsArea = ({ blog }: { blog: WPPost }) => {
                   <h4>{title}</h4>
                 </div>
                 <div className="post-details-meta">
-                  <h4>{body}</h4>
+                  <h4>{title}</h4>
                 </div>
               </div>
             </article>
