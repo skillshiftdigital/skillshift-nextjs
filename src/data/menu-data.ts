@@ -27,6 +27,17 @@ const menu_data:IMenu[] = [
   },
   {
     id:3,
+    link:'/resources',
+    title:'Resources',
+    /* dropdown:true,
+    dropdown_menus:[
+      {link:'/blog',title:'Blog List'},
+      {link:'/blog-grid',title:'Blog Grid'},
+      {link:'/blog-details',title:'Blog Details'},
+    ] */
+  },
+  {
+    id:4,
     link:'/contact',
     title:'Contact',
     /* dropdown:true,
@@ -36,6 +47,7 @@ const menu_data:IMenu[] = [
       {link:'/blog-details',title:'Blog Details'},
     ] */
   },
+  
 
 ]
 
