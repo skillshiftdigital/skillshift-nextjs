@@ -1,10 +1,12 @@
+// components/blogs/blog-grid-area.tsx
+
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import usePagination from '@/hooks/use-pagination';
 import Pagination from '@/ui/pagination';
-import client from '@/utils/sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import Link from 'next/link';
+import client from '@/utils/sanity/client';
 
 const builder = imageUrlBuilder(client);
 
@@ -18,36 +20,17 @@ interface BlogPost {
   title: string;
   publishedAt: string;
   slug: { current: string };
-  author: { _ref: string };
+  author: { name: string };
   mainImage: { asset: { _ref: string } };
   body: { _key: string, _type: string, children: { _key: string, _type: string, text: string }[], style: string }[];
-  categories: { _key: string, _ref: string }[];
+  categories: { title: string }[];
 }
 
-const BlogGridArea: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+interface BlogGridAreaProps {
+  posts: BlogPost[];
+}
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const query = `
-        *[_type == "blogPost"] {
-          _id,
-          title,
-          publishedAt,
-          slug,
-          author,
-          mainImage,
-          body,
-          categories
-        }
-      `;
-      const result = await client.fetch(query);
-      setPosts(result);
-    };
-
-    fetchPosts();
-  }, []);
-
+const BlogGridArea: React.FC<BlogGridAreaProps> = ({ posts }) => {
   const { currentItems, handlePageClick, pageCount } = usePagination<BlogPost>(posts, 4);
 
   return (

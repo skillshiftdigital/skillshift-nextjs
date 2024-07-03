@@ -19,7 +19,7 @@ interface BlogPost {
   title: string;
   publishedAt: string;
   slug: { current: string };
-  author: { _ref: string };
+  author: { _ref: string; name: string }; // Add the 'name' property
   mainImage: { asset: { _ref: string } };
   body: {
     _key: string;
@@ -27,7 +27,7 @@ interface BlogPost {
     children: { _key: string; _type: string; text: string }[];
     style: string;
   }[];
-  categories: { _key: string; _ref: string }[];
+  categories: { title: string; _key: string; _ref: string }[];
 }
 
 const builder = imageUrlBuilder(client);
@@ -80,7 +80,7 @@ const BlogPosts: React.FC = () => {
           {/* breadcrumb end */}
 
           {/* blog grid area start */}
-          <BlogGridArea />
+          <BlogGridArea posts={posts} />
           {/* blog grid area end */}
 
           {/* fancy banner three start */}

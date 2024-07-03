@@ -19,6 +19,7 @@ import ContactArea from "@/components/contact/contact-area";
 import ContactForm from "@/components/forms/contact-form";
 import Image from "next/image";
 import icon_4 from "@/assets/images/logo/skillshift logo green.svg";
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
@@ -35,7 +36,7 @@ interface BlogPost {
   author: { name: string };
   mainImage: { asset: { _ref: string } };
   body: any;
-  categories: { _key: string; _ref: string }[];
+  categories: { title: string}[];
 }
 
 interface BlogPostProps {
@@ -92,12 +93,24 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                     </figure>
 
                     <div className="post-data">
-                      {/* ADD AUTHOR NAME HERE */}
-                      {/* <div className="post-info">
-                    {post.author._ref}
-
-                    </div> */}
-                      <div className="post-info">{post.author.name}</div>
+                      <div className="post-info">
+                        <Link href={`/resources/author/${post.author.name}`}>
+                          {post.author.name}
+                        </Link> 
+                        {post.categories && post.categories.length > 0 && (
+                          <span>
+                            {` / `}
+                            {post.categories.map((category, index) => (
+                              <span key={category.title}>
+                                <Link href={`/resources/category/${category.title}`}>
+                                  {category.title}
+                                </Link>
+                                {index < post.categories.length - 1 && ', '}
+                              </span>
+                            ))}
+                          </span>
+                        )}
+                      </div>
 
                       <div className="blog-title">
                         <h4>{post.title}</h4>
@@ -106,55 +119,43 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                       <div className="post-details-meta">
                         <PortableText value={post.body} />
                       </div>
-                      
                     </div>
-
-
 
                     <div className="contact-us-section pt-150 lg-pt-80">
-                    <div className="bg-wrapper light-bg mt-80 lg-mt-40">
-            <div className="row">
-              <div className="col-lg-5">
-                <div className="d-flex flex-column flex-lg-column-reverse">
-                  <div className="row">
-                    <div className="col-md-8 col-6 me-auto ms-auto">
-                      <Image
-                        src={icon_4}
-                        alt="icon"
-                        className="lazy-img me-auto ms-auto"
-                      />
+                      <div className="bg-wrapper light-bg mt-80 lg-mt-40">
+                        <div className="row">
+                          <div className="col-lg-5">
+                            <div className="d-flex flex-column flex-lg-column-reverse">
+                              <div className="row">
+                                <div className="col-md-8 col-6 me-auto ms-auto">
+                                  <Image
+                                    src={icon_4}
+                                    alt="icon"
+                                    className="lazy-img me-auto ms-auto"
+                                  />
+                                </div>
+                              </div>
+                              <div className="title-one text-center text-lg-start md-mt-20 mb-70 md-mb-30">
+                                <h2>Have questions? Reach out to us.</h2>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="col-lg-7">
+                            <div className="form-style-one ps-xl-5">
+                              {/* form start */}
+                              <ContactForm />
+                              {/* form end */}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="title-one text-center text-lg-start md-mt-20 mb-70 md-mb-30">
-                    <h2>Have questions? Reach out to us.</h2>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-7">
-                <div className="form-style-one ps-xl-5">
-                  {/* form start */}
-                  <ContactForm />
-                  {/* form end */}
+                  </article>
                 </div>
               </div>
             </div>
           </div>
-          </div>
-          
-
-
-
-
-
-
-
-                                  </article>
-                </div>
-              </div>
-            </div>
-          </div>
-
 
           {/* news letter start */}
           <NewsletterBanner />
