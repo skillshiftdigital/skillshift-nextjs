@@ -36,5 +36,8 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/sitemap.xml.js", "global.d.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "pages/(template)"
+  ]
 }
