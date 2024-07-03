@@ -10,13 +10,13 @@ export default async function handler(
 ) {
   const { slug } = req.query;
 
-  // 参数验证
+  // Parameter Validation 
   if (!slug || typeof slug !== 'string') {
     res.status(400).json({ message: 'Invalid or missing slug parameter.' });
     return;
   }
 
-  // 使用参数化查询以增强安全性
+  // Check for phrases
   const query = `*[_type == "blogPost" && slug.current == $slug]{
     title,
     slug,
@@ -27,7 +27,7 @@ export default async function handler(
   }`;
 
   try {
-    // 执行查询，传递参数
+    // Query, pass parameters
     const data = await sanityClient.fetch(query, { slug });
 
     // 如果没有找到数据，返回404
@@ -36,8 +36,9 @@ export default async function handler(
       return;
     }
 
-    // 成功响应
-    res.status(200).json(data);
+    // Successful response
+    console.log(JSON.stringify(data[0], null, 2));
+    res.status(200).json(data[0]);
   } catch (error) {
     console.error('Fetch error:', error);
     res.status(500).json({ message: 'Error fetching data' });

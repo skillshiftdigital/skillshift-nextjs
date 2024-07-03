@@ -1,4 +1,4 @@
-// pages/blogs/blogSlug.tsx
+// pages/blogs/[blogSlug].tsx
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -8,24 +8,27 @@ import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import FooterThree from "@/layout/footer/footer-three";
 import blog_bg from "@/assets/images/media/img_32.jpg";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
-import BlogDetailsArea from "@/components/blogs/blog-details/blog-details-area";
+import BlogDetailsArea from "@/components/blogs/blog-details/blog-details-area-slug";
 import shape from "@/assets/images/shape/shape_35.svg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
-import { WPPost } from "@/types/blog-d-t";
+import { WPPost } from "@/types/blog-d-t-slug";
 
 const BlogDetailsPage = () => {
   const [blog, setBlog] = useState<WPPost | null>(null);
   const router = useRouter();
-  //const { slug } = router.query;
   const { blogSlug } = router.query ;
 
   useEffect(() => {
     if (!blogSlug || typeof blogSlug !== 'string') return; // Ensure blogSlug is present and is a string
     const fetchBlog = async () => {
-      if (!blogSlug || typeof blogSlug !== 'string') return;
+      //if (!blogSlug || typeof blogSlug !== 'string') return;
       try {
         const response = await fetch(`/api/blogPosts?slug=${blogSlug}`);
+        //console.log("Response received:", response);
+
         const data: WPPost = await response.json();
+        //console.log("Fetched blog data:", JSON.stringify(data, null, 2));
+
         setBlog(data);
       } catch (error) {
         console.error("Error fetching blog details:", error);
@@ -49,7 +52,6 @@ const BlogDetailsPage = () => {
             style_2={true}
             shape={shape}
           />
-
           {blog ? (
             <BlogDetailsArea blog={blog} />
           ) : (
