@@ -11,9 +11,8 @@ import TextFeatureThree from "@/components/text-feature/text-feature-three";
 import PartnersSliderOne from "@/components/partners/partners-slider-one";
 import TeamSectionThree from "@/components/team/team-section-three";
 /* import HomeFourBlogs from "@/components/blogs/home-4-blogs";
- */import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+ */ import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import Head from "next/head";
-
 
 const AboutUsPage = () => {
   return (
@@ -40,45 +39,37 @@ const AboutUsPage = () => {
             style_2={true}
           />
           {/* breadcrumb end */}
-
           {/* text feature one area start */}
           <TextFeatureThree style_2={false} />
           {/* text feature one area end */}
-          
           {/* text feature one area start */}
           <TextFeatureOne />
           {/* text feature one area end */}
-
           {/* block feature one area start */}
-{/*           <BlockFeatureOne style_2={true} />
- */}          {/* block feature one area end */}
-
+          {/*           <BlockFeatureOne style_2={true} />
+           */}{" "}
+          {/* block feature one area end */}
           {/* team three start */}
           <TeamSectionThree />
           {/* team three end */}
-
           {/* feedback one start */}
-{/*           <FeedbackOne cls="top-border pt-80 pb-80" />
- */}          {/* feedback one end */}
-
+          {/*           <FeedbackOne cls="top-border pt-80 pb-80" />
+           */}{" "}
+          {/* feedback one end */}
           {/* partner logo start */}
-{/*           <div className="partner-logo-one pt-80 lg-pt-40 pb-80 lg-pb-40">
+          {/*           <div className="partner-logo-one pt-80 lg-pt-40 pb-80 lg-pb-40">
             <div className="container">
               <PartnersSliderOne />
             </div>
           </div> */}
           {/* partner logo end */}
-
-
-
           {/* blogs start */}
-{/*           <HomeFourBlogs cls="mt-180 lg-mt-80 mb-180 lg-mb-80" />
- */}          {/* blogs end */}
-
+          {/*           <HomeFourBlogs cls="mt-180 lg-mt-80 mb-180 lg-mb-80" />
+           */}{" "}
+          {/* blogs end */}
           {/* fancy banner three start */}
           <FancyBannerThree />
           {/* fancy banner three end */}
-
           {/* news letter start */}
           <NewsletterBanner />
           {/* news letter end */}

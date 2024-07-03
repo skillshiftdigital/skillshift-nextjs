@@ -10,9 +10,15 @@ import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_26.svg";
-import service_bg from "@/assets/images/media/img_32.jpg";
-import { PortableText } from '@portabletext/react';
-
+import service_bg from "@/assets/images/media/img_52-min.jpg";
+import { PortableText } from "@portabletext/react";
+import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
+import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+import FooterSocial from "@/layout/footer/footer-social";
+import ContactArea from "@/components/contact/contact-area";
+import ContactForm from "@/components/forms/contact-form";
+import Image from "next/image";
+import icon_4 from "@/assets/images/logo/skillshift logo green.svg";
 
 const builder = imageUrlBuilder(client);
 
@@ -29,7 +35,7 @@ interface BlogPost {
   author: { name: string };
   mainImage: { asset: { _ref: string } };
   body: any;
-  categories: { _key: string, _ref: string }[];
+  categories: { _key: string; _ref: string }[];
 }
 
 interface BlogPostProps {
@@ -66,48 +72,93 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
             <div className="container">
               <div className="row gx-xl-5">
                 <div className="col-lg-12">
-
                   <article className="blog-meta-two style-two">
-                  <figure
-                className="post-img position-relative d-flex align-items-end m0"
-                style={{ backgroundImage: `url(${urlFor(post.mainImage.asset._ref).width(800).url()})` }}
-              >
-                  <div className="date">
-                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </div>
-                  </figure>
+                    <figure
+                      className="post-img position-relative d-flex align-items-end m0"
+                      style={{
+                        backgroundImage: `url(${urlFor(post.mainImage.asset._ref).width(800).url()})`,
+                      }}
+                    >
+                      <div className="date">
+                        {new Date(post.publishedAt).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          }
+                        )}
+                      </div>
+                    </figure>
 
-                  <div className="post-data">
-                    {/* ADD AUTHOR NAME HERE */}
-                    {/* <div className="post-info">
+                    <div className="post-data">
+                      {/* ADD AUTHOR NAME HERE */}
+                      {/* <div className="post-info">
                     {post.author._ref}
 
                     </div> */}
-                    <div className="post-info">
-                      {post.author.name} 
+                      <div className="post-info">{post.author.name}</div>
+
+                      <div className="blog-title">
+                        <h4>{post.title}</h4>
+                      </div>
+
+                      <div className="post-details-meta">
+                        <PortableText value={post.body} />
+                      </div>
+                      
                     </div>
 
 
-                <div className="blog-title">
-                    <h4>{post.title}</h4>
-                </div>    
 
-                    <div className="post-details-meta">
-                      <PortableText value={post.body} />
+                    <div className="contact-us-section pt-150 lg-pt-80">
+                    <div className="bg-wrapper light-bg mt-80 lg-mt-40">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="d-flex flex-column flex-lg-column-reverse">
+                  <div className="row">
+                    <div className="col-md-8 col-6 me-auto ms-auto">
+                      <Image
+                        src={icon_4}
+                        alt="icon"
+                        className="lazy-img me-auto ms-auto"
+                      />
                     </div>
                   </div>
-                  </article>
+                  <div className="title-one text-center text-lg-start md-mt-20 mb-70 md-mb-30">
+                    <h2>Have questions? Reach out to us.</h2>
+                  </div>
+                </div>
+              </div>
 
+              <div className="col-lg-7">
+                <div className="form-style-one ps-xl-5">
+                  {/* form start */}
+                  <ContactForm />
+                  {/* form end */}
                 </div>
               </div>
             </div>
           </div>
+          </div>
           
-          
+
+
+
+
+
+
+
+                                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          {/* news letter start */}
+          <NewsletterBanner />
+          {/* news letter end */}
 
           <FooterOne />
         </main>
