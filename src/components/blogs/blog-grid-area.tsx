@@ -43,7 +43,7 @@ const BlogGridArea: React.FC<BlogGridAreaProps> = ({ posts }) => {
                 <article className="blog-meta-two mb-80 lg-mb-50 wow fadeInUp" data-wow-delay="0.1s">
                   <figure
                     className="post-img rounded-5 position-relative d-flex align-items-end m0"
-                    style={{
+                    style={{ 
                       backgroundImage: post.mainImage && post.mainImage.asset ? `url(${urlFor(post.mainImage.asset._ref).width(800).url()})` : 'defaultBackgroundImageUrl',
                     }}
                   >
