@@ -78,7 +78,7 @@ const CategoryPosts: React.FC = () => {
           {/* breadcrumb end */}
 
           {/* blog grid area start */}
-          <BlogGridArea  />
+          <BlogGridArea posts = {posts}  />
           {/* blog grid area end */}
         </main>
       </div>

@@ -13,15 +13,15 @@ import Image from 'next/image';
 
 // Define the structure of a BlogPost
 interface BlogPost {
-    _id: string;
-    title: string;
-    publishedAt: string;
-    slug: { current: string };
-    author: { _ref: string };
-    mainImage: { asset: { _ref: string } };
-    body: { _key: string, _type: string, children: { _key: string, _type: string, text: string }[], style: string }[];
-    categories: { _key: string, _ref: string }[];
-  }
+  _id: string;
+  title: string;
+  publishedAt: string;
+  slug: { current: string };
+  author: { name: string };
+  mainImage: { asset: { _ref: string } };
+  body: { _key: string, _type: string, children: { _key: string, _type: string, text: string }[], style: string }[];
+  categories: { title: string }[];
+}
   
   const builder = imageUrlBuilder(client);
   
@@ -72,8 +72,8 @@ interface BlogPost {
           />
           {/* breadcrumb end */}
 
-                    {/* blog grid area start */}
-                    <BlogGridArea />
+          {/* blog grid area start */}
+          <BlogGridArea posts = {posts} />
           {/* blog grid area end */}
 
           
