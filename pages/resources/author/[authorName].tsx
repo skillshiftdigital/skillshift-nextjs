@@ -11,6 +11,7 @@ import FooterTwo from "@/layout/footer/footer-two";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
 import shape from "@/assets/images/shape/shape_26.svg";
 import service_bg from "@/assets/images/media/img_32.jpg";
+import Head from 'next/head';
 
 // Define the structure of a BlogPost
 interface BlogPost {
@@ -60,6 +61,10 @@ const AuthorPosts: React.FC = () => {
 
   return (
     <Wrapper>
+      <Head>
+        <title>{authorName} - skillshift Resources</title>
+        <meta name="description" content={`Read all posts by ${authorName}, you can reach out to them on Linkedin or through our contact form to discuss more.`} />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />

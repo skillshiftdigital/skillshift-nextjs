@@ -20,6 +20,7 @@ import ContactForm from "@/components/forms/contact-form";
 import Image from "next/image";
 import icon_4 from "@/assets/images/logo/skillshift logo green.svg";
 import Link from "next/link";
+import Head from "next/head";
 
 const builder = imageUrlBuilder(client);
 
@@ -52,6 +53,12 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
 
   return (
     <Wrapper>
+       <Head>
+        <title>{post.title} - skillshift Resources</title>
+        <meta name="description" content={post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0
+                        ? post.body[0].children[0].text
+                        : 'No content available'} />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
@@ -102,9 +109,9 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                             {` / `}
                             {post.categories.map((category, index) => (
                               <span key={category.title}>
-                                <Link href={`/resources/category/${category.title}`}>
-                                  {category.title}
-                                </Link>
+                              <Link href={`/resources/category/${category.title}`}>
+                                {category.title}
+                              </Link>
                                 {index < post.categories.length - 1 && ', '}
                               </span>
                             ))}
@@ -196,7 +203,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
               author ->{name},
               mainImage,
               body,
-              categories
+              categories[] -> {title}
             }
             `;
   const post = await client.fetch(query, { blogSlug });

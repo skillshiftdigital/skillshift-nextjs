@@ -11,6 +11,7 @@ import FooterTwo from "@/layout/footer/footer-two";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
 import shape from "@/assets/images/shape/shape_26.svg";
 import service_bg from "@/assets/images/media/img_32.jpg";
+import Head from 'next/head';
 
 // Define the structure of a BlogPost
 interface BlogPost {
@@ -60,6 +61,10 @@ const CategoryPosts: React.FC = () => {
 
   return (
     <Wrapper>
+      <Head>
+        <title>{categoryName} - skillshift Resources</title>
+        <meta name="description" content={`All posts in the category "${categoryName}", from skillshift Resources where we share what we learned about ${categoryName}. We welcome your feedback.`} />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
@@ -67,8 +72,8 @@ const CategoryPosts: React.FC = () => {
         <main>
           {/* breadcrumb start */}
           <BreadcrumbOne
-            title={`Posts in ${categoryName}`}
-            subtitle={`All posts in the category "${categoryName}"`}
+            title={`Posts about ${categoryName}`}
+            subtitle={`All posts about ${categoryName}, reach out to discuss more.`}
             page="category"
             shape={shape}
             bg_img={service_bg}
