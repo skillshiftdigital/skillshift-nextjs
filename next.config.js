@@ -11,19 +11,4 @@ const nextConfig = {
     images: {
       domains: ['cdn.sanity.io'],
     },
-    async redirects() {
-      return [
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'www.skillshift.com.au',
-            },
-          ],
-          destination: 'https://skillshift.com.au/:path*',
-          permanent: true,
-        },
-      ];
-    },
   };
