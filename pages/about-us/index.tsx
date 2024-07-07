@@ -13,6 +13,7 @@ import TeamSectionThree from "@/components/team/team-section-three";
 /* import HomeFourBlogs from "@/components/blogs/home-4-blogs";
  */ import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import Head from "next/head";
+import WhoWeAre from "@/components/text-feature/who-we-are";
 
 const AboutUsPage = () => {
   return (
@@ -40,6 +41,8 @@ const AboutUsPage = () => {
           />
           {/* breadcrumb end */}
           {/* text feature one area start */}
+          <WhoWeAre style_2={false} />
+
           <TextFeatureThree style_2={false} />
           {/* text feature one area end */}
           {/* text feature one area start */}
