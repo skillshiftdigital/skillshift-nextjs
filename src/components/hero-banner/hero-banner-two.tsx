@@ -38,6 +38,7 @@ const HeroBannerTwo = () => {
               priority={i === 0}
               loading={i === 0 ? "eager" : "lazy"}
               placeholder="blur"
+              sizes="100vw"
             />
           </div>
         ))}
@@ -59,7 +60,14 @@ const HeroBannerTwo = () => {
               style={{ display: 'inline-flex', alignItems: 'center', minHeight: '40px' }}
             >
               <span>View services.</span>
-              <Image src={icon} alt="icon" className="icon ms-2" width={16} height={16} />
+              <Image 
+                src={icon} 
+                alt="icon" 
+                className="icon ms-2" 
+                width={16} 
+                height={16} 
+                sizes="16px"
+              />
             </Link>
           </div>
         </div>
