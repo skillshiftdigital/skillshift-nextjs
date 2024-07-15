@@ -9,11 +9,18 @@ import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_26.svg";
 import ServiceOneArea from "@/components/services/serviceNine";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
-
+import Head from "next/head";
 
 const ServicePage = () => {
   return (
     <Wrapper>
+            <Head>
+        <title>Services - skillshift </title>
+        <meta
+          name="description"
+          content="SkillShift offers tailored digital transformation services for Australian businesses, including web development, SEO, and paid media. Our expert team drives performance and innovation."
+        />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />

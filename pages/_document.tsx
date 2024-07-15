@@ -7,6 +7,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+        <meta http-equiv='content-language' content='en-gb' />
           {/* GTM Head Script */}
           <Script
             id="gtm-script"

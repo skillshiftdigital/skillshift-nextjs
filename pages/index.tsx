@@ -23,7 +23,7 @@ export default function skillshifthome() {
               <title>Skillshift - Digital Transformation and Business Consulting in Australia </title>
         <meta
           name="description"
-          content="Skillshift is a digital transformation and business consulting company that provides technology and business consulting services to help companies achieve their business goals."
+          content="SkillShift offers digital transformation and business consulting services, helping companies achieve their goals through technology and strategic advice."
         />
       </Head>
       <div className="main-page-wrapper">

@@ -98,7 +98,7 @@ const ServiceDetailsArea = ({ data }: ServiceDetailsProps) => {
         <div className="row">
           <div className="col-xxl-12 col-lg-12 order-lg-last">
             <div className="details-meta ps-xxl-5 ps-xl-3">
-              <h1>{data?.title}</h1>
+              <h2>{data?.title}</h2>
               <p>{data?.overview}</p>
               <div className="img-meta mb-60 lg-mb-40">
                 <Image

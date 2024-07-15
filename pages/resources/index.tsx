@@ -12,6 +12,7 @@ import service_bg from "@/assets/images/media/img_52-min.jpg";
 import Image from "next/image";
 import FooterOne from "@/layout/footer/footer-one";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+import Head from "next/head";
 
 // Define the structure of a BlogPost
 interface BlogPost {
@@ -62,6 +63,13 @@ const BlogPosts: React.FC = () => {
 
   return (
     <Wrapper>
+                  <Head>
+        <title>Resources - skillshift </title>
+        <meta
+          name="description"
+          content="Explore SkillShift's resources: guides, case studies, and expert insights on web development, SEO, paid media, and more. Empower your agency to innovate and succeed."
+        />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
