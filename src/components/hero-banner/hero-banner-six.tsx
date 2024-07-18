@@ -21,11 +21,10 @@ const HeroBannerSix = () => {
           <div className="col-md-6 wow fadeInLeft">
             <div className="pt-20 pb-50">
               <h1 className="hero-heading fw-bold">
-                Delivers more, not just marketing.
+                Transform, adapt & grow.
               </h1>
               <p className="text-lg pt-35 lg-pt-30 pb-35 lg-pb-20">
-                Unlock your business growth potential with a marketing agency
-                expertise.
+                Over 20 years transforming digital businesses through a blend of technology and psychology.
               </p>
               <div className="d-flex flex-wrap">
                 <Link href="/contact"
@@ -41,12 +40,7 @@ const HeroBannerSix = () => {
           </div>
           <div className="col-md-6 d-md-flex justify-content-end wow fadeInRight">
             <div className="media-wrapper position-relative ms-lg-5">
-              <Image
-                src={screen_1}
-                alt="screen"
-                className="lazy-img shapes screen_01"
-                style={imgStyle}
-              />
+
               <Image
                 src={screen_2}
                 alt="screen"
@@ -67,8 +61,7 @@ const HeroBannerSix = () => {
           <div className="col-12">
             <div className="partner-logo-one pt-60 md-pt-50">
               <p className="fw-500 text-dark mb-40">
-                <span className="text-decoration-underline">Join 27,000+</span>{" "}
-                companies who’ve reached{" "}
+              Join leading digital organizations in their next-gen transformation{" "}
               </p>
               <PartnersSliderOne />
             </div>

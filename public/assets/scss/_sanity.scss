@@ -1,0 +1,33 @@
+// Add this to your _sanity.scss file or wherever you keep your Mermaid-related styles
+
+.mermaid-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .mermaid {
+    display: inline-block;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  
+    svg {
+      max-width: 100%;
+      height: auto !important;
+    }
+  }
+  
+  .mermaid-error {
+    color: red;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid red;
+    margin: 1rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .mermaid {
+      font-size: 12px;
+    }
+  }

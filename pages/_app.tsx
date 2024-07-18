@@ -1,5 +1,3 @@
-// pages/_app.tsx
-
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
@@ -27,6 +25,7 @@ function Skillshiftapp({ Component, pageProps }: AppProps) {
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
@@ -35,9 +34,8 @@ function Skillshiftapp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        {/* Favicon */}
         <link rel="icon" href="/assets/images/logo/skillshift-favicon.svg" />
-              </Head>
+      </Head>
       <Provider store={store}>
         <Component {...pageProps} />
         <SpeedInsights />

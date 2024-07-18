@@ -11,13 +11,14 @@ import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_26.svg";
 import service_bg from "@/assets/images/media/img_52-min.jpg";
-import { PortableText } from "@portabletext/react";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import ContactForm from "@/components/forms/contact-form";
 import Image from "next/image";
 import icon_4 from "@/assets/images/logo/skillshift logo green.svg";
 import Link from "next/link";
 import Head from "next/head";
+import CustomPortableText from '@/components/sanity/CustomPortableText';
+
 
 const builder = imageUrlBuilder(client);
 
@@ -121,7 +122,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                       </div>
 
                       <div className="post-details-meta">
-                        <PortableText value={post.body} />
+                      <CustomPortableText value={post.body} />
                       </div>
                     </div>
 
@@ -192,24 +193,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { blogSlug } = context.params!;
   const query = `
-            *[_type == "blogPost" && slug.current == $blogSlug][0] {
-              _id,
-              title,
-              publishedAt,
-              slug,
-              author ->{name},
-              mainImage,
-              body,
-              categories[] -> {title}
-            }
-            `;
+    *[_type == "blogPost" && slug.current == $blogSlug][0] {
+      _id,
+      title,
+      publishedAt,
+      slug,
+      author ->{name},
+      mainImage,
+      body[]{
+        ...,
+        _type == "image" => {
+          ...,
+          asset->
+        },
+        _type == "mermaidDiagram" => {
+          ...,
+          code
+        }
+      },
+      categories[] -> {title}
+    }
+  `;
   const post = await client.fetch(query, { blogSlug });
 
   return {
     props: {
       post,
     },
-    revalidate: 1, // Revalidate at most once every second
+    revalidate: 1,
   };
 };
 

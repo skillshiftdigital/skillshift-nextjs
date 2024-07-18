@@ -2,11 +2,11 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Slider from "react-slick";
-import logo_1 from "@/assets/images/logo/media_01.png";
-import logo_2 from "@/assets/images/logo/media_02.png";
-import logo_3 from "@/assets/images/logo/media_03.png";
-import logo_4 from "@/assets/images/logo/media_04.png";
-import logo_5 from "@/assets/images/logo/media_05.png";
+import logo_1 from "@/assets/images/logo/mercedes-logo.png";
+import logo_2 from "@/assets/images/logo/petcircle-logo.svg";
+import logo_3 from "@/assets/images/logo/anz-logo.svg";
+import logo_4 from "@/assets/images/logo/gsquared-logo.svg";
+import logo_5 from "@/assets/images/logo/beanrunner-logo.svg";
 
 // slider setting
 const slider_setting = {

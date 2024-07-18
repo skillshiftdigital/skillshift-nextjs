@@ -2,8 +2,8 @@
 
 import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
-import HeaderTwo from "@/layout/header/header-two";
-import HeroBannerTwo from "@/components/hero-banner/hero-banner-two";
+import HeaderTwoDark from "@/layout/header/header-two-dark";
+import HeroBannerSix from "@/components/hero-banner/hero-banner-six";
 import FancyBannerOne from "@/components/fancy-banner/fancy-banner-one";
 import BlockFeatureOne from "@/components/block-feature/servicesNine";
 import TextFeatureOne from "@/components/text-feature/text-feature-one";
@@ -28,11 +28,11 @@ export default function skillshifthome() {
       </Head>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderTwo />
+        <HeaderTwoDark />
         {/* header end */}
         <main>
           {/* hero banner start */}
-          <HeroBannerTwo />
+          <HeroBannerSix />
           {/* hero banner end */}
 
           {/* fancy banner one start */}
