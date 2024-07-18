@@ -8,7 +8,6 @@ import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import shape from "@/assets/images/shape/shape_25.svg";
 import TextFeatureOne from "@/components/text-feature/text-feature-one";
 import TextFeatureThree from "@/components/text-feature/text-feature-three";
-import PartnersSliderOne from "@/components/partners/partners-slider-one";
 import TeamSectionThree from "@/components/team/team-section-three";
 /* import HomeFourBlogs from "@/components/blogs/home-4-blogs";
  */ import NewsletterBanner from "@/components/newsletter/newsletter-banner";

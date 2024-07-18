@@ -36,15 +36,15 @@ const RegisterForm = () => {
       <div className="col-12">
         <div className="input-group-meta position-relative mb-25">
           <label>Name*</label>
-          <input type="text" {...register("name")} id='name' placeholder="Zubayer Hasan"/>
-          <ErrorMsg msg={errors.name?.message!} />
+          <input type="text" {...register("name")} id='name' placeholder="John Snow"/>
+          <ErrorMsg msg={errors.name?.message || ''} />
         </div>
       </div>
       <div className="col-12">
         <div className="input-group-meta position-relative mb-25">
           <label>Email*</label>
           <input type="email" {...register("email")} id='email' placeholder="you@best.com"/>
-          <ErrorMsg msg={errors.email?.message!} />
+          <ErrorMsg msg={errors.email?.message || ''} />
         </div>
       </div>
       <div className="col-12">
@@ -56,7 +56,7 @@ const RegisterForm = () => {
                 <Image src={icon} alt="pass-icon" />
               </span>
           </span>
-          <ErrorMsg msg={errors.password?.message!} />
+          <ErrorMsg msg={errors.password?.message || ''} />
         </div>
       </div>
       <div className="col-12">

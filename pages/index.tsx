@@ -1,6 +1,5 @@
 // pages/index.tsx
 
-import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwoDark from "@/layout/header/header-two-dark";
 import HeroBannerSix from "@/components/hero-banner/hero-banner-six";
@@ -8,8 +7,6 @@ import FancyBannerOne from "@/components/fancy-banner/fancy-banner-one";
 import BlockFeatureOne from "@/components/block-feature/servicesNine";
 import TextFeatureOne from "@/components/text-feature/text-feature-one";
 import BlockFeatureTwo from "@/components/block-feature/block-feature-two";
-import BlockFeatureThree from "@/components/block-feature/block-feature-three";
-import TeamSectionOne from "@/components/team/team-section-one";
 import FaqSectionOne from "@/components/faq/faq-section-one";
 import FancyBannerTwo from "@/components/fancy-banner/fancy-banner-two";
 import FooterOne from "@/layout/footer/footer-one";

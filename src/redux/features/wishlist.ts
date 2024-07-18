@@ -4,7 +4,7 @@ import { notifyError, notifySuccess } from "@/utils/toast";
 import { IProduct } from "@/types/product-d-t";
 
 
-let initialWishlistState:{wishlist: IProduct[]} = {
+const initialWishlistState:{wishlist: IProduct[]} = {
   wishlist: [],
 };
 

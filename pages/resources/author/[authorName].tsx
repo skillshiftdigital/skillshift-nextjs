@@ -7,7 +7,6 @@ import client from '@/utils/sanity/client';
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
-import FooterTwo from "@/layout/footer/footer-two";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
 import shape from "@/assets/images/shape/shape_26.svg";
 import service_bg from "@/assets/images/media/img_32.jpg";

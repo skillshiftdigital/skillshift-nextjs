@@ -10,7 +10,7 @@ interface CartState {
   orderQuantity: number;
 }
 
-let initialState: CartState = {
+const initialState: CartState = {
   cart_products: [],
   orderQuantity: 1,
 };

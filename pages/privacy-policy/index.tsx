@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwoDark from "@/layout/header/header-two-dark";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";

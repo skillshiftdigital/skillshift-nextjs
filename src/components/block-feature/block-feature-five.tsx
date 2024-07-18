@@ -10,7 +10,7 @@ import shape from '@/assets/images/shape/shape_06.svg';
 const BlockFeatureFive = () => {
   const service_items = service_data.filter(s => s.page === 'home')
   return (
-  	<div className="block-feature-five light-bg position-relative mt-80 md-mt-50 pt-120 lg-pt-80 pb-150 lg-pb-80">
+	<div className="block-feature-five light-bg position-relative mt-80 md-mt-50 pt-120 lg-pt-80 pb-150 lg-pb-80">
 			<div className="container">
 				<div className="position-relative">
 					<div className="row">

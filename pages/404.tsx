@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 // internal
@@ -8,10 +7,15 @@ import HeaderTwoDark from "@/layout/header/header-two-dark";
 import FooterOne from "@/layout/footer/footer-one";
 import ils_1 from "@/assets/images/assets/ils_05.svg";
 import ils_2 from "@/assets/images/assets/ils_06.svg";
+import Head from "next/head";
 
 const NotFound = () => {
   return (
     <Wrapper>
+      <Head>
+        <title>404</title>
+        <meta name="description" content="404" />
+      </Head>
       <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwoDark />

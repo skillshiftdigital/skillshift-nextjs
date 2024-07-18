@@ -25,25 +25,24 @@ function UpperCardItem({icon,title,subtitle}:{icon:StaticImageData;title:string;
 
 const BlockFeatureOne = ({ services, style_2 = false }: { services: any[], style_2?: boolean }) => {
 	return (
-	  <div className={`block-feature-one ${style_2 ? 'light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60' : 'pt-75'}`}>
-		<div className="container">
-		  <div className="row">
-			{services.map((service, index) => (
-			  <div key={index} className="col-lg-4 col-md-6 d-flex">
-				<div className="card-style-two vstack tran3s w-100 mt-30">
-				  <Image src={service.icon} alt="icon" />
-				  <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
-				  <p className="mb-20">{service.description}</p>
-				  <Link href={service.link} className="arrow-btn tran3s mt-auto">
-					See More
-				  </Link>
+		<div className={`block-feature-one ${style_2 ? 'light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60' : 'pt-75'}`}>
+			<div className="container">
+				<div className="row">
+					{services.map((service, index) => (
+						<div key={index} className="col-lg-4 col-md-6 d-flex">
+							<div className="card-style-two vstack tran3s w-100 mt-30">
+								<Image src={service.icon} alt="icon" />
+								<h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
+								<p className="mb-20">{service.description}</p>
+								<Link href={service.link} className="arrow-btn tran3s mt-auto">
+									See More
+								</Link>
+							</div>
+						</div>
+					))}
 				</div>
-			  </div>
-			))}
-		  </div>
+			</div>
 		</div>
-	  </div>
 	);
-  };
-
+};
 export default BlockFeatureOne;

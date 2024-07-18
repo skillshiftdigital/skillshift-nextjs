@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Provider as Providers } from 'react-redux';
 import { store } from '@/redux/store';
 

@@ -1,7 +1,6 @@
 // pages/contact/index.tsx
 
 import React from "react";
-import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";

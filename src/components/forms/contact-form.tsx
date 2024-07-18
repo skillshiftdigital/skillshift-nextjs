@@ -76,7 +76,7 @@ const ContactForm: React.FC = () => {
                 name='name'
               />
               <div className="help-block with-errors">
-                <ErrorMsg msg={errors.name?.message!} />
+                <ErrorMsg msg={errors.name?.message || ''} />
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@ const ContactForm: React.FC = () => {
                 name="email"
               />
               <div className="help-block with-errors">
-                <ErrorMsg msg={errors.email?.message!} />
+                <ErrorMsg msg={errors.email?.message || ''} />
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ const ContactForm: React.FC = () => {
                 name="message"
               ></textarea>
               <div className="help-block with-errors">
-                <ErrorMsg msg={errors.message?.message!} />
+                <ErrorMsg msg={errors.message?.message || ''} />
               </div>
             </div>
           </div>

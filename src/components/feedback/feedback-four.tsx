@@ -81,7 +81,7 @@ const FeedbackFour = ({spacing}:{spacing?:string}) => {
                       <p className="m0 opacity-75">{item.location}</p>
                     </div>
                     <Image
-                      src={item.user!}
+                      src={item.user ?? ""}
                       alt="user"
                       className="avatar rounded-circle"
                     />

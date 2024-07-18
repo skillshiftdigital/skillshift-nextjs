@@ -30,16 +30,16 @@ const BlogDetailsForm = () => {
       <div className="input-wrapper mb-35">
         <label>Name*</label>
         <input type="text" {...register("name")} id='name' placeholder="Rashed Kabir" />
-        <ErrorMsg msg={errors.name?.message!} />
+        <ErrorMsg msg={errors.name?.message || ''} />
       </div>
       <div className="input-wrapper mb-40">
         <label>Email*</label>
         <input type="email" {...register("email")} id='email' placeholder="rshdkabir@gmail.com" />
-        <ErrorMsg msg={errors.email?.message!} />
+        <ErrorMsg msg={errors.email?.message || ''} />
       </div>
       <div className="input-wrapper mb-30">
         <textarea placeholder="Your Comment" {...register("comment")} id='comment'></textarea>
-        <ErrorMsg msg={errors.comment?.message!} />
+        <ErrorMsg msg={errors.comment?.message || ''} />
       </div>
       <button type='submit' className="btn-four tran3s rounded-2">Post Comment</button>
     </form>

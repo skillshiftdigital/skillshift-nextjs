@@ -191,7 +191,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { blogSlug } = context.params!;
+  const blogSlug = context.params?.blogSlug as string;
   const query = `
     *[_type == "blogPost" && slug.current == $blogSlug][0] {
       _id,

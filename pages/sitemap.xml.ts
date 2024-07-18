@@ -67,7 +67,7 @@ function generateSiteMap(pages: string[]): string {
  `;
 }
 
-async function getPages(dir: string, urlPath: string = ''): Promise<string[]> {
+async function getPages(dir: string, urlPath = ''): Promise<string[]> {
   const files = fs.readdirSync(dir);
   let pages: string[] = [];
 
