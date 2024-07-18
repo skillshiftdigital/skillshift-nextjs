@@ -1,21 +1,14 @@
-// Add this to your _sanity.scss file or wherever you keep your Mermaid-related styles
-
-.mermaid-wrapper {
+.mermaid {
     width: 100%;
-    overflow-x: auto;
-    margin-bottom: 1rem;
+    min-height: 100px; /* Provides space for diagram to render */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .mermaid {
-    display: inline-block;
-    min-width: 100%;
+  .mermaid svg {
     max-width: 100%;
-    overflow: visible;
-  
-    svg {
-      max-width: 100%;
-      height: auto !important;
-    }
+    height: auto;
   }
   
   .mermaid-error {
@@ -26,8 +19,12 @@
     margin: 1rem 0;
   }
   
-  @media (max-width: 768px) {
-    .mermaid {
-      font-size: 12px;
-    }
+  .mermaid-code {
+    display: none; /* Hidden by default, useful for debugging */
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
