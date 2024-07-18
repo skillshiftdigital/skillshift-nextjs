@@ -2,8 +2,9 @@
     width: 100%;
     min-height: 100px; /* Provides space for diagram to render */
     display: block;
-    justify-content: center;
-    align-items: center;
+    text-align:center;
+    margin: 20px 0;
+    overflow: auto;
   }
   
   .mermaid svg {
