@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 // internal
 import screen_1 from '@/assets/images/assets/screen_22.svg';
-import screen_2 from '@/assets/images/assets/screen_23.png';
 import shape_1 from '@/assets/images/shape/shape_43.svg';
 import shape_2 from '@/assets/images/shape/shape_42.svg';
 import PartnersSliderOne from "../partners/partners-slider-one";
@@ -41,12 +40,7 @@ const HeroBannerSix = () => {
           <div className="col-md-6 d-md-flex justify-content-end wow fadeInRight">
             <div className="media-wrapper position-relative ms-lg-5">
 
-              <Image
-                src={screen_2}
-                alt="screen"
-                className="lazy-img shapes screen_02"
-                style={imgStyle}
-              />
+
               <Image
                 src={shape_1}
                 alt="shape"
