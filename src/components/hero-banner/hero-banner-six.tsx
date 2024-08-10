@@ -31,7 +31,7 @@ const HeroBannerSix = () => {
                 >
                   Contact
                 </Link>
-                <Link href="/contact" className="btn-nineteen tran3s mt-10">
+                <Link href="/services" className="btn-nineteen tran3s mt-10">
                   Let’s Get Started
                 </Link>
               </div>
