@@ -145,6 +145,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
     const sitemap = generateSiteMap(pages);
 
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
     res.setHeader('Content-Type', 'text/xml');
     res.write(sitemap);
     res.end();
