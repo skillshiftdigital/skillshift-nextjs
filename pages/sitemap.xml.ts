@@ -115,7 +115,7 @@ async function getAdditionalPages(): Promise<string[]> {
 
 const SiteMap: React.FC = () => null;
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ res, query }) => {
   try {
     console.log('Starting sitemap generation');
     const pagesDirectory = path.join(process.cwd(), 'pages');
@@ -123,6 +123,12 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     
     console.log(`Total pages before adding additional pages: ${pages.length}`);
     
+    // Force regeneration if the 'force' query parameter is present
+    if (query.force !== undefined) {
+      console.log('Forced regeneration of sitemap');
+      // You could add additional logic here to clear any server-side caches
+    }
+
     // Add additional pages
     const additionalPages = await getAdditionalPages();
     pages = pages.concat(additionalPages);
