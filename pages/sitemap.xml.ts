@@ -1,15 +1,13 @@
 import { GetServerSideProps } from 'next';
-import fs from 'fs';
-import path from 'path';
 import sanityClient from '@/utils/sanity/client';
 
 const EXTERNAL_DATA_URL = 'https://www.skillshift.com.au';
 
 function cleanUrl(url: string): string {
   return url
-    .replace(/\.$/, '') // Remove trailing dot
-    .replace(/([^:]\/)\/+/g, "$1") // Remove duplicate slashes
-    .replace(/^https:\/\/skillshift\.com\.au/, 'https://www.skillshift.com.au'); // Add www
+    .replace(/\.$/, '')
+    .replace(/([^:]\/)\/+/g, "$1")
+    .replace(/^https:\/\/skillshift\.com\.au/, 'https://www.skillshift.com.au');
 }
 
 async function getAllSlugs(contentType: string): Promise<string[]> {
@@ -58,44 +56,37 @@ function generateSiteMap(pages: string[]): string {
  `;
 }
 
-async function getPages(dir: string, urlPath = ''): Promise<string[]> {
-  const files = fs.readdirSync(dir);
-  let pages: string[] = [];
-
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    const stats = fs.statSync(filePath);
-
-    if (stats.isDirectory()) {
-      pages = pages.concat(await getPages(filePath, path.join(urlPath, file)));
-    } else if (stats.isFile() && file.endsWith('.tsx') && !['_app.tsx', '_document.tsx', '404.tsx', 'layout.tsx'].includes(file)) {
-      let pageUrl = path.join(urlPath, file === 'index.tsx' ? '' : file.replace('.tsx', ''));
-      pageUrl = pageUrl.replace(/\\/g, '/'); // Replace backslashes with forward slashes
-
-      if (file.startsWith('[') && file.endsWith('].tsx')) {
-        console.log(`Processing dynamic route: ${file}`);
-        const paramName = file.slice(1, -5); // Remove '[' and '].tsx'
-        let contentType = paramName.replace('Name', '').replace('Slug', '');
-        if (contentType === 'blog') contentType = 'post';
-        const slugs = await getAllSlugs(contentType);
-        if (slugs.length > 0) {
-          const dynamicPages = slugs.map(slug => `${EXTERNAL_DATA_URL}/${pageUrl.replace(`[${paramName}]`, encodeURIComponent(slug))}`);
-          console.log(`Generated ${dynamicPages.length} dynamic pages for ${file}`);
-          pages = pages.concat(dynamicPages);
-        } else {
-          console.log(`No slugs found for ${file}, skipping`);
-        }
-      } else {
-        pages.push(`${EXTERNAL_DATA_URL}/${pageUrl}`);
-      }
-    }
-  }
-
-  return pages;
+async function getStaticPages(): Promise<string[]> {
+  // Define your static pages here
+  const staticPages = [
+    '/',
+    '/about-us',
+    '/contact',
+    '/privacy-policy',
+    '/resources',
+    '/services',
+    '/services/all-services',
+    '/services/operational-support',
+    '/services/hr-services',
+    '/services/digital-transformation',
+    '/services/engineering-services',
+    '/services/strategic-services',
+    '/services/creative-services',
+    '/services/digital-services',
+    '/services/service-diversification',
+    '/services/training-development',
+    '/services/technical-support',
+    '/technology'
+  ];
+  return staticPages.map(page => `${EXTERNAL_DATA_URL}${page}`);
 }
 
 async function getAdditionalPages(): Promise<string[]> {
   let additionalPages: string[] = [];
+
+  // Add static pages
+  additionalPages = additionalPages.concat(await getStaticPages());
+  console.log(`Added ${additionalPages.length} static pages`);
 
   // Add individual blog post pages
   const blogSlugs = await getAllSlugs('post');
@@ -107,8 +98,6 @@ async function getAdditionalPages(): Promise<string[]> {
   console.log(`Retrieved ${serviceSlugs.length} service slugs`);
   additionalPages = additionalPages.concat(serviceSlugs.map(slug => `${EXTERNAL_DATA_URL}/service/${encodeURIComponent(slug)}`));
 
-  // ... (rest of the function remains the same)
-
   console.log(`Total additional pages: ${additionalPages.length}`);
   return additionalPages;
 }
@@ -118,36 +107,25 @@ const SiteMap: React.FC = () => null;
 export const getServerSideProps: GetServerSideProps = async ({ res, query }) => {
   try {
     console.log('Starting sitemap generation');
-    const pagesDirectory = path.join(process.cwd(), 'pages');
-    let pages = await getPages(pagesDirectory);
-    
-    console.log(`Total pages before adding additional pages: ${pages.length}`);
     
     // Force regeneration if the 'force' query parameter is present
     if (query.force !== undefined) {
       console.log('Forced regeneration of sitemap');
-      // You could add additional logic here to clear any server-side caches
     }
 
-    // Add additional pages
-    const additionalPages = await getAdditionalPages();
-    pages = pages.concat(additionalPages);
+    let pages = await getAdditionalPages();
     
-    console.log(`Total pages after adding additional pages: ${pages.length}`);
+    console.log(`Total pages before filtering: ${pages.length}`);
     
     // Remove duplicate and unnecessary pages
     pages = Array.from(new Set(pages)).filter(page => 
       !page.includes('/api/') && 
       !page.endsWith('/layout') &&
-      page !== `${EXTERNAL_DATA_URL}/` &&
       !page.includes('[') && // Remove any remaining pages with square brackets
       !page.includes('null') // Remove any pages with 'null' in the URL
     );
     
     console.log(`Total pages after filtering: ${pages.length}`);
-    
-    // Add the root URL
-    pages.unshift(EXTERNAL_DATA_URL);
 
     const sitemap = generateSiteMap(pages);
 
