@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { GetStaticProps } from 'next';
+import Image from "next/image";
+import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
 import client from "@/utils/sanity/client";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/header/header-two";
 import FancyBannerThree from "@/components/fancy-banner/fancy-banner-three";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
-import FooterTwo from "@/layout/footer/footer-two";
+import FooterOne from "@/layout/footer/footer-one";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
+import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import shape from "@/assets/images/shape/shape_26.svg";
 import service_bg from "@/assets/images/media/img_52-min.jpg";
-import Image from "next/image";
-import FooterOne from "@/layout/footer/footer-one";
-import NewsletterBanner from "@/components/newsletter/newsletter-banner";
-import Head from "next/head";
 
 // Define the structure of a BlogPost
 interface BlogPost {
@@ -20,7 +20,7 @@ interface BlogPost {
   title: string;
   publishedAt: string;
   slug: { current: string };
-  author: { _ref: string; name: string }; // Add the 'name' property
+  author: { _ref: string; name: string };
   mainImage: { asset: { _ref: string } };
   body: {
     _key: string;
@@ -37,47 +37,48 @@ function urlFor(source: any) {
   return builder.image(source);
 }
 
-const BlogPosts: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+export const getStaticProps: GetStaticProps = async () => {
+  const query = `
+    *[_type == "blogPost"] {
+      _id,
+      title,
+      publishedAt,
+      slug,
+      author->{name},
+      mainImage,
+      body,
+      categories[]->{ title, _id }
+    }
+  `;
+  const posts = await client.fetch(query);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const query = `
-          *[_type == "blogPost"] {
-            _id,
-            title,
-            publishedAt,
-            slug,
-            author,
-            mainImage,
-            body,
-            categories
-          }
-        `;
-      const result = await client.fetch(query);
-      setPosts(result);
-    };
+  return {
+    props: {
+      posts,
+    },
+    revalidate: 60 * 60, // Revalidate every hour
+  };
+};
 
-    fetchPosts();
-  }, []);
+interface BlogPostsProps {
+  posts: BlogPost[];
+}
 
+const BlogPosts: React.FC<BlogPostsProps> = ({ posts }) => {
   return (
     <Wrapper>
-                  <Head>
-        <title>Resources - skillshift </title>
+      <Head>
+        <title>Resources - SkillShift</title>
         <meta
           name="description"
           content="Explore SkillShift's resources: guides, case studies, and expert insights on web development, SEO, paid media, and more. Empower your agency to innovate and succeed."
         />
       </Head>
       <div className="main-page-wrapper">
-        {/* header start */}
         <HeaderTwo />
-        {/* header end */}
         <main>
-          {/* breadcrumb start */}
           <BreadcrumbOne
-            title="Insights & resources"
+            title="Insights & Resources"
             subtitle="Explore our latest insights and resources, including blogs, articles, and more."
             page="insights"
             shape={shape}
@@ -85,18 +86,12 @@ const BlogPosts: React.FC = () => {
             style_2={true}
             cls="me-xxl-4 me-lg-5"
           />
-          {/* breadcrumb end */}
 
-          {/* blog grid area start */}
           <BlogGridArea posts={posts} />
-          {/* blog grid area end */}
 
-          {/* fancy banner three start */}
           <FancyBannerThree />
-          {/* fancy banner three end */}
-          {/* news letter start */}
+
           <NewsletterBanner />
-          {/* news letter end */}
 
           <FooterOne />
         </main>
