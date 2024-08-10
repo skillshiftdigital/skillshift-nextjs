@@ -16,34 +16,25 @@ async function getAllSlugs(contentType: string): Promise<string[]> {
   try {
     let query;
     switch (contentType) {
-      case 'author':
-        query = `*[_type == "teamMember"]{name, "slug": slug.current}`;
-        break;
-      case 'category':
-        query = `*[_type == "category"].slug.current`;
-        break;
       case 'post':
-        query = `*[_type == "post" || _type == "blog"].slug.current`;
+        query = `*[_type == "blogPost"]{slug{current}}`;
         break;
       case 'service':
-        query = `*[_type == "services-digital-agencies"]{title, "slug": slug.current}`;
+        query = `*[_type == "services-digital-agencies"]{slug{current}}`;
         break;
       default:
-        query = `*[_type == "${contentType}"].slug.current`;
+        query = `*[_type == "${contentType}"]{slug{current}}`;
     }
     console.log(`Fetching data for content type: ${contentType}`);
     console.log(`Query: ${query}`);
     const result = await sanityClient.fetch(query);
-    console.log(`Fetched result for ${contentType}:`, JSON.stringify(result, null, 2));
+    console.log(`Raw result for ${contentType}:`, JSON.stringify(result, null, 2));
     
-    let slugs;
-    if (['author', 'service'].includes(contentType)) {
-      slugs = result.map((item: any) => item.slug || item.name || item.title).filter((slug: string) => slug != null && slug !== '');
-    } else {
-      slugs = result.filter((slug: string) => slug != null && slug !== '');
-    }
+    const slugs = result
+      .map((item: any) => item.slug?.current)
+      .filter((slug: string | undefined) => slug != null && slug !== '');
     
-    console.log(`Processed ${slugs.length} slugs for ${contentType}`);
+    console.log(`Processed ${slugs.length} slugs for ${contentType}:`, slugs);
     return slugs;
   } catch (error) {
     console.error(`Error fetching slugs for ${contentType}:`, error);
@@ -108,12 +99,17 @@ async function getAdditionalPages(): Promise<string[]> {
 
   // Add individual blog post pages
   const blogSlugs = await getAllSlugs('post');
+  console.log(`Retrieved ${blogSlugs.length} blog slugs`);
   additionalPages = additionalPages.concat(blogSlugs.map(slug => `${EXTERNAL_DATA_URL}/resources/${encodeURIComponent(slug)}`));
 
   // Add individual service pages
   const serviceSlugs = await getAllSlugs('service');
+  console.log(`Retrieved ${serviceSlugs.length} service slugs`);
   additionalPages = additionalPages.concat(serviceSlugs.map(slug => `${EXTERNAL_DATA_URL}/service/${encodeURIComponent(slug)}`));
 
+  // ... (rest of the function remains the same)
+
+  console.log(`Total additional pages: ${additionalPages.length}`);
   return additionalPages;
 }
 
