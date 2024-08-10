@@ -7,6 +7,8 @@ import icon_2 from '@/assets/images/icon/icon_04.svg';
 import icon_3 from '@/assets/images/icon/icon_05.svg';
 import arrow from '@/assets/images/icon/icon_09.svg';
 import { sanityTypes } from '@/types/sanityTypes';
+import Head from 'next/head';
+
 
 interface UpperCardItemProps {
   icon: StaticImageData;
@@ -33,8 +35,28 @@ interface BlockAllServicesProps {
   style_2?: boolean;
 }
 
-const BlockAllServices: React.FC<BlockAllServicesProps> = ({ services, style_2 = false }) => {
+  const BlockAllServices: React.FC<BlockAllServicesProps> = ({ services, style_2 = false }) => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.shortDescription,
+          "url": `${process.env.NEXT_PUBLIC_SITE_URL}/service/${service.slug?.current}`
+        }
+      }))
+    };
   return (
+    <>
+    <Head>
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+    </Head>
     <div
       className={`block-feature-one position-relative ${style_2 ? 'light-bg-deep mt-150 lg-mt-80 pt-120 lg-pt-60 pb-130 lg-pb-60' : 'pt-75'}`}
     >
@@ -68,45 +90,49 @@ const BlockAllServices: React.FC<BlockAllServicesProps> = ({ services, style_2 =
         </div>
       )}
 
-      <div className="container">
-        <div className="position-relative">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="title-one text-center text-md-start mb-30 sm-mb-10">
-                <h2>We transform ideas into impact </h2>
+<div className="container">
+          <div className="position-relative">
+            <div className="row">
+              <div className="col-md-6">
+                <h2 className="title-one text-center text-md-start mb-30 sm-mb-10">We transform ideas into impact</h2>
               </div>
             </div>
-          </div>
-          <div className="row justify-content-center">
-            {services.map((service, index) => (
-              <div
-                key={service._id}
-                className="col-lg-4 col-md-6 d-flex wow fadeInUp"
-                data-wow-delay={`0.${index + 1}s`}
-              >
-                <div className="card-style-two vstack tran3s w-100 mt-30">
-                  <Image
-                    src={icon_2} // Replace with the actual service icon if available
-                    alt="icon"
-                    className="lazy-img icon me-auto"
-                  />
-                  <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
-                  <p className="mb-20">{service.shortDescription}</p>
-                  {service.slug && service.slug.current && (
-                    <Link
-                      href={`/service/${service.slug.current}`}
-                      className="arrow-btn tran3s mt-auto stretched-link"
-                    >
-                      <Image src={arrow} alt="arrow" className="lazy-img" />
-                    </Link>
-                  )}
+            <div className="row justify-content-center" role="list">
+              {services.map((service, index) => (
+                <div
+                  key={service._id}
+                  className="col-lg-4 col-md-6 d-flex wow fadeInUp"
+                  data-wow-delay={`0.${index + 1}s`}
+                  role="listitem"
+                >
+                  <div className="card-style-two vstack tran3s w-100 mt-30">
+                    <Image
+                      src={icon_2} // Replace with the actual service icon if available
+                      alt={`Icon for ${service.title}`}
+                      className="lazy-img icon me-auto"
+                      loading="lazy"
+                      width={50}
+                      height={50}
+                    />
+                    <h3 className="fw-bold mt-30 mb-25">{service.title}</h3>
+                    <p className="mb-20">{service.shortDescription}</p>
+                    {service.slug && service.slug.current && (
+                      <Link
+                        href={`/service/${service.slug.current}`}
+                        className="arrow-btn tran3s mt-auto stretched-link"
+                        aria-label={`Learn more about ${service.title}`}
+                      >
+                        <Image src={arrow} alt="Arrow icon" className="lazy-img" width={20} height={20} />
+                      </Link>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
