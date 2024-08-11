@@ -43,6 +43,14 @@ const components: PortableTextComponents = {
         </div>
       );
     },
+    svg: ({ value }) => {
+      if (value.svgType === 'file' && value.svgFile) {
+        return <img src={value.svgFile.asset.url} alt="SVG" />;
+      } else if (value.svgType === 'code' && value.svgCode) {
+        return <div dangerouslySetInnerHTML={{ __html: value.svgCode }} />;
+      }
+      return null;
+    },
   },
 };
 
