@@ -211,6 +211,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
           code
         }
       },
+      _type == "svg" => {
+        ...,
+        svgType,
+        svgFile {
+          asset->
+        },
+        svgCode
+      },
       categories[] -> {title}
     }
   `;
