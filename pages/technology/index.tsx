@@ -1,3 +1,5 @@
+// pages/technology/index.tsx
+
 import Wrapper from "@/layout/wrapper";
 import HeaderTwoDark from "@/layout/header/header-two-dark";
 import HeroBannerOne from "@/components/hero-banner/hero-banner-one";
