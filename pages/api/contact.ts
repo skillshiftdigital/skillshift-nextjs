@@ -23,6 +23,9 @@ async function fetchWithAuth(url: string, options: any) {
     if (response.status === 409 && error.category === 'CONFLICT') {
       console.log(`Contact already exists. Existing ID: ${error.message.split('Existing ID: ')[1]}`);
       return { error: 'Contact already exists', details: error };
+    } else if (response.status === 403 && error.category === 'MISSING_SCOPES') {
+      console.error('Missing required scopes:', error);
+      return { error: 'Missing required scopes', details: error };
     } else {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -102,6 +105,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           method: 'PATCH',
           body: JSON.stringify({ properties: { website_form_message: message } }),
         });
+      } else if (contactResponse.error === 'Missing required scopes') {
+        res.status(403).json({ success: false, message: 'Missing required scopes to perform this action' });
+        return;
       }
 
       await sendEmailToContact(email);
