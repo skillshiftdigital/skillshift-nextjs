@@ -22,24 +22,6 @@ class MyDocument extends Document {
               `,
             }}
           />
-          {/* Google tag (gtag.js) event - delayed navigation helper */}
-          <Script id="gtag-event-script" strategy="afterInteractive">
-            {`
-              function gtagSendEvent(url) {
-                var callback = function () {
-                  if (typeof url === 'string') {
-                    window.location = url;
-                  }
-                };
-                gtag('event', 'ads_conversion_Form_1', {
-                  'event_callback': callback,
-                  'event_timeout': 2000,
-                  // <event_parameters>
-                });
-                return false;
-              }
-            `}
-          </Script>
         </Head>
         <body>
           {/* GTM Body Script */}
