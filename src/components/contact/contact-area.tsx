@@ -8,8 +8,8 @@ import icon_1 from "@/assets/images/icon/icon_90.svg";
 import icon_2 from "@/assets/images/icon/icon_91.svg";
 import icon_3 from "@/assets/images/icon/icon_92.svg";
 import icon_4 from "@/assets/images/assets/ils_07.svg";
-import ContactForm from "../forms/contact-form";
-import HubspotGenericForm from "../forms/hubspot-generic";
+
+import ContactForm from "@/components/forms/contact-form";
 
 // address block item
 function AddressBlock({

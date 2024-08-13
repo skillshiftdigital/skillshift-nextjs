@@ -6,20 +6,20 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import ErrorMsg from '../common/error-msg';
-import SuccessModal from './SuccessModal'; // Import the SuccessModal component
+import SuccessModal from './SuccessModal';
 
 type FormData = {
   name: string;
   email: string;
   message: string;
-  honeypot?: string; // Honeypot field
+  honeypot?: string;
 };
 
 const schema = yup.object().shape({
   name: yup.string().required().label("Name"),
   email: yup.string().required().email().label("Email"),
   message: yup.string().required().min(10).label("Message"),
-  honeypot: yup.string().label("Honeypot"), // Honeypot field should be empty
+  honeypot: yup.string().label("Honeypot"),
 });
 
 const ContactForm: React.FC = () => {
@@ -27,11 +27,10 @@ const ContactForm: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
-  const [showModal, setShowModal] = useState(false); // State to manage the modal visibility
+  const [showModal, setShowModal] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
     if (data.honeypot) {
-      // If honeypot field is filled, discard the submission
       alert('Spam detected!');
       return;
     }
@@ -46,7 +45,15 @@ const ContactForm: React.FC = () => {
       });
 
       if (response.ok) {
-        setShowModal(true); // Show the success modal
+        // Send custom event to GTM
+        if (typeof window !== 'undefined' && window.dataLayer) {
+          window.dataLayer.push({
+            'event': 'form_submission',
+            'formId': 'contact_form'
+          });
+        }
+        
+        setShowModal(true);
         reset();
       } else {
         alert('Failed to send message. Please try again.');
@@ -122,7 +129,7 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
       </form>
-      <SuccessModal show={showModal} onClose={handleCloseModal} /> {/* Include the modal */}
+      <SuccessModal show={showModal} onClose={handleCloseModal} />
     </div>
   );
 };
