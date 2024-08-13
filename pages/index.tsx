@@ -12,7 +12,6 @@ import FancyBannerTwo from "@/components/fancy-banner/fancy-banner-two";
 import FooterOne from "@/layout/footer/footer-one";
 import Head from "next/head";
 
-
 export default function skillshifthome() {
   return (
     <Wrapper>

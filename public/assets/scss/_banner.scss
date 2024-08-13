@@ -243,13 +243,24 @@
         color: $color-seven;
     }
     .media-wrapper {
-        background: url(../images/media/img_48.jpg) no-repeat center;
-        background-size: cover;
+        position: relative;
         border-radius: 20px;
         max-width: 536px;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+
+        .background-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
         .screen_01 {
+            position: absolute;
             right: 4%;
             top: 4%;
             width: 41.1%;
@@ -258,6 +269,7 @@
             z-index: 1;
         }
         .screen_02 {
+            position: absolute;
             bottom: 9%;
             left: -28%;
             border-radius: 10px;
@@ -267,18 +279,22 @@
             animation: jumpTwo 10s infinite linear;
         }
         .bg-shape {
+            position: absolute;
             max-width: 130%;
             left: 47%;
             bottom: -12%;
             transform: translateX(-50%);
+            z-index: 2;
         }
     }
     .shape_01 {
+        position: absolute;
         bottom: 9%;
         left: 40%;
         width: 6.53%;
     }
 }
+
 // Hero Banner Seven
 .hero-banner-seven {
     padding: 500px 0 70px;
