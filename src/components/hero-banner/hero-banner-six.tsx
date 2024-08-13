@@ -1,15 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-// internal
 import screen_1 from '@/assets/images/assets/screen_22.svg';
 import shape_1 from '@/assets/images/shape/shape_43.svg';
 import shape_2 from '@/assets/images/shape/shape_42.svg';
+import backgroundImage from '@/assets/images/media/img_48.jpg'; // Import your background image
 import PartnersSliderOne from "../partners/partners-slider-one";
 
-// img style 
 const imgStyle = {
-  height:'auto'
+  height: 'auto'
 }
 
 const HeroBannerSix = () => {
@@ -26,21 +25,27 @@ const HeroBannerSix = () => {
                 Over 20 years transforming digital businesses through a blend of technology and psychology.
               </p>
               <div className="d-flex flex-wrap">
-                <Link href="/contact"
-                  className="btn-eighteen tran3s me-4 mt-10"
-                >
+                <Link href="/contact" className="btn-eighteen tran3s me-4 mt-10">
                   Contact
                 </Link>
                 <Link href="/services" className="btn-nineteen tran3s mt-10">
-                  Let’s Get Started
+                  Let's Get Started
                 </Link>
               </div>
             </div>
           </div>
           <div className="col-md-6 d-md-flex justify-content-end wow fadeInRight">
             <div className="media-wrapper position-relative ms-lg-5">
-
-
+            <div className="background-image-container">
+    <Image
+      src={backgroundImage}
+      alt="Background"
+      fill
+      style={{ objectFit: 'cover' }}
+      quality={80}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    />
+  </div>
               <Image
                 src={shape_1}
                 alt="shape"
@@ -55,7 +60,7 @@ const HeroBannerSix = () => {
           <div className="col-12">
             <div className="partner-logo-one pt-60 md-pt-50">
               <p className="fw-500 text-dark mb-40">
-              Join leading digital organizations in their next-gen transformation{" "}
+                Join leading digital organizations in their next-gen transformation{" "}
               </p>
               <PartnersSliderOne />
             </div>
