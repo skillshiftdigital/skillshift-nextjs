@@ -47,14 +47,18 @@ export const getStaticProps: GetStaticProps = async () => {
       author->{name},
       mainImage,
       body,
-      categories[]->{ title, _id }
+      categories[]->{ title, _id },
+      publishedAt
     }
   `;
   const posts = await client.fetch(query);
 
+  // Filter out draft posts
+  const validPosts = posts.filter((post: BlogPost) => !post._id.startsWith('drafts.'));
+
   return {
     props: {
-      posts,
+      posts: validPosts,
     },
     revalidate: 60 * 60, // Revalidate every hour
   };
