@@ -31,7 +31,7 @@ interface BlogGridAreaProps {
 }
 
 const BlogGridArea: React.FC<BlogGridAreaProps> = ({ posts }) => {
-  const { currentItems, handlePageClick, pageCount } = usePagination<BlogPost>(posts, 4);
+  const { currentItems, handlePageClick, pageCount } = usePagination<BlogPost>(posts, 24);
 
   return (
     <div className="blog-section-two position-relative mt-150 lg-mt-80 mb-150 lg-mb-80">
