@@ -65,6 +65,7 @@ hr {opacity: 0.09; margin: 5px 0;}
     animation: rotated 8s infinite linear;
   }
   .txt-loading {
+    -webkit-user-select: none;
     user-select: none;
     margin-top: 30px;
     .letters-loading {
