@@ -75,7 +75,7 @@ const SEOToolsAffordabilityWhitepaper = () => {
   return (
     <Box sx={{ 
       p: { xs: 2, sm: 3, md: 4 }, 
-      bgcolor: '#F5F5F5', 
+      bgcolor: '#ffffff', 
       minHeight: '100vh',
       maxWidth: isLargeScreen ? '1200px' : '100%',
       margin: '0 auto'
@@ -89,13 +89,13 @@ const SEOToolsAffordabilityWhitepaper = () => {
       </Typography>
 
       <Section title="1. Executive Summary">
-        <Typography variant="body1">
-          In today's digital-first economy, access to sophisticated marketing tools is crucial for businesses to compete on a global scale. However, our comprehensive analysis reveals stark disparities in the affordability and accessibility of these tools across different regions of the world. This white paper examines the implications of this digital divide, its impact on global economic development, and proposes strategic solutions to address this growing concern.
-        </Typography>
-        <Typography variant="body1" sx={{ mt: 2 }}>
+      <p className="post-details-meta">
+      Access to sophisticated marketing tools is crucial for businesses to compete on a global scale. However, our comprehensive analysis reveals stark disparities in the affordability and accessibility of these tools across different regions of the world. This white paper examines the implications of this digital divide, its impact on global economic development, and proposes strategic solutions to address this growing concern.
+        </p>
+        <p className="post-details-meta">
           Key findings include:
-        </Typography>
-        <ul>
+        </p>
+        <ul className="blog-details list-meta" style={{ listStyle: 'upper-roman' }}>
           <li>Limited access to digital marketing tools in developing nations results in a {studyData.economicImpact}% reduction in potential GDP growth annually.</li>
           <li>The digital marketing capability gap between developed and developing nations could widen by {studyData.projectedDivideIncrease}% over the next decade.</li>
           <li>Significant variations in average salaries across First World, Second World, and Third World countries directly impact the affordability of SEO tools.</li>
@@ -104,18 +104,18 @@ const SEOToolsAffordabilityWhitepaper = () => {
       </Section>
 
       <Section title="2. Introduction">
-        <Typography variant="body1">
+      <p className="post-details-meta">
           The dawn of the digital age has transformed the way businesses operate and market themselves. As e-commerce and online presence become increasingly crucial for business success, the role of Search Engine Optimization (SEO) and digital marketing tools has become paramount. However, the accessibility of these tools varies greatly across different regions of the world, creating a digital divide that threatens to exacerbate existing economic inequalities.
-        </Typography>
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          This white paper aims to shed light on the economic realities that underpin this digital divide, examining how the cost of popular digital marketing tools relates to average incomes across various countries. By doing so, we seek to highlight the challenges faced by businesses and entrepreneurs in developing nations and propose actionable strategies to level the playing field.
-        </Typography>
+        </p>
+        <p className="post-details-meta">
+        This white paper aims to shed light on the economic realities that underpin this digital divide, examining how the cost of popular digital marketing tools relates to average incomes across various countries. By doing so, we seek to highlight the challenges faced by businesses and entrepreneurs in developing nations and propose actionable strategies to level the playing field.
+        </p>
       </Section>
 
       <Section title="3. Global Economic Landscape: A Comparative Analysis">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           To understand the context of our discussion, it's crucial to first examine the economic landscape across different regions of the world. We've categorized countries into three broad groups: First World, Second World, and Third World.
-        </Typography>
+        </p>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -144,15 +144,15 @@ const SEOToolsAffordabilityWhitepaper = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          As we can see, there are significant disparities in economic output and digital adoption rates across these categories. These differences play a crucial role in determining the accessibility of digital marketing tools.
-        </Typography>
+        <p className="post-details-meta">
+        As we can see, there are significant disparities in economic output and digital adoption rates across these categories. These differences play a crucial role in determining the accessibility of digital marketing tools.
+        </p>
       </Section>
 
       <Section title="4. SEO Tool Affordability Analysis">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           Our analysis reveals a striking disparity in the affordability of SEO tools across different economic regions. The following chart compares the cost of popular SEO tools as a percentage of average annual salary in various countries:
-        </Typography>
+        </p>
         <Card>
           <CardContent>
             <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
@@ -186,35 +186,36 @@ const SEOToolsAffordabilityWhitepaper = () => {
             </ResponsiveContainer>
           </CardContent>
         </Card>
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          As we can observe, the cost of SEO tools as a percentage of annual salary varies dramatically across regions. In First World countries, these tools typically cost between 3-5% of the average annual salary. However, in Third World countries, the same tools can cost over 100% of the average annual salary, making them prohibitively expensive for many businesses and entrepreneurs.
-        </Typography>
+        <p className="post-details-meta">
+        As we can observe, the cost of SEO tools as a percentage of annual salary varies dramatically across regions. In First World countries, these tools typically cost between 3-5% of the average annual salary. However, in Third World countries, the same tools can cost over 100% of the average annual salary, making them prohibitively expensive for many businesses and entrepreneurs.
+        </p>
       </Section>
 
       <Section title="5. Implications of the Digital Divide">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           The disparity in access to digital marketing tools has far-reaching implications for global economic development and competitiveness:
-        </Typography>
-        <ul>
+        </p>
+        <ul className="blog-details list-meta" style={{ listStyle: 'upper-roman' }}>
           <li><strong>Limited Global Competitiveness:</strong> Businesses in developing nations, unable to afford these tools, struggle to compete effectively in the global digital marketplace.</li>
           <li><strong>Stunted Digital Economy Growth:</strong> Without access to advanced digital marketing tools, the growth of digital economies in developing nations may be significantly hampered.</li>
           <li><strong>Brain Drain:</strong> The lack of access to essential tools may drive talented individuals from developing nations to seek opportunities in more digitally advanced economies.</li>
           <li><strong>Reduced Innovation:</strong> Limited access to digital resources can stifle innovation, preventing potentially groundbreaking ideas from reaching a global audience.</li>
         </ul>
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          Our study estimates that limited access to digital marketing tools results in a {studyData.economicImpact}% reduction in potential GDP growth annually for developing nations. Moreover, if current trends continue, the digital marketing capability gap between developed and developing nations could widen by {studyData.projectedDivideIncrease}% over the next decade.
-        </Typography>
+        <p className="post-details-meta">
+        Our study estimates that limited access to digital marketing tools results in a {studyData.economicImpact}% reduction in potential GDP growth annually for developing nations. Moreover, if current trends continue, the digital marketing capability gap between developed and developing nations could widen by {studyData.projectedDivideIncrease}% over the next decade.
+        </p>
       </Section>
 
       <Section title="6. Correlation Analysis">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           Our research reveals strong correlations between SEO tool affordability and key economic indicators:
-        </Typography>
+        </p>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
             <Card>
               <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>GDP per Capita vs SEO Tool Affordability</Typography>
+              <p className="post-details-meta">
+              GDP per Capita vs SEO Tool Affordability</p>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={filteredData}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -235,7 +236,9 @@ const SEOToolsAffordabilityWhitepaper = () => {
           <Grid item xs={12} md={6}>
             <Card>
               <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>Internet Penetration vs SEO Tool Affordability</Typography>
+              <p className="post-details-meta">
+              Internet Penetration vs SEO Tool Affordability
+              </p>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={filteredData}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -255,117 +258,128 @@ const SEOToolsAffordabilityWhitepaper = () => {
             </Card>
           </Grid>
         </Grid>
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          These charts illustrate strong correlations between a country's economic indicators and the affordability of SEO tools. Countries with higher GDP per capita and internet penetration rates tend to have more affordable access to these tools, creating a potential feedback loop that could exacerbate global digital inequality.
-        </Typography>
+        <p className="post-details-meta">
+        These charts illustrate strong correlations between a country's economic indicators and the affordability of SEO tools. Countries with higher GDP per capita and internet penetration rates tend to have more affordable access to these tools, creating a potential feedback loop that could exacerbate global digital inequality.
+        </p>
       </Section>
 
       <Section title="7. Strategies for Bridging the Gap">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           Addressing the digital divide requires a multi-faceted approach involving various stakeholders. We propose the following strategies:
-        </Typography>
-        <ol>
+        </p>
+        <ol style={{ listStyle: 'upper-roman' }}>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Tiered Pricing Models</Typography>
-            <Typography variant="body1">
-              Tech companies could implement regionally-adjusted pricing models to make their tools more accessible in developing economies. This could involve offering discounted rates based on local economic conditions.
-            </Typography>
+          <p className="post-details-meta">
+          Tiered Pricing Models</p>
+          <p className="post-details-meta">
+          Tech companies could implement regionally-adjusted pricing models to make their tools more accessible in developing economies. This could involve offering discounted rates based on local economic conditions.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Free Tier Expansion</Typography>
-            <Typography variant="body1">
-              Expanding free tiers of digital marketing tools can provide basic access to businesses in developing nations, allowing them to start leveraging these tools for growth.
-            </Typography>
+          <p className="post-details-meta">
+          Free Tier Expansion</p>
+          <p className="post-details-meta">
+          Expanding free tiers of digital marketing tools can provide basic access to businesses in developing nations, allowing them to start leveraging these tools for growth.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Digital Marketing Education Initiatives</Typography>
-            <Typography variant="body1">
-              Investments in digital marketing education can help businesses in developing nations maximize the value of the tools they can access. This could involve partnerships with local educational institutions or online learning platforms.
-            </Typography>
+          <p className="post-details-meta">
+          Digital Marketing Education Initiatives</p>
+          <p className="post-details-meta">
+          Investments in digital marketing education can help businesses in developing nations maximize the value of the tools they can access. This could involve partnerships with local educational institutions or online learning platforms.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Open Source Alternatives</Typography>
-            <Typography variant="body1">
-              Development and promotion of open-source alternatives to premium digital marketing tools can provide accessible options for businesses in developing economies.
-            </Typography>
+          <p className="post-details-meta">
+          Open Source Alternatives</p>
+          <p className="post-details-meta">
+          Development and promotion of open-source alternatives to premium digital marketing tools can provide accessible options for businesses in developing economies.
+            </p>
           </li>
         </ol>
       </Section>
 
       <Section title="8. The Role of Tech Companies">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           Tech companies have a crucial role to play in addressing this digital divide:
-        </Typography>
-        <ul>
+        </p>
+        <ul style={{ listStyle: 'outside' }}>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Corporate Social Responsibility (CSR) Programs</Typography>
-            <Typography variant="body1">
-              Tech companies can incorporate digital equity into their CSR programs, providing subsidized or free access to their tools in developing economies.
-            </Typography>
+          <p className="post-details-meta">
+          Corporate Social Responsibility (CSR) Programs</p>
+          <p className="post-details-meta">
+          Tech companies can incorporate digital equity into their CSR programs, providing subsidized or free access to their tools in developing economies.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Partnerships with Local Organizations</Typography>
-            <Typography variant="body1">
-              Collaborations with local organizations can help tech companies better understand and address the specific needs of businesses in developing nations.
-            </Typography>
+          <p className="post-details-meta">
+          Partnerships with Local Organizations</p>
+          <p className="post-details-meta">
+          Collaborations with local organizations can help tech companies better understand and address the specific needs of businesses in developing nations.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Investment in Local Digital Infrastructure</Typography>
-            <Typography variant="body1">
-              Tech companies can contribute to the development of digital infrastructure in emerging economies, creating a more conducive environment for digital business growth.
-            </Typography>
+          <p className="post-details-meta">
+          Investment in Local Digital Infrastructure</p>
+          <p className="post-details-meta">
+          Tech companies can contribute to the development of digital infrastructure in emerging economies, creating a more conducive environment for digital business growth.
+            </p>
           </li>
         </ul>
       </Section>
 
       <Section title="9. Policy Recommendations">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           Policymakers and international organizations can play a pivotal role in bridging the digital divide:
-        </Typography>
-        <ul>
+        </p>
+        <ul style={{ listStyle: 'outside' }}>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Digital Tool Subsidies</Typography>
-            <Typography variant="body1">
-              Governments could provide subsidies or tax incentives for businesses investing in digital marketing tools.
-            </Typography>
+          <p className="post-details-meta">
+          Digital Tool Subsidies</p>
+          <p className="post-details-meta">
+          Governments could provide subsidies or tax incentives for businesses investing in digital marketing tools.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>International Digital Development Funds</Typography>
-            <Typography variant="body1">
-              International organizations could establish funds specifically aimed at improving access to digital marketing tools in developing nations.
-            </Typography>
+          <p className="post-details-meta">
+          International Digital Development Funds</p>
+          <p className="post-details-meta">
+          International organizations could establish funds specifically aimed at improving access to digital marketing tools in developing nations.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Digital Skills Training Programs</Typography>
-            <Typography variant="body1">
-              Investment in comprehensive digital skills training programs can help businesses make the most of available digital resources.
-            </Typography>
+          <p className="post-details-meta">
+          Digital Skills Training Programs</p>
+          <p className="post-details-meta">
+          Investment in comprehensive digital skills training programs can help businesses make the most of available digital resources.
+            </p>
           </li>
           <li>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>Promotion of Digital Free Trade Zones</Typography>
-            <Typography variant="body1">
-              Establishing digital free trade zones could provide businesses in developing nations with improved access to global digital markets.
-            </Typography>
+          <p className="post-details-meta">
+          Promotion of Digital Free Trade Zones</p>
+          <p className="post-details-meta">
+          Establishing digital free trade zones could provide businesses in developing nations with improved access to global digital markets.
+            </p>
           </li>
         </ul>
       </Section>
 
       <Section title="10. Conclusion and Future Outlook">
-        <Typography variant="body1" sx={{ mb: 2 }}>
+      <p className="post-details-meta">
           The digital divide in access to marketing tools represents a significant challenge to global economic equity. However, with concerted effort from tech companies, policymakers, and international organizations, we can work towards a more equitable digital future.
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          By implementing tiered pricing models, expanding education initiatives, and fostering the development of accessible alternatives, we can begin to level the playing field. As we move forward, it's crucial that we continue to monitor this issue and adapt our strategies to ensure that the benefits of the digital revolution are accessible to all, regardless of geographic or economic circumstances.
-        </Typography>
-        <Typography variant="body1">
-          The potential for innovation, growth, and prosperity that could be unlocked by bridging this divide makes it an endeavor well worth pursuing. As we look to the future, we envision a world where digital marketing tools are accessible to businesses of all sizes, in all regions, fostering a truly global and inclusive digital economy.
-        </Typography>
+        </p>
+        <p className="post-details-meta">
+        By implementing tiered pricing models, expanding education initiatives, and fostering the development of accessible alternatives, we can begin to level the playing field. As we move forward, it's crucial that we continue to monitor this issue and adapt our strategies to ensure that the benefits of the digital revolution are accessible to all, regardless of geographic or economic circumstances.
+        </p>
+        <p className="post-details-meta">
+        The potential for innovation, growth, and prosperity that could be unlocked by bridging this divide makes it an endeavor well worth pursuing. As we look to the future, we envision a world where digital marketing tools are accessible to businesses of all sizes, in all regions, fostering a truly global and inclusive digital economy.
+        </p>
       </Section>
 
       <Section title="About This White Paper">
-        <Typography variant="body1">
+      <p className="post-details-meta">
           This interactive white paper was created using React and various data visualization libraries. It aims to present complex data in an accessible, engaging format. For any questions or further information, please contact our research team.
-        </Typography>
+        </p>
       </Section>
     </Box>
   );
