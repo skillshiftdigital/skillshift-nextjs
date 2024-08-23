@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import screen_1 from '@/assets/images/assets/screen_22.svg';
 import shape_1 from '@/assets/images/shape/shape_43.svg';
 import shape_2 from '@/assets/images/shape/shape_42.svg';
-import backgroundImage from '@/assets/images/media/img_48.jpg'; // Import your background image
+import backgroundImage from '@/assets/images/media/globalData.webp'; // Import your background image
 import PartnersSliderOne from "../partners/partners-slider-one";
 
 const imgStyle = {
@@ -19,33 +18,33 @@ const HeroBannerSix = () => {
           <div className="col-md-6 wow fadeInLeft">
             <div className="pt-20 pb-50">
               <h1 className="hero-heading fw-bold">
-                Transform, adapt & grow.
+                Global SEO Affordability Study
               </h1>
               <p className="text-lg pt-35 lg-pt-30 pb-35 lg-pb-20">
-                Over 20 years transforming digital businesses through a blend of technology and psychology.
+                Unveiling the hidden impact of SEO tool accessibility on digital equality and market integrity across the globe.
               </p>
               <div className="d-flex flex-wrap">
-                <Link href="/contact" className="btn-eighteen tran3s me-4 mt-10">
-                  Contact
+                <Link href="https://www.skillshift.com.au/global-seo-affordability-study" className="btn-eighteen tran3s me-4 mt-10">
+                  Read the Study
                 </Link>
-                <Link href="/services" className="btn-nineteen tran3s mt-10">
-                  Let's Get Started
+                <Link href="/contact" className="btn-nineteen tran3s mt-10">
+                  Discuss Findings
                 </Link>
               </div>
             </div>
           </div>
           <div className="col-md-6 d-md-flex justify-content-end wow fadeInRight">
             <div className="media-wrapper position-relative ms-lg-5">
-            <div className="background-image-container">
-    <Image
-      src={backgroundImage}
-      alt="Background"
-      fill
-      style={{ objectFit: 'cover' }}
-      quality={80}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-    />
-  </div>
+              <div className="background-image-container">
+                <Image
+                  src={backgroundImage}
+                  alt="SEO Affordability Study"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <Image
                 src={shape_1}
                 alt="shape"
@@ -60,7 +59,7 @@ const HeroBannerSix = () => {
           <div className="col-12">
             <div className="partner-logo-one pt-60 md-pt-50">
               <p className="fw-500 text-dark mb-40">
-                Join leading digital organizations in their next-gen transformation{" "}
+                Featured in leading publications and supported by industry giants
               </p>
               <PartnersSliderOne />
             </div>
