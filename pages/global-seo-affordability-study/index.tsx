@@ -12,7 +12,7 @@ function App() {
   return (
     <Wrapper>
       <Head>
-        <title>Bridging the Digital Divide: Global Economic Disparities in SEO Tool Accessibility - skillshift</title>
+        <title>SEO tools global affordability study - skillshift</title>
         <meta
           name="description"
           content="Explore the global disparity in SEO tool affordability across high, middle, and low-income countries. Discover key insights, data visualizations, and potential solutions to bridge the digital divide in search engine optimization accessibility."
@@ -26,7 +26,7 @@ function App() {
         <main>
           {/* breadcrumb start */}
           <BreadcrumbOne
-            title="Global Economic Disparities in SEO Tool Accessibility."
+            title="SEO tools global affordability study."
             subtitle="Bridging the Digital Divide"
             page="Global SEO Affordability Study"
             bg_img={about_bg}

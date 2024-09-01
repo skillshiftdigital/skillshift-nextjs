@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import data from './data.json'; // Adjust the path as necessary
 import { 
   Typography, 
   Box, 
@@ -37,14 +38,8 @@ const studyData = {
   }
 };
 
-const countryData = [
-  { country: "USA", region: "1st World", avgSalary: 65000, ahrefs: 0.04, semrush: 0.04, moz: 0.03, gdpPerCapita: 63544, internetPenetration: 89 },
-  { country: "Germany", region: "1st World", avgSalary: 53000, ahrefs: 0.05, semrush: 0.04, moz: 0.04, gdpPerCapita: 46445, internetPenetration: 88 },
-  { country: "Brazil", region: "2nd World", avgSalary: 8500, ahrefs: 0.28, semrush: 0.27, moz: 0.24, gdpPerCapita: 6796, internetPenetration: 74 },
-  { country: "India", region: "2nd World", avgSalary: 6000, ahrefs: 0.4, semrush: 0.38, moz: 0.34, gdpPerCapita: 1900, internetPenetration: 50 },
-  { country: "Nigeria", region: "3rd World", avgSalary: 2000, ahrefs: 1.19, semrush: 1.15, moz: 1.01, gdpPerCapita: 2085, internetPenetration: 42 },
-  { country: "Ethiopia", region: "3rd World", avgSalary: 800, ahrefs: 2.98, semrush: 2.87, moz: 2.54, gdpPerCapita: 936, internetPenetration: 23 }
-];
+// Use the imported data
+const countryData = data;
 
 const SEOToolsAffordabilityWhitepaper = () => {
   const [selectedRegion, setSelectedRegion] = useState('All');
@@ -81,11 +76,11 @@ const SEOToolsAffordabilityWhitepaper = () => {
       margin: '0 auto'
     }}>
       <Typography variant="h3" align="center" sx={{ fontWeight: 700, mb: 3 }}>
-        Bridging the Digital Divide: Global Economic Disparities in SEO Tool Accessibility
+        SEO tools global affordability study
       </Typography>
 
       <Typography variant="h6" align="center" sx={{ mb: 4 }}>
-        An Interactive White Paper
+        A deep dive into the true cost of SEO tools around the world.
       </Typography>
 
       <Section title="1. Executive Summary">
@@ -328,61 +323,64 @@ const SEOToolsAffordabilityWhitepaper = () => {
         </ul>
       </Section>
 
-      <Section title="9. Policy Recommendations">
-      <p className="post-details-meta">
-          Policymakers and international organizations can play a pivotal role in bridging the digital divide:
-        </p>
-        <ul style={{ listStyle: 'outside' }}>
-          <li>
-          <p className="post-details-meta">
-          Digital Tool Subsidies</p>
-          <p className="post-details-meta">
-          Governments could provide subsidies or tax incentives for businesses investing in digital marketing tools.
-            </p>
-          </li>
-          <li>
-          <p className="post-details-meta">
-          International Digital Development Funds</p>
-          <p className="post-details-meta">
-          International organizations could establish funds specifically aimed at improving access to digital marketing tools in developing nations.
-            </p>
-          </li>
-          <li>
-          <p className="post-details-meta">
-          Digital Skills Training Programs</p>
-          <p className="post-details-meta">
-          Investment in comprehensive digital skills training programs can help businesses make the most of available digital resources.
-            </p>
-          </li>
-          <li>
-          <p className="post-details-meta">
-          Promotion of Digital Free Trade Zones</p>
-          <p className="post-details-meta">
-          Establishing digital free trade zones could provide businesses in developing nations with improved access to global digital markets.
-            </p>
-          </li>
-        </ul>
+            <Section title="9. Policy Recommendations">
+            <p className="post-details-meta">
+                Policymakers and international organizations can play a pivotal role in bridging the digital divide:
+              </p>
+              <ul style={{ listStyle: 'outside' }}>
+                <li>
+                <p className="post-details-meta">
+                Digital Tool Subsidies</p>
+                <p className="post-details-meta">
+                Governments could provide subsidies or tax incentives for businesses investing in digital marketing tools.
+                  </p>
+                </li>
+                <li>
+                <p className="post-details-meta">
+                International Digital Development Funds</p>
+                <p className="post-details-meta">
+                International organizations could establish funds specifically aimed at improving access to digital marketing tools in developing nations.
+                  </p>
+                </li>
+                <li>
+                <p className="post-details-meta">
+                Digital Skills Training Programs</p>
+                <p className="post-details-meta">
+                Investment in comprehensive digital skills training programs can help businesses make the most of available digital resources.
+                  </p>
+                </li>
+                <li>
+                <p className="post-details-meta">
+                Public-Private Partnerships</p>
+                <p className="post-details-meta">
+                Collaboration between governments and private sector companies can lead to innovative solutions for making digital marketing tools more accessible.
+                  </p>
+                </li>
+              </ul>
+            </Section>
+      
+            <Section title="10. Conclusion and Future Outlook">
+            <p className="post-details-meta">
+                The digital divide in access to marketing tools represents a significant challenge to global economic equity. However, with concerted effort from tech companies, policymakers, and international organizations, we can work towards a more equitable digital future.
+              </p>
+              <p className="post-details-meta">
+              By implementing tiered pricing models, expanding education initiatives, and fostering the development of accessible alternatives, we can begin to level the playing field. As we move forward, it's crucial that we continue to monitor this issue and adapt our strategies to ensure that the benefits of the digital revolution are accessible to all, regardless of geographic or economic circumstances.
+              </p>
+              <p className="post-details-meta">
+              The potential for innovation, growth, and prosperity that could be unlocked by bridging this divide makes it an endeavor well worth pursuing. As we look to the future, we envision a world where digital marketing tools are accessible to businesses of all sizes, in all regions, fostering a truly global and inclusive digital economy.
+              </p>
+            </Section>
+      
+            <Section title="About This White Paper">
+            <p className="post-details-meta">
+                This interactive white paper was created using React and various data visualization libraries. It aims to present complex data in an accessible, engaging format. For any questions or further information, please contact our research team on info@skillshift.com.au.
+              </p>
+            </Section>
+            <Section title="Raw Data">
+        <pre>{JSON.stringify(countryData, null, 2)}</pre>
       </Section>
-
-      <Section title="10. Conclusion and Future Outlook">
-      <p className="post-details-meta">
-          The digital divide in access to marketing tools represents a significant challenge to global economic equity. However, with concerted effort from tech companies, policymakers, and international organizations, we can work towards a more equitable digital future.
-        </p>
-        <p className="post-details-meta">
-        By implementing tiered pricing models, expanding education initiatives, and fostering the development of accessible alternatives, we can begin to level the playing field. As we move forward, it's crucial that we continue to monitor this issue and adapt our strategies to ensure that the benefits of the digital revolution are accessible to all, regardless of geographic or economic circumstances.
-        </p>
-        <p className="post-details-meta">
-        The potential for innovation, growth, and prosperity that could be unlocked by bridging this divide makes it an endeavor well worth pursuing. As we look to the future, we envision a world where digital marketing tools are accessible to businesses of all sizes, in all regions, fostering a truly global and inclusive digital economy.
-        </p>
-      </Section>
-
-      <Section title="About This White Paper">
-      <p className="post-details-meta">
-          This interactive white paper was created using React and various data visualization libraries. It aims to present complex data in an accessible, engaging format. For any questions or further information, please contact our research team.
-        </p>
-      </Section>
-    </Box>
-  );
-};
-
-export default SEOToolsAffordabilityWhitepaper;
+          </Box>
+        );
+      };
+      
+      export default SEOToolsAffordabilityWhitepaper;
