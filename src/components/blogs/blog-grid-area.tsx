@@ -31,7 +31,10 @@ interface BlogGridAreaProps {
 }
 
 const BlogGridArea: React.FC<BlogGridAreaProps> = ({ posts }) => {
-  const { currentItems, handlePageClick, pageCount } = usePagination<BlogPost>(posts, 24);
+  // Sort posts by publishedAt date in descending order
+  const sortedPosts = posts.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+  const { currentItems, handlePageClick, pageCount } = usePagination<BlogPost>(sortedPosts, 24);
 
   return (
     <div className="blog-section-two position-relative mt-150 lg-mt-80 mb-150 lg-mb-80">
