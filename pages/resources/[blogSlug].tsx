@@ -48,6 +48,9 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
 
   const featuredImageUrl = urlFor(post.mainImage.asset._ref).width(1200).url();
   const publishedDate = new Date(post.publishedAt).toISOString();
+  const description = post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0
+    ? post.body[0].children[0].text
+    : 'No content available';
 
   return (
     <Wrapper>
@@ -61,9 +64,39 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                         ? post.body[0].children[0].text
                         : 'No content available'} />
         <meta property="og:image" content={featuredImageUrl} />
-        <meta property="og:url" content={`https://yourwebsite.com/blog/${post.slug.current}`} />
+        <meta property="og:url" content={`https://www.skillshift.com.au/resources/${post.slug.current}`} />
         <meta property="og:author" content={post.author.name} />
         <meta property="article:published_time" content={publishedDate} />
+        <meta name="author" content="{post.author.name}" />
+        <link rel="canonical" href={`https://www.skillshift.com.au/resources/${post.slug.current}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://www.skillshift.com.au/resources/${post.slug.current}`
+            },
+            "headline": post.title,
+            "description": description,
+            "image": featuredImageUrl,
+            "author": {
+              "@type": "Person",
+              "name": post.author.name
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "skillshift",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.skillshift.com.au/_next/static/media/skillshift%20logo.c70c8f6a.svg"
+              }
+            },
+            "datePublished": publishedDate,
+            "dateModified": publishedDate
+          })}
+        </script>
+
       </Head>
       <div className="main-page-wrapper">
         {/* header start */}
