@@ -118,7 +118,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                       </div>
 
                       <div className="blog-title">
-                        <h4>{post.title}</h4>
+                        <h1>{post.title}</h1>
                       </div>
 
                       <div className="post-details-meta">

@@ -89,7 +89,10 @@
     .post-data  {
         padding-top: 30px;
         .blog-title {
-            width: 70%;
+            width: 100%;
+            h1{
+                font-size:40px;
+            }
             h4 {
                 font-size: 32px;
                 line-height: 1.281em;  
@@ -135,7 +138,7 @@
         }
     }
     &.style-two {
-        background: #F4F4F4;
+        background: #FFFFFF;
         border-radius: 30px;
         overflow: hidden;
         .post-img {
@@ -244,6 +247,14 @@
             top:0;
             left: 50%;
             transform: translate(-50% , -50%);
+        }
+        .blog-title h1 {
+            font-size: 28px;
+            line-height: 1.302em;
+            margin: 0;
+            &:hover {
+                text-decoration: underline;
+            }
         }
         .blog-title h4 {
             font-size: 43px;
@@ -434,9 +445,36 @@
                  margin-top: 15px;
             }
         }
+        h2 {
+            font-size: 44px;
+            position: relative;
+            margin: 20px 0;
+        
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: #000; // Change this to your desired color
+                margin-top: 10px; // Adjust the spacing as needed
+            }
+        }
         h3 {
             font-size: 32px;
-            margin-bottom: 20px;
+            position: relative;
+            margin: 20px 0;
+        
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                border-bottom: 2px dashed #000;
+                margin-top: 10px; 
+            }
+        }
+        ul{
+            list-style-type: disc;
         }
         .list-item li {
             font-size: 22px;
@@ -489,7 +527,7 @@
         }
     }
     .grey-bg {
-        background: #f4f4f4;
+        background: #FFFFFF;
         border-radius: 30px;
         padding: 40px 35px;
     }
