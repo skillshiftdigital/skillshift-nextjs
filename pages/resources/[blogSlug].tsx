@@ -1,5 +1,3 @@
-// pages/blog/[blogSlug].tsx
-
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
@@ -18,7 +16,6 @@ import icon_4 from "@/assets/images/logo/skillshift logo green.svg";
 import Link from "next/link";
 import Head from "next/head";
 import CustomPortableText from '@/components/sanity/CustomPortableText';
-
 
 const builder = imageUrlBuilder(client);
 
@@ -49,6 +46,8 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
     return <div>Loading...</div>;
   }
 
+  const featuredImageUrl = urlFor(post.mainImage.asset._ref).width(1200).url();
+
   return (
     <Wrapper>
        <Head>
@@ -56,6 +55,12 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
         <meta name="description" content={post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0
                         ? post.body[0].children[0].text
                         : 'No content available'} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0
+                        ? post.body[0].children[0].text
+                        : 'No content available'} />
+        <meta property="og:image" content={featuredImageUrl} />
+        <meta property="og:url" content={`https://yourwebsite.com/blog/${post.slug.current}`} />
       </Head>
       <div className="main-page-wrapper">
         {/* header start */}
@@ -200,7 +205,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       slug,
       author ->{name},
       mainImage,
-      body[]{
+      body[] {
         ...,
         _type == "image" => {
           ...,
