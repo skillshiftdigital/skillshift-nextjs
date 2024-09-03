@@ -60,7 +60,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                         ? post.body[0].children[0].text
                         : 'No content available'} />
         <meta property="og:image" content={featuredImageUrl} />
-        <meta property="og:url" content={`https://yourwebsite.com/blog/${post.slug.current}`} />
+        <meta property="og:url" content={`https://skillshift.com.au/resources/${post.slug.current}`} />
       </Head>
       <div className="main-page-wrapper">
         {/* header start */}
