@@ -47,10 +47,11 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
   }
 
   const featuredImageUrl = urlFor(post.mainImage.asset._ref).width(1200).url();
+  const publishedDate = new Date(post.publishedAt).toISOString();
 
   return (
     <Wrapper>
-       <Head>
+      <Head>
         <title>{post.title} - skillshift Resources</title>
         <meta name="description" content={post.body && post.body.length > 0 && post.body[0].children && post.body[0].children.length > 0
                         ? post.body[0].children[0].text
@@ -60,7 +61,9 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
                         ? post.body[0].children[0].text
                         : 'No content available'} />
         <meta property="og:image" content={featuredImageUrl} />
-        <meta property="og:url" content={`https://skillshift.com.au/resources/${post.slug.current}`} />
+        <meta property="og:url" content={`https://yourwebsite.com/blog/${post.slug.current}`} />
+        <meta property="og:author" content={post.author.name} />
+        <meta property="article:published_time" content={publishedDate} />
       </Head>
       <div className="main-page-wrapper">
         {/* header start */}
