@@ -67,7 +67,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
         <meta property="og:url" content={`https://www.skillshift.com.au/resources/${post.slug.current}`} />
         <meta property="og:author" content={post.author.name} />
         <meta property="article:published_time" content={publishedDate} />
-        <meta name="author" content="{post.author.name}" />
+        <meta name="author" content={post.author.name} />
         <link rel="canonical" href={`https://www.skillshift.com.au/resources/${post.slug.current}`} />
         <script type="application/ld+json">
           {JSON.stringify({
