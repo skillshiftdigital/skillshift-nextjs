@@ -18,10 +18,108 @@ const AboutUsPage = () => {
   return (
     <Wrapper>
       <Head>
-        <title>About - skillshift</title>
+        <title>About SkillShift - Digital Consulting for Business Growth</title>
         <meta
           name="description"
-          content="We are a digital consulting firm assisting digital businesses to grow with a focus on people, data & growth."
+          content="SkillShift is a digital consulting firm assisting businesses to grow with a focus on people, data & growth. Learn about our mission, values, and expertise."
+        />
+        <meta
+          property="og:title"
+          content="About SkillShift - Digital Consulting for Business Growth"
+        />
+        <meta
+          property="og:description"
+          content="SkillShift is a digital consulting firm assisting businesses to grow with a focus on people, data & growth. Learn about our mission, values, and expertise."
+        />
+        <meta
+          property="og:image"
+          content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg"
+        />
+        <meta property="og:url" content="https://www.skillshift.com.au/about" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About SkillShift - Digital Consulting for Business Growth"
+        />
+        <meta
+          name="twitter:description"
+          content="SkillShift is a digital consulting firm assisting businesses to grow with a focus on people, data & growth. Learn about our mission, values, and expertise."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg"
+        />
+        <link rel="canonical" href="https://www.skillshift.com.au/about-us" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "SkillShift",
+              url: "https://www.skillshift.com.au",
+              logo: "https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg",
+              description:
+                "SkillShift is a digital consulting firm assisting businesses to grow with a focus on people, data & growth.",
+              founder: {
+                "@type": "Person",
+                name: "Bemoi George",
+              },
+              foundingDate: "2024",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Pyrmont",
+                addressRegion: "New South Wales",
+                addressCountry: "Australia",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer support",
+                telephone: "+61-432-695-309",
+                email: "info@skillshift.com.au",
+              },
+              sameAs: ["https://www.linkedin.com/company/skillshiftdigital"],
+              areaServed: {
+                "@type": "Country",
+                name: "Australia",
+              },
+              serviceArea: {
+                "@type": "Country",
+                name: "Australia",
+              },
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Digital Transformation Consulting",
+                    description:
+                      "We help businesses adapt and thrive in the digital age.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Data-Driven Business Strategy",
+                    description:
+                      "We leverage data to inform and optimize business strategies.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Growth-Oriented Solutions",
+                    description:
+                      "We provide tailored solutions to drive business growth.",
+                  },
+                },
+              ],
+            }),
+          }}
         />
       </Head>
       <div className="main-page-wrapper">
@@ -41,7 +139,6 @@ const AboutUsPage = () => {
           {/* breadcrumb end */}
           {/* text feature one area start */}
           <WhoWeAre style_2={false} />
-
           <TextFeatureThree style_2={false} />
           {/* text feature one area end */}
           {/* text feature one area start */}

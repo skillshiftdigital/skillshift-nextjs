@@ -55,8 +55,36 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
   return (
     <Wrapper>
       <Head>
-        <title>{data.title} - skillshift</title>
+        <title>{`${data.title} - SkillShift`}</title>
         <meta name="description" content={data.shortDescription} />
+        <meta name="keywords" content={`${data.title}, digital transformation, business consulting, Australia`} />
+        <meta property="og:title" content={`${data.title} - SkillShift`} />
+        <meta property="og:description" content={data.shortDescription} />
+        <meta property="og:image" content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg" />
+        <meta property="og:url" content={`https://www.skillshift.com.au/service/${data.slug?.current || ''}`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${data.title} - SkillShift`} />
+        <meta name="twitter:description" content={data.shortDescription} />
+        <meta name="twitter:image" content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg" />
+        <link rel="canonical" href={`https://www.skillshift.com.au/service/${data.slug?.current || ''}`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": data?.title || '',
+              "description": data?.shortDescription || '',
+              "provider": {
+                "@type": "Organization",
+                "name": "SkillShift",
+                "url": "https://www.skillshift.com.au"
+              },
+              "url": `https://www.skillshift.com.au/service/${data?.slug?.current || ''}`
+            })
+          }}
+        />
       </Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
@@ -72,8 +100,8 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ service }) => {
           />
           <ServiceDetailsArea data={data} />
           <AddOnServices addOns={data.addOns} />
-{/*           <PricingArea pricing={data.pricing} />
- */}          <WhyChoose />
+          {/* <PricingArea pricing={data.pricing} /> */}
+          <WhyChoose />
           <FancyBannerThree />
         </main>
         <FooterOne />

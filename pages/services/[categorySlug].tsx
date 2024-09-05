@@ -179,9 +179,46 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
   return (
     <Wrapper>
       <Head>
-        <title>{data.title} - skillshift</title>
-        <meta name="description" content={data?.shortDescription || "Default description"} />
-      </Head>
+  <title>{`${data.title} Services - SkillShift`}</title>
+  <meta name="description" content={data.shortDescription || `Explore our ${data.title} services at SkillShift. We offer solutions to address a spectrum of digital agency needs.`} />
+  <meta name="keywords" content={`${data.title}, digital services, business consulting, Australia, SkillShift`} />
+  <meta property="og:title" content={`${data.title} Services - SkillShift`} />
+  <meta property="og:description" content={data.shortDescription || `Explore our ${data.title} services at SkillShift. We offer solutions to address a spectrum of digital agency needs.`} />
+  <meta property="og:image" content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg" />
+  <meta property="og:url" content={`https://www.skillshift.com.au/services/${data.slug.current}`} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${data.title} Services - SkillShift`} />
+  <meta name="twitter:description" content={data?.shortDescription || `Explore our ${data?.title} services at SkillShift. We offer solutions to address a spectrum of digital agency needs.`} />
+  <meta name="twitter:image" content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg" />
+  <link rel="canonical" href={`https://www.skillshift.com.au/services/${data?.slug?.current || ''}`} />
+  <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": `${data?.title || ''} Services`,
+      "description": data?.shortDescription || `Explore our ${data?.title || ''} services at SkillShift. We offer solutions to address a spectrum of digital agency needs.`,
+      "url": `https://www.skillshift.com.au/services/${data?.slug?.current || ''}`,
+      "provider": {
+        "@type": "Organization",
+        "name": "SkillShift",
+        "url": "https://www.skillshift.com.au"
+      },
+      "offers": services?.map(service => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.shortDescription,
+          "url": `https://www.skillshift.com.au/service/${service.slug.current}`
+        }
+      })) || []
+    })
+  }}
+/>
+</Head>
       <div className="main-page-wrapper">
         <HeaderTwo />
         <main>
