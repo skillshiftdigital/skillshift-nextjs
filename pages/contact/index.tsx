@@ -16,10 +16,60 @@ const ContactPage = () => {
   return (
     <Wrapper>
       <Head>
-        <title>Contact - skillshift</title>
+        <title>Contact SkillShift - Get in Touch for Digital Consulting Services</title>
         <meta
           name="description"
-          content="Get in touch to receive more information about our services' technologies, pricing, and more."
+          content="Contact SkillShift for more information about our digital consulting services, technologies, pricing, and how we can help your business grow. Get in touch with our experts today."
+        />
+        <meta property="og:title" content="Contact SkillShift - Get in Touch for Digital Consulting Services" />
+        <meta
+          property="og:description"
+          content="Contact SkillShift for more information about our digital consulting services, technologies, pricing, and how we can help your business grow. Get in touch with our experts today."
+        />
+        <meta property="og:image" content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg" />
+        <meta property="og:url" content="https://www.skillshift.com.au/contact" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact SkillShift - Get in Touch for Digital Consulting Services" />
+        <meta
+          name="twitter:description"
+          content="Contact SkillShift for more information about our digital consulting services, technologies, pricing, and how we can help your business grow. Get in touch with our experts today."
+        />
+        <meta name="twitter:image" content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg" />
+        <link rel="canonical" href="https://www.skillshift.com.au/contact" />
+
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              "name": "SkillShift Contact Page",
+              "description": "Contact SkillShift for more information about our digital consulting services, technologies, pricing, and how we can help your business grow.",
+              "url": "https://www.skillshift.com.au/contact",
+              "mainEntity": {
+                "@type": "Organization",
+                "name": "SkillShift",
+                "url": "https://www.skillshift.com.au",
+                "logo": "https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+61-432-695-309",
+                  "contactType": "customer service",
+                  "email": "info@skillshift.com.au",
+                  "areaServed": "AU",
+                  "availableLanguage": "English"
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "55 Pyrmont Bridge Road",
+                  "addressLocality": "Pyrmont",
+                  "addressRegion": "New South Wales",
+                  "postalCode": "2009",
+                  "addressCountry": "AU"
+                }
+              }
+            })
+          }}
         />
       </Head>
       <div className="main-page-wrapper">
