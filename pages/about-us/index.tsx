@@ -138,7 +138,6 @@ const AboutUsPage = () => {
           />
           {/* breadcrumb end */}
           {/* text feature one area start */}
-          <WhoWeAre style_2={false} />
           <TextFeatureThree style_2={false} />
           {/* text feature one area end */}
           {/* text feature one area start */}
