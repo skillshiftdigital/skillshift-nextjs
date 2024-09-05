@@ -19,7 +19,6 @@ const menu_data:IMenu[] = [
       { link: '/services/service-diversification', title: 'Service Diversification' },
       { link: '/services/operational-support', title: 'Operational Support' },
       { link: '/services/training-development', title: 'Training & Development' },
-      { link: '/services/hr-services', title: 'HR Services' },
       { link: '/services/engineering-services', title: 'Engineering Services' },
       { link: '/services/creative-services', title: 'Creative Services' },
       { link: '/services/technical-support', title: 'Technical Support' },

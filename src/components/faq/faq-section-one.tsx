@@ -12,12 +12,12 @@ const FaqSectionOne = ({cls}:{cls?:string}) => {
           <div className="row">
             <div className="col-lg-5 wow fadeInLeft">
               <div className="title-one mb-40 lg-mb-20">
-                <h2>skillshift Recruitment Services</h2>
+                <h2>Digital Transformation Services</h2>
               </div>
               <p className="text-lg mb-40 lg-mb-20">
-                The right skills to close the gaps.
+                The right skills to close the digital gaps.
               </p>
-              <Link href="/service/talent-acquisition-onboarding" className="btn-four">
+              <Link href="/service/digital-transformation-consulting" className="btn-four">
                 More Details
               </Link>
             </div>
