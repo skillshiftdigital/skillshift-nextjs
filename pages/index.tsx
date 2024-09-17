@@ -60,8 +60,6 @@ export default function skillshifthome() {
           content="https://www.skillshift.com.au/_next/static/media/skillshift%20logo%20green.409a687d.svg"
         />
 
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
         {/* Structured data */}
         <script
           type="application/ld+json"
