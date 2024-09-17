@@ -224,7 +224,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
         <main>
           <BreadcrumbOne
             title={data?.title || ""}
-            subtitle="Offering solutions & services to address a spectrum of digital agency needs"
+            subtitle="Offering solutions & services to address a spectrum of digital businesses needs."
             page="Services"
             shape={shape}
             bg_img={service_bg}
@@ -277,8 +277,8 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ validCategoryDa
                     <div key={index} className="col-lg-4 col-md-6 d-flex wow fadeInUp">
                       <div className="card-style-two vstack tran3s w-100 mt-30">
                         <Image src={icon} alt="icon" className="lazy-img icon me-auto" />
-                        <Link href={`/service/${typeof service.slug === 'string' ? service.slug : (service.slug as { current: string }).current}`}>
-                          <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
+                        <Link href="/service/[serviceSlug]" as={`/service/${service.slug.current}`}>
+                        <h4 className="fw-bold mt-30 mb-25">{service.title}</h4>
                         </Link>
                         <p className="mb-20">{service.shortDescription}</p>
                       </div>

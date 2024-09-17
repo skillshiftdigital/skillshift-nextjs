@@ -140,17 +140,17 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
 
                     <div className="post-data">
                       <div className="post-info">
-                        <Link href={`/resources/author/${post.author.name}`}>
-                          {post.author.name}
+                      <Link href="/resources/author/[authorName]" as={`/resources/author/${post.author.name}`}>
+                      {post.author.name}
                         </Link> 
                         {post.categories && post.categories.length > 0 && (
                           <span>
                             {` / `}
                             {post.categories.map((category, index) => (
                               <span key={category.title}>
-                              <Link href={`/resources/category/${category.title}`}>
-                                {category.title}
-                              </Link>
+                      <Link href="/resources/category/[categoryName]" as={`/resources/category/${category.title}`}>
+                      {category.title}
+                        </Link>
                                 {index < post.categories.length - 1 && ', '}
                               </span>
                             ))}
