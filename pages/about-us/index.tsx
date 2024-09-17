@@ -148,8 +148,8 @@ const AboutUsPage = () => {
            */}{" "}
           {/* block feature one area end */}
           {/* team three start */}
-          <TeamSectionThree />
-          {/* team three end */}
+{/*           <TeamSectionThree />
+ */}          {/* team three end */}
           {/* feedback one start */}
           {/*           <FeedbackOne cls="top-border pt-80 pb-80" />
            */}{" "}
