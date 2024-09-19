@@ -12,7 +12,7 @@ import FooterOne from "@/layout/footer/footer-one";
 import BlogGridArea from "@/components/blogs/blog-grid-area";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import shape from "@/assets/images/shape/shape_26.svg";
-import service_bg from "@/assets/images/media/img_52-min.jpg";
+import service_bg from "@/assets/images/media/blog_header.jpg";
 
 // Define the structure of a BlogPost
 interface BlogPost {

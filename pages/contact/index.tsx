@@ -9,7 +9,7 @@ import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_33.svg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import Head from "next/head";
-import about_bg from "@/assets/images/media/img_26.jpg";
+import about_bg from "@/assets/images/media/img_47.jpg";
 
 
 const ContactPage = () => {

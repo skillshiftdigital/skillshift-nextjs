@@ -8,7 +8,7 @@ import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
 import FooterOne from "@/layout/footer/footer-one";
 import shape from "@/assets/images/shape/shape_26.svg";
-import service_bg from "@/assets/images/media/img_52-min.jpg";
+import service_bg from "@/assets/images/media/blog_header.jpg";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 import ContactForm from "@/components/forms/contact-form";
 import Image from "next/image";

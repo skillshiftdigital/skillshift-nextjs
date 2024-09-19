@@ -3,7 +3,7 @@ import Wrapper from "@/layout/wrapper";
 import Head from "next/head";
 import HeaderTwo from "@/layout/header/header-two";
 import BreadcrumbOne from "@/components/breadcrumb/breadcrumb-one";
-import about_bg from "@/assets/images/media/img_26.jpg";
+import about_bg from "@/assets/images/media/img_17.jpg";
 import shape from "@/assets/images/shape/shape_25.svg";
 import FooterOne from "@/layout/footer/footer-one";
 import SchemaMarkup from './SchemaMarkup';
